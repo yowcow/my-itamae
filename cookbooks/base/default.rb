@@ -3,6 +3,7 @@
   cronolog
   curl
   git
+  ntp
   screen
   sqlite3
   supervisor
