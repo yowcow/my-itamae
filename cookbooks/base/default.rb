@@ -16,3 +16,7 @@
     action :install
   end
 end
+
+template "/etc/environment" do
+  source "templates/etc/environment.erb"
+end
