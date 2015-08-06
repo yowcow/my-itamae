@@ -2,6 +2,7 @@
   build-essential
   cronolog
   curl
+  default-jre-headless
   git
   ntp
   screen
