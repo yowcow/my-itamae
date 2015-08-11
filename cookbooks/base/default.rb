@@ -5,6 +5,7 @@
   default-jre-headless
   git
   ntp
+  redis-server
   screen
   sqlite3
   supervisor
