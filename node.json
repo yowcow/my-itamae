@@ -3,6 +3,6 @@
         "version": "5.20.2"
     },
     "nodejs": {
-        "version": "v0.12.7"
+        "version": "iojs-v3.0.0"
     }
 }
