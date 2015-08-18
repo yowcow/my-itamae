@@ -4,6 +4,7 @@
   curl
   default-jre-headless
   git
+  mysql-server
   ntp
   redis-server
   screen
