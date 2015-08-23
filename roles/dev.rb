@@ -5,6 +5,8 @@ include_recipe "../cookbooks/base/sysstat.rb"
 
 include_recipe "../cookbooks/mysql/default.rb"
 
+include_recipe "../cookbooks/bdb/default.rb"
+
 include_recipe "../cookbooks/nginx/default.rb"
 include_recipe "../cookbooks/nginx/yowcow.local.rb"
 
