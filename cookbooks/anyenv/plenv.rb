@@ -25,3 +25,9 @@ end
     CMD
   end
 end
+
+execute "Fix file owner" do
+  command <<-CMD
+    chown -R vagrant:vagrant /home/vagrant/.cpanm
+  CMD
+end
