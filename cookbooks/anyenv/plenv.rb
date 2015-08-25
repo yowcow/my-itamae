@@ -1,4 +1,5 @@
 execute "Install Perl #{node[:perl][:version]}" do
+  user "vagrant"
   command <<-CMD
     . /home/vagrant/.anyenvrc
     plenv install #{node[:perl][:version]}
@@ -7,6 +8,7 @@ execute "Install Perl #{node[:perl][:version]}" do
 end
 
 execute "Set Perl #{node[:perl][:version]} as default" do
+  user "vagrant"
   command <<-CMD
     . /home/vagrant/.anyenvrc
     plenv global #{node[:perl][:version]}
@@ -19,15 +21,10 @@ end
   Perl::Tidy
 }.each do |module_name|
   execute "Install module: #{module_name}" do
+    user "vagrant"
     command <<-CMD
       . /home/vagrant/.anyenvrc
       cpanm #{module_name}
     CMD
   end
-end
-
-execute "Fix file owner" do
-  command <<-CMD
-    chown -R vagrant:vagrant /home/vagrant/.cpanm
-  CMD
 end
