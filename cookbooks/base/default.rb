@@ -11,6 +11,7 @@
   supervisor
   tree
   vim
+  whois
   zip
   zsh
 }.each do |pkg|

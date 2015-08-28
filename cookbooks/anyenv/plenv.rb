@@ -4,7 +4,7 @@ execute "Install Perl #{node[:perl][:version]}" do
     . /home/vagrant/.anyenvrc
     plenv install #{node[:perl][:version]}
   CMD
-  not_if "test -e /usr/local/anyenv/envs/plenv/versions/#{node[:perl][:version]}"
+  not_if "test -e /home/vagrant/.anyenv/envs/plenv/versions/#{node[:perl][:version]}"
 end
 
 execute "Set Perl #{node[:perl][:version]} as default" do
