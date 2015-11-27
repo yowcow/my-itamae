@@ -11,5 +11,9 @@
     },
     "nodejs": {
         "version": "v4.2.2"
+    },
+    "rakudobrew": {
+        "install_dir": "/usr/local/rakudobrew",
+        "profile_rc": "/etc/profile.d/rakudobrew.sh"
     }
 }
