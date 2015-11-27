@@ -1,6 +1,6 @@
 %w{
-  mysql-server
-  libmysqlclient-dev
+  mariadb-server
+  mariadb-devel
 }.each do |pkg|
   package pkg do
     action :install

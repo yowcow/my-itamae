@@ -1,8 +1,15 @@
 {
+    "common": {
+        "user": "vagrant"
+    },
+    "anyenv": {
+        "install_dir": "/usr/local/anyenv",
+        "profile_file": "/etc/profile.d/anyenv.sh"
+    },
     "perl": {
         "version": "5.20.2"
     },
     "nodejs": {
-        "version": "iojs-v3.1.0"
+        "version": "v4.2.2"
     }
 }
