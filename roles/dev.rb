@@ -1,5 +1,6 @@
 include_recipe "../cookbooks/base/centos.rb"
 include_recipe "../cookbooks/base/gitconfig.rb"
+include_recipe "../cookbooks/base/profile.rb"
 include_recipe "../cookbooks/mysql/default.rb"
 include_recipe "../cookbooks/nginx/default.rb"
 
