@@ -6,7 +6,7 @@ server {
     error_log   /var/log/nginx/<%= @server_name %>.error.log;
 
     location ~ \.\w+$ {
-        root <%= @document_root %>;
+        root <%= @root %>;
         expires 90d;
     }
 

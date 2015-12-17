@@ -15,5 +15,14 @@
     "rakudobrew": {
         "install_dir": "/usr/local/rakudobrew",
         "profile_rc": "/etc/profile.d/rakudobrew.sh"
+    },
+    "nginx": {
+        "config_dir": "/etc/nginx/conf.d",
+        "hosts": [
+            {
+                "server_name": "yowcow.local",
+                "root": "/srv/yowcow.local/htdocs"
+            }
+        ]
     }
 }
