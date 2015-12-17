@@ -1,3 +1,10 @@
+template "/etc/selinux/config" do
+  owner "root"
+  action :create
+  mode "0644"
+  source "templates/etc/selinux/config.erb"
+end
+
 %w{
   epel-release
 }.each do |pkg|
