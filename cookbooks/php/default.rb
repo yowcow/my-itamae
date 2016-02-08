@@ -2,6 +2,7 @@
   php5
   php5-cli
   php5-cgi
+  php5-curl
   php5-mysql
   php5-sqlite
 }.each do |pkg|
