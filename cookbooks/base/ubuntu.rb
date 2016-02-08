@@ -13,6 +13,7 @@
   supervisor
   tmux
   tree
+  valgrind
   vim
   whois
   zip
