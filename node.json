@@ -17,7 +17,7 @@
         "profile_rc": "/etc/profile.d/rakudobrew.sh"
     },
     "nginx": {
-        "config_dir": "/etc/nginx/conf.d",
+        "config_dir": "/etc/nginx/sites-enabled",
         "hosts": [
             {
                 "server_name": "yowcow.local",
