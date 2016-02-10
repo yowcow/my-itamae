@@ -1,6 +1,7 @@
 %w{
   apt-file
   build-essential
+  clang
   cronolog
   curl
   default-jre-headless
