@@ -6,6 +6,7 @@
   curl
   default-jre-headless
   git
+  jq
   libssl-dev
   ntp
   redis-server
