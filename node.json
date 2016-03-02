@@ -3,8 +3,8 @@
         "user": "vagrant"
     },
     "anyenv": {
-        "install_dir": "/usr/local/anyenv",
-        "profile_file": "/etc/profile.d/anyenv.sh"
+        "install_dir": "/home/vagrant/.anyenv",
+        "profile_file": "/home/vagrant/anyenv.sh"
     },
     "perl": {
         "version": "5.20.2"
