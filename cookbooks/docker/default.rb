@@ -2,6 +2,6 @@ package "docker.io" do
   action :install
 end
 
-group "docker" do
-  user node[:common][:user]
+execute "docker group" do
+  command "usermod -aG docker #{node[:common][:user]}"
 end
