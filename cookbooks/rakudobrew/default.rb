@@ -20,7 +20,7 @@ execute "Build Moar" do
     . #{node[:rakudobrew][:profile_file]};
     rakudobrew build moar #{node[:perl6][:version]}
   CMD
-  not_if "test -e #{node[:rakudobrew][:install_dir]}/bin/moar"
+  not_if "test -e #{node[:rakudobrew][:install_dir]}/moar-#{node[:perl6][:version]}"
 end
 
 execute "Build Panda" do
@@ -29,12 +29,5 @@ execute "Build Panda" do
     . #{node[:rakudobrew][:profile_file]};
     rakudobrew build-panda
   CMD
-end
-
-execute "Install Task::Star" do
-  user node[:common][:user]
-  command <<-CMD
-    . #{node[:rakudobrew][:profile_file]};
-    panda install Task::Star
-  CMD
+  not_if "test -e #{node[:rakudobrew][:install_dir]}/moar-#{node[:perl6][:version]}/panda"
 end
