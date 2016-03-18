@@ -5,7 +5,6 @@
   cronolog
   curl
   default-jre-headless
-  docker.io
   git
   jq
   libssl-dev
