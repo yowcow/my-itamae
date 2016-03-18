@@ -13,8 +13,11 @@
         "version": "v4.2.2"
     },
     "rakudobrew": {
-        "install_dir": "/usr/local/rakudobrew",
-        "profile_rc": "/etc/profile.d/rakudobrew.sh"
+        "install_dir": "/home/vagrant/.rakudobrew",
+        "profile_file": "/home/vagrant/rakudobrew.sh"
+    },
+    "perl6": {
+        "version": "2016.02"
     },
     "nginx": {
         "config_dir": "/etc/nginx/sites-enabled",
