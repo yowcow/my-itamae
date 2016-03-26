@@ -17,7 +17,7 @@
         "profile_file": "/home/vagrant/rakudobrew.sh"
     },
     "perl6": {
-        "version": "2016.02"
+        "version": "2016.03"
     },
     "nginx": {
         "config_dir": "/etc/nginx/sites-enabled",
