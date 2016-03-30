@@ -14,7 +14,7 @@ template node[:rakudobrew][:profile_file] do
   )
 end
 
-execute "Build Moar" do
+execute "Build Moar #{node[:perl6][:version]}" do
   user node[:common][:user]
   command <<-CMD
     . #{node[:rakudobrew][:profile_file]};
@@ -23,7 +23,15 @@ execute "Build Moar" do
   not_if "test -e #{node[:rakudobrew][:install_dir]}/moar-#{node[:perl6][:version]}"
 end
 
-execute "Build Panda" do
+execute "Make Perl 6 #{node[:perl6][:version]} default" do
+  user node[:common][:user]
+  command <<-CMD
+    . #{node[:rakudobrew][:profile_file]};
+    rakudobrew global #{node[:perl6][:version]}
+  CMD
+end
+
+execute "Build Panda for #{node[:perl6][:version]}" do
   user node[:common][:user]
   command <<-CMD
     . #{node[:rakudobrew][:profile_file]};
