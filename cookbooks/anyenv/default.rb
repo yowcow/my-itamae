@@ -1,6 +1,13 @@
+ANYENV_GIT_USER = (ENV["CIRCLECI"] ? "ubuntu" : "root")
+
 git node[:anyenv][:install_dir] do
+  user ANYENV_GIT_USER
   repository "git@github.com:riywo/anyenv.git"
   action :sync
+end
+
+directory File::dirname(node[:anyenv][:shell_profile]) do
+  action :create
 end
 
 template node[:anyenv][:shell_profile] do
