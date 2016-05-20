@@ -1,21 +1,21 @@
-ANYENV_GIT_USER = (ENV["CIRCLECI"] ? "ubuntu" : "root")
-
 directory node[:anyenv][:install_dir] do
-  owner ANYENV_GIT_USER
+  owner node[:anyenv][:user]
   action :create
 end
 
 git node[:anyenv][:install_dir] do
-  user ANYENV_GIT_USER
+  user node[:anyenv][:user]
   repository "git@github.com:riywo/anyenv.git"
   action :sync
 end
 
 directory File::dirname(node[:anyenv][:shell_profile]) do
+  owner node[:anyenv][:user]
   action :create
 end
 
 template node[:anyenv][:shell_profile] do
+  owner node[:anyenv][:user]
   action :create
   mode   "0644"
   source "templates/etc/profile.d/anyenvrc.sh.erb"

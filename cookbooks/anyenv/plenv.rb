@@ -1,4 +1,5 @@
 execute "Install plenv" do
+  user node[:anyenv][:user]
   command <<-CMD
     . #{node[:anyenv][:shell_profile]}
     anyenv install plenv
@@ -7,6 +8,7 @@ execute "Install plenv" do
 end
 
 execute "Install Perl #{node[:perl][:version]}" do
+  user node[:anyenv][:user]
   command <<-CMD
     . #{node[:anyenv][:shell_profile]}
     plenv install #{node[:perl][:version]}
@@ -15,6 +17,7 @@ execute "Install Perl #{node[:perl][:version]}" do
 end
 
 execute "Set Perl #{node[:perl][:version]} as default" do
+  user node[:anyenv][:user]
   command <<-CMD
     . #{node[:anyenv][:shell_profile]}
     plenv global #{node[:perl][:version]}
@@ -27,6 +30,7 @@ end
   Perl::Tidy
 }.each do |module_name|
   execute "Install module: #{module_name}" do
+    user node[:anyenv][:user]
     command <<-CMD
       . #{node[:anyenv][:shell_profile]}
       cpanm #{module_name}

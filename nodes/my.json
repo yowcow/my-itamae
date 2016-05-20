@@ -1,5 +1,6 @@
 {
   "anyenv": {
+    "user": "root",
     "install_dir": "/usr/local/anyenv",
     "shell_profile": "/usr/local/etc/profile.d/anyenvrc"
   },

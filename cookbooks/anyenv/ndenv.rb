@@ -1,4 +1,5 @@
 execute "Install ndenv" do
+  user node[:anyenv][:user]
   command <<-CMD
     . #{node[:anyenv][:shell_profile]}
     anyenv install ndenv
@@ -7,6 +8,7 @@ execute "Install ndenv" do
 end
 
 execute "Install NodeJS #{node[:nodejs][:version]}" do
+  user node[:anyenv][:user]
   command <<-CMD
     . #{node[:anyenv][:shell_profile]}
     ndenv install #{node[:nodejs][:version]}
@@ -15,6 +17,7 @@ execute "Install NodeJS #{node[:nodejs][:version]}" do
 end
 
 execute "Set NodeJS #{node[:nodejs][:version]} as default" do
+  user node[:anyenv][:user]
   command <<-CMD
     . #{node[:anyenv][:shell_profile]}
     ndenv global #{node[:nodejs][:version]}
