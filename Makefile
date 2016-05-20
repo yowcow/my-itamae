@@ -10,3 +10,10 @@ local:
 	roles/essential.rb \
 	roles/server-env.rb \
 	roles/my/app.rb
+
+circle:
+	sudo env "PATH=$$PATH" \
+	bundle exec -- \
+	itamae local --node-json=nodes/my.json \
+	roles/essential.rb \
+	roles/my/app.rb
