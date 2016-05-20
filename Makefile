@@ -12,7 +12,7 @@ local:
 	roles/my/app.rb
 
 circle:
-	sudo env "PATH=$$PATH" \
+	sudo env "PATH=$$PATH" "CIRCLECI=$$CIRCLECI" \
 	bundle exec -- \
 	itamae local --node-json=nodes/my.json \
 	roles/essential.rb \
