@@ -1,15 +1,8 @@
 %w{
   apt-file
-  build-essential
-  clang
-  cronolog
-  curl
-  default-jre-headless
   git
   jq
-  libssl-dev
   ntp
-  redis-server
   screen
   sqlite3
   supervisor

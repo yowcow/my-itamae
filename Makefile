@@ -1,12 +1,19 @@
-.PHONY: dev-remote dev-local
+.PHONY:
 
-all: usage
+all:
+	bundle install --deployment
 
-usage:
-	@echo "Usage: make <target>"
+local:
+	sudo env "PATH=$$PATH" \
+	bundle exec -- \
+	itamae local --node-json=nodes/my.json \
+	roles/essential.rb \
+	roles/server-env.rb \
+	roles/my/app.rb
 
-dev-local:
-	sudo itamae local --node-json=node.json roles/dev.rb
-
-dev-remote:
-	itamae ssh --node-json=node.json --host=192.168.33.10 --user=vagrant roles/dev.rb
+circle:
+	sudo env "PATH=$$PATH" "CIRCLECI=$$CIRCLECI" \
+	bundle exec -- \
+	itamae local --node-json=nodes/my-circle.json \
+	roles/essential.rb \
+	roles/my/app.rb
