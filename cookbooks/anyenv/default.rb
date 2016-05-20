@@ -1,5 +1,5 @@
 git node[:anyenv][:install_dir] do
-  repository "https://github.com/riywo/anyenv.git"
+  repository "git@github.com:riywo/anyenv.git"
   action :sync
 end
 
