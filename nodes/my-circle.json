@@ -1,0 +1,13 @@
+{
+  "anyenv": {
+    "user": "ubuntu",
+    "install_dir": "/home/ubuntu/.anyenv",
+    "shell_profile": "/home/ubuntu/.anyenvrc"
+  },
+  "nodejs": {
+    "version": "v6.2.0"
+  },
+  "perl": {
+    "version": "5.22.1"
+  }
+}

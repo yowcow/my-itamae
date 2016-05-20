@@ -14,6 +14,6 @@ local:
 circle:
 	sudo env "PATH=$$PATH" "CIRCLECI=$$CIRCLECI" \
 	bundle exec -- \
-	itamae local --node-json=nodes/my.json \
+	itamae local --node-json=nodes/my-circle.json \
 	roles/essential.rb \
 	roles/my/app.rb
