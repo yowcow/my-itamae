@@ -1,5 +1,10 @@
 ANYENV_GIT_USER = (ENV["CIRCLECI"] ? "ubuntu" : "root")
 
+directory node[:anyenv][:install_dir] do
+  owner ANYENV_GIT_USER
+  action :create
+end
+
 git node[:anyenv][:install_dir] do
   user ANYENV_GIT_USER
   repository "git@github.com:riywo/anyenv.git"
