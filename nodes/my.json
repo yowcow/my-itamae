@@ -1,0 +1,9 @@
+{
+  "anyenv": {
+    "install_dir": "/usr/local/anyenv",
+    "shell_profile": "/usr/local/etc/profile.d/anyenvrc"
+  },
+  "nodejs": {
+    "version": "v6.2.0"
+  }
+}
