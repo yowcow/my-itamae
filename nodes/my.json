@@ -5,5 +5,8 @@
   },
   "nodejs": {
     "version": "v6.2.0"
+  },
+  "perl": {
+    "version": "5.22.1"
   }
 }
