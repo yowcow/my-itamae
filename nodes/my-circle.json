@@ -2,7 +2,8 @@
   "anyenv": {
     "user": "ubuntu",
     "install_dir": "/home/ubuntu/.anyenv",
-    "shell_profile": "/home/ubuntu/.anyenvrc"
+    "shell_profile": "/home/ubuntu/.anyenvrc",
+    "repository": "https://github.com/riywo/anyenv.git"
   },
   "nodejs": {
     "version": "v6.2.0"
