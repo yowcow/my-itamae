@@ -26,6 +26,7 @@ execute "Set Perl #{node[:perl][:version]} as default" do
 end
 
 %w{
+  App::cpanoutdated
   Carton
   Perl::Tidy
 }.each do |module_name|
@@ -33,7 +34,7 @@ end
     user node[:anyenv][:user]
     command <<-CMD
       . #{node[:anyenv][:shell_profile]}
-      cpanm #{module_name}
+      cpanm -n #{module_name}
     CMD
   end
 end
