@@ -3,6 +3,8 @@
   clang
   cronolog
   curl
+  libdb-dev
+  libevent-dev
   libssl-dev
 }.each do |pkg|
   package pkg do
