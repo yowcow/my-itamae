@@ -6,6 +6,7 @@
   libdb-dev
   libevent-dev
   libssl-dev
+  realpath
 }.each do |pkg|
   package pkg do
     action :install
