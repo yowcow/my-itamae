@@ -3,6 +3,7 @@
   clang
   cronolog
   curl
+  exuberant-ctags
   libdb-dev
   libevent-dev
   libssl-dev
