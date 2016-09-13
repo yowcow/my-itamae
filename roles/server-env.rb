@@ -19,3 +19,5 @@
     action :install
   end
 end
+
+include_recipe "../cookbooks/lets-encrypt/default.rb"
