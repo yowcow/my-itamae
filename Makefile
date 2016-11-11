@@ -1,4 +1,4 @@
-.PHONY:
+.PHONY: local circle help
 
 all:
 	bundle install --deployment
@@ -17,3 +17,6 @@ circle:
 	itamae local --node-json=nodes/my-circle.json \
 	roles/essential.rb \
 	roles/my/app.rb
+
+help:
+	cat Makefile

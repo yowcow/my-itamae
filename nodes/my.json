@@ -1,13 +1,14 @@
 {
   "anyenv": {
-    "user": "root",
-    "install_dir": "/usr/local/anyenv",
-    "shell_profile": "/usr/local/etc/profile.d/anyenvrc"
+    "user": "vagrant",
+    "install_dir": "/home/vagrant/.anyenv",
+    "shell_profile": "/home/vagrant/.anyenvrc",
+    "repository": "https://github.com/riywo/anyenv.git"
   },
   "nodejs": {
     "version": "v6.9.1"
   },
   "perl": {
-    "version": "5.22.1"
+    "version": "5.24.0"
   }
 }
