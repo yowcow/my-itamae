@@ -5,7 +5,7 @@
     "shell_profile": "/usr/local/etc/profile.d/anyenvrc"
   },
   "nodejs": {
-    "version": "v6.2.0"
+    "version": "v6.9.1"
   },
   "perl": {
     "version": "5.22.1"
