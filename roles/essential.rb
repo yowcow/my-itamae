@@ -4,7 +4,6 @@
   cronolog
   curl
   exuberant-ctags
-  iconv
   libdb-dev
   libevent-dev
   libicu-dev
