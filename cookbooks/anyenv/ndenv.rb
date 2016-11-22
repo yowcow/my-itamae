@@ -23,3 +23,19 @@ execute "Set NodeJS #{node[:nodejs][:version]} as default" do
     ndenv global #{node[:nodejs][:version]}
   CMD
 end
+
+execute "Install forever and forever-monitor" do
+  user node[:anyenv][:user]
+  command <<-CMD
+    . #{node[:anyenv][:shell_profile]}
+    npm i -g forever forever-monitor
+  CMD
+end
+
+execute "Do ndenv rehash" do
+  user node[:anyenv][:user]
+  command <<-CMD
+    . #{node[:anyenv][:shell_profile]}
+    ndenv rehash
+  CMD
+end
