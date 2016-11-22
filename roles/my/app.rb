@@ -1,5 +1,3 @@
-node[:anyenv][:user] = ENV["CIRCLECI"] ? "ubuntu" : "root"
-
 directory "/var/log/my_tmp" do
   action :create
   mode "0777"
