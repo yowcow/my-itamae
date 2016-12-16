@@ -1,8 +1,8 @@
 {
   "anyenv": {
-    "user": "vagrant",
-    "install_dir": "/home/vagrant/.anyenv",
-    "shell_profile": "/home/vagrant/.anyenvrc",
+    "user": "ubuntu",
+    "install_dir": "/home/ubuntu/.anyenv",
+    "shell_profile": "/home/ubuntu/.anyenvrc",
     "repository": "https://github.com/riywo/anyenv.git"
   },
   "nodejs": {

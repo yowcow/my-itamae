@@ -1,7 +1,7 @@
 .PHONY: local circle help
 
 all:
-	bundle install --deployment
+	bundle install
 
 local:
 	sudo bundle exec -- \
