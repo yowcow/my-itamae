@@ -6,8 +6,7 @@ server {
     error_log   /var/log/nginx/<%= @server_name %>.error.log;
 
     location ~ \.\w+$ {
-        root <%= @root %>;
-        expires 90d;
+        root <%= @root %>/current/public;
     }
 
     <% if @proxy_port %>

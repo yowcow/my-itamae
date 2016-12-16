@@ -1,8 +1,8 @@
 {
   "anyenv": {
-    "user": "ubuntu",
-    "install_dir": "/home/ubuntu/.anyenv",
-    "shell_profile": "/home/ubuntu/.anyenvrc",
+    "user": "vagrant",
+    "install_dir": "/home/vagrant/.anyenv",
+    "shell_profile": "/home/vagrant/.anyenvrc",
     "repository": "https://github.com/riywo/anyenv.git"
   },
   "nodejs": {
@@ -10,5 +10,8 @@
   },
   "perl": {
     "version": "5.24.0"
+  },
+  "nginx": {
+    "hosts": []
   }
 }
