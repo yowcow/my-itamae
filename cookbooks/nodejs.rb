@@ -25,3 +25,14 @@ execute "Install forever-monitor" do
   CMD
   not_if "test -e /usr/local/node-#{node[:nodejs][:version]}-linux-x64/lib/node_modules/forever-monitor"
 end
+
+directory "/usr/local/etc/profile.d" do
+  action :create
+end
+
+template "/usr/local/etc/profile.d/nodejsrc" do
+  action :create
+  source "nodejs/templates/nodejsrc.erb"
+  mode "0644"
+  variables(version: node[:nodejs][:version])
+end

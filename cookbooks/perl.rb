@@ -40,3 +40,14 @@ end
 #    /usr/local/perl-#{node[:perl][:version]}/bin/cpanm ExtUtils::MakeMaker
 #  CMD
 #end
+
+directory "/usr/local/etc/profile.d" do
+  action :create
+end
+
+template "/usr/local/etc/profile.d/perlrc" do
+  action :create
+  source "perl/templates/perlrc.erb"
+  mode "0644"
+  variables(version: node[:perl][:version])
+end
