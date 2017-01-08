@@ -1,3 +1,14 @@
+directory "/usr/local/etc/profile.d" do
+  action :create
+end
+
+template "/usr/local/etc/profile.d/perlrc" do
+  action :create
+  source "perl/templates/perlrc.erb"
+  mode "0644"
+  variables(version: node[:perl][:version])
+end
+
 http_request "/tmp/perl-#{node[:perl][:version]}.tar.gz" do
   url "http://www.cpan.org/src/5.0/perl-#{node[:perl][:version]}.tar.gz"
   not_if "test -e /tmp/perl-#{node[:perl][:version]}.tar.gz"
@@ -16,6 +27,7 @@ end
 
 execute "Install cpanm" do
   command <<-CMD
+    . /usr/local/etc/profile.d/perlrc
     curl -L https://cpanmin.us | /usr/local/perl-#{node[:perl][:version]}/bin/perl - App::cpanminus
   CMD
   not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/cpanm"
@@ -23,14 +35,16 @@ end
 
 execute "Install Carton" do
   command <<-CMD
-    /usr/local/perl-#{node[:perl][:version]}/bin/cpanm Carton
+    . /usr/local/etc/profile.d/perlrc
+    cpanm Carton
   CMD
   not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/carton"
 end
 
 execute "Install Perl::Tidy" do
   command <<-CMD
-    /usr/local/perl-#{node[:perl][:version]}/bin/cpanm Perl::Tidy
+    . /usr/local/etc/profile.d/perlrc
+    cpanm Perl::Tidy
   CMD
   not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/perltidy"
 end
@@ -40,14 +54,3 @@ end
 #    /usr/local/perl-#{node[:perl][:version]}/bin/cpanm ExtUtils::MakeMaker
 #  CMD
 #end
-
-directory "/usr/local/etc/profile.d" do
-  action :create
-end
-
-template "/usr/local/etc/profile.d/perlrc" do
-  action :create
-  source "perl/templates/perlrc.erb"
-  mode "0644"
-  variables(version: node[:perl][:version])
-end
