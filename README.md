@@ -1,13 +1,14 @@
 My Itamae
 =========
 
-Must do:
+Do
 
-    gem install itamae
+```
+make
+```
 
-prior to provision.
+and
 
-How to Use
-----------
-
-    make dev
+```
+make server
+```

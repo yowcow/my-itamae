@@ -19,6 +19,3 @@
     action :install
   end
 end
-
-include_recipe "../cookbooks/nginx/default.rb"
-include_recipe "../cookbooks/lets-encrypt/default.rb"

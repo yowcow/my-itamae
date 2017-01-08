@@ -1,20 +1,11 @@
-.PHONY: local circle help
+.PHONY: vagrant
 
-all:
-	bundle install
+all: Gemfile.lock
 
-local:
+Gemfile.lock: Gemfile
+	bundle install --path vendor/bundle
+
+server: Gemfile.lock
 	sudo bundle exec -- \
-	itamae local --node-json=nodes/my.json \
-	roles/essential.rb \
-	roles/server-env.rb \
-	roles/my/app.rb
-
-circle:
-	sudo bundle exec -- \
-	itamae local --node-json=nodes/my-circle.json \
-	roles/essential.rb \
-	roles/my/app.rb
-
-help:
-	cat Makefile
+	itamae local --node-json=nodes/common.json \
+	roles/server.rb
