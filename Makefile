@@ -1,4 +1,4 @@
-.PHONY: vagrant
+.PHONY: server
 
 all: Gemfile.lock
 
