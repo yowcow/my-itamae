@@ -49,6 +49,14 @@ execute "Install Perl::Tidy" do
   not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/perltidy"
 end
 
+execute "Install Minilla" do
+  command <<-CMD
+    . /usr/local/etc/profile.d/perlrc
+    cpanm Minilla
+  CMD
+  not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/minil"
+end
+
 #execute "Install ExtUtils::MakeMaker" do
 #  command <<-CMD
 #    /usr/local/perl-#{node[:perl][:version]}/bin/cpanm ExtUtils::MakeMaker
