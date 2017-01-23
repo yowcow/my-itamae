@@ -23,18 +23,16 @@ execute "Install Nodejs #{node[:nodejs][:version]}" do
   not_if "test -e /usr/local/node-#{node[:nodejs][:version]}-linux-x64"
 end
 
-execute "Install forever" do
-  command <<-CMD
-    . /usr/local/etc/profile.d/nodejsrc
-    npm i -g forever
-  CMD
-  not_if "test -e /usr/local/node-#{node[:nodejs][:version]}-linux-x64/lib/node_modules/forever"
-end
-
-execute "Install forever-monitor" do
-  command <<-CMD
-    . /usr/local/etc/profile.d/nodejsrc
-    npm i -g forever-monitor
-  CMD
-  not_if "test -e /usr/local/node-#{node[:nodejs][:version]}-linux-x64/lib/node_modules/forever-monitor"
+%w{
+  forever
+  forever-monitor
+  npm-check-updates
+}.each do |mod|
+  execute "Install #{mod}" do
+    command <<-CMD
+      . /usr/local/etc/profile.d/nodejsrc
+      npm i -g #{mod}
+    CMD
+    not_if "test -e /usr/local/node-#{node[:nodejs][:version]}-linux-x64/lib/node_modules/#{mod}"
+  end
 end
