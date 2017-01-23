@@ -7,3 +7,5 @@ include_recipe "../cookbooks/perl.rb"
 include_recipe "../cookbooks/nginx.rb"
 include_recipe "../cookbooks/mysql.rb"
 include_recipe "../cookbooks/letsencrypt.rb"
+
+include_recipe "../cookbooks/mackerel.rb"
