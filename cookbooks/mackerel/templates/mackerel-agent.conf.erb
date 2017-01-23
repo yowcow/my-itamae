@@ -11,8 +11,8 @@ on_stop  = "poweroff"
 command = "mackerel-plugin-linux"
 type = "metric"
 
-#[plugin.metrics.mysql]
-#command = "mackerel-plugin-mysql"
+[plugin.metrics.mysql]
+command = "mackerel-plugin-mysql -username=<%= @mysql_username %> -password=<%= @mysql_password %>"
 
 #[plugin.metrics.nginx]
 #command = "mackerel-plugin-nginx"

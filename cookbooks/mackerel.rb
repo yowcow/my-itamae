@@ -28,6 +28,10 @@ template "/etc/mackerel-agent/mackerel-agent.conf.mine" do
   action :create
   source "mackerel/templates/mackerel-agent.conf.erb"
   mode "0644"
+  variables(
+    mysql_username: "debian-sys-maint",
+    mysql_password: `cat /etc/mysql/debian.cnf | grep password | awk '{ print $3 }' | uniq`.sub(/\n/, '')
+  )
 end
 
 service "mackerel-agent" do
