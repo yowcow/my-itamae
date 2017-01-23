@@ -1,0 +1,14 @@
+pidfile = "/var/run/mackerel-agent.pid"
+root = "/var/lib/mackerel-agent"
+verbose = false
+apikey = ""
+
+[host_status]
+on_start = "working"
+on_stop  = "poweroff"
+
+#[plugin.metrics.mysql]
+#command = "mackerel-plugin-mysql"
+
+#[plugin.metrics.nginx]
+#command = "mackerel-plugin-nginx"
