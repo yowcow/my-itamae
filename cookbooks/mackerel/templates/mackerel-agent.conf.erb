@@ -7,6 +7,10 @@ apikey = ""
 on_start = "working"
 on_stop  = "poweroff"
 
+[plugin.metrics.linux]
+command = "mackerel-plugin-linux"
+type = "metric"
+
 #[plugin.metrics.mysql]
 #command = "mackerel-plugin-mysql"
 
