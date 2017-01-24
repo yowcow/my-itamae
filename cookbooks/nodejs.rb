@@ -23,6 +23,7 @@ end
   forever
   forever-monitor
   npm-check-updates
+  yarn
 }.each do |mod|
   execute "Install #{mod}" do
     command <<-CMD
