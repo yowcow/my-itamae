@@ -24,7 +24,7 @@ end
   package pkg
 end
 
-template "/etc/mackerel-agent/mackerel-agent.conf.mine" do
+template "/etc/mackerel-agent/mackerel-agent.conf" do
   action :create
   source "mackerel/templates/mackerel-agent.conf.erb"
   mode "0644"
