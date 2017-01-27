@@ -9,3 +9,8 @@ server: Gemfile.lock
 	sudo bundle exec -- \
 	itamae local --node-json=nodes/common.json \
 	roles/server.rb
+
+vagrant: Gemfile.lock
+	sudo bundle exec -- \
+	itamae local --node-json=nodes/common.json \
+	roles/vagrant.rb
