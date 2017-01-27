@@ -5,12 +5,12 @@ all: Gemfile.lock
 Gemfile.lock: Gemfile
 	bundle install --path vendor/bundle
 
-server: Gemfile.lock
+sakura: Gemfile.lock
 	sudo bundle exec -- \
 	itamae local --node-json=nodes/common.json \
-	roles/server.rb
+	roles/$@.rb
 
 vagrant: Gemfile.lock
 	sudo bundle exec -- \
 	itamae local --node-json=nodes/common.json \
-	roles/vagrant.rb
+	roles/$@.rb

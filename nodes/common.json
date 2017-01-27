@@ -4,5 +4,8 @@
     },
     "perl": {
         "version": "5.24.0"
+    },
+    "golang": {
+        "version": "1.7.5"
     }
 }
