@@ -4,6 +4,7 @@ include_recipe "../cookbooks/vim.rb"
 include_recipe "../cookbooks/ctags.rb"
 
 include_recipe "../cookbooks/nodejs.rb"
+include_recipe "../cookbooks/yarn.rb"
 include_recipe "../cookbooks/perl.rb"
 include_recipe "../cookbooks/golang.rb"
 
