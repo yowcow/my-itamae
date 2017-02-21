@@ -7,7 +7,7 @@ end
 
 http_request "/tmp/go#{node[:golang][:version]}.linux-amd64.tar.gz" do
   url "https://storage.googleapis.com/golang/go#{node[:golang][:version]}.linux-amd64.tar.gz"
-  not_if "test -e /tmp/go#{node[:golang][:version]}.linux-amd64.tar.gz"
+  not_if "test -d /usr/local/go-#{node[:golang][:version]}"
 end
 
 execute "Install Go" do
@@ -16,5 +16,5 @@ execute "Install Go" do
     tar xzf go#{node[:golang][:version]}.linux-amd64.tar.gz && \
     mv go /usr/local/go-#{node[:golang][:version]}
   CMD
-  not_if "test -e /usr/local/go-#{node[:golang][:version]}"
+  not_if "test -d /usr/local/go-#{node[:golang][:version]}"
 end

@@ -7,7 +7,7 @@ end
 
 http_request "/tmp/perl-#{node[:perl][:version]}.tar.gz" do
   url "http://www.cpan.org/src/5.0/perl-#{node[:perl][:version]}.tar.gz"
-  not_if "test -e /tmp/perl-#{node[:perl][:version]}.tar.gz"
+  not_if "test -d /usr/local/perl-#{node[:perl][:version]}"
 end
 
 execute "Install Perl #{node[:perl][:version]}" do
@@ -18,7 +18,7 @@ execute "Install Perl #{node[:perl][:version]}" do
     ./Configure -des -Dprefix=/usr/local/perl-#{node[:perl][:version]} && \
     make && make install
   CMD
-  not_if "test -e /usr/local/perl-#{node[:perl][:version]}"
+  not_if "test -d /usr/local/perl-#{node[:perl][:version]}"
 end
 
 execute "Install cpanm" do
@@ -26,7 +26,6 @@ execute "Install cpanm" do
     . /etc/profile.d/perlrc.sh
     curl -L https://cpanmin.us | perl - App::cpanminus
   CMD
-  not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/cpanm"
 end
 
 execute "Install Carton" do
@@ -34,7 +33,6 @@ execute "Install Carton" do
     . /etc/profile.d/perlrc.sh
     cpanm Carton
   CMD
-  not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/carton"
 end
 
 execute "Install Perl::Tidy" do
@@ -42,7 +40,6 @@ execute "Install Perl::Tidy" do
     . /etc/profile.d/perlrc.sh
     cpanm Perl::Tidy
   CMD
-  not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/perltidy"
 end
 
 execute "Install Minilla" do
@@ -50,5 +47,4 @@ execute "Install Minilla" do
     . /etc/profile.d/perlrc.sh
     cpanm Minilla
   CMD
-  not_if "test -e /usr/local/perl-#{node[:perl][:version]}/bin/minil"
 end

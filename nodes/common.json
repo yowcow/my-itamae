@@ -10,5 +10,11 @@
     },
     "mysql": {
         "character-set": "utf8mb4"
+    },
+    "ctags": {
+        "version": "5.8"
+    },
+    "tmux": {
+        "version": "2.3"
     }
 }
