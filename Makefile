@@ -1,4 +1,4 @@
-.PHONY: server
+.PHONY: sakura vagrant
 
 all: Gemfile.lock
 

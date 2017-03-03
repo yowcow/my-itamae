@@ -1,4 +1,5 @@
 %w{
+  apache2-utils
   apt-file
   git
   jq
