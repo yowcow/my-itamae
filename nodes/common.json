@@ -1,6 +1,6 @@
 {
     "nodejs": {
-        "version": "v7.7.1"
+        "version": "v7.7.2"
     },
     "perl": {
         "version": "5.24.1"
