@@ -3,6 +3,7 @@
   clang
   cronolog
   curl
+  finger
   libdb-dev
   libevent-dev
   libicu-dev

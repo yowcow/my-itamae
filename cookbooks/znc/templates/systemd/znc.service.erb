@@ -1,0 +1,13 @@
+[Unit]
+Description = ZNC service
+
+[Service]
+User = <%= @user %>
+Group = <%= @group %>
+WorkingDirectory = <%= @working_directory %>
+ExecStart = /usr/bin/znc -f
+Restart = always
+Type = simple
+
+[Install]
+WantedBy = multi-user.target
