@@ -10,11 +10,15 @@ http_request "/tmp/go#{node[:golang][:version]}.linux-amd64.tar.gz" do
   not_if "test -d /usr/local/go-#{node[:golang][:version]}"
 end
 
-execute "Install Go" do
+execute "Install Go #{node[:golang][:version]}" do
   command <<-CMD
     cd /tmp && \
     tar xzf go#{node[:golang][:version]}.linux-amd64.tar.gz && \
     mv go /usr/local/go-#{node[:golang][:version]}
   CMD
   not_if "test -d /usr/local/go-#{node[:golang][:version]}"
+end
+
+link "/usr/local/go" do
+  to "/usr/local/go-#{node[:golang][:version]}"
 end
