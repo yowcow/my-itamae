@@ -1,4 +1,7 @@
 {
+    "erlang": {
+        "version": "19.3"
+    },
     "nodejs": {
         "version": "v7.8.0"
     },

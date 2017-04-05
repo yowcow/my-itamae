@@ -5,14 +5,14 @@ template "/etc/profile.d/nodejsrc.sh" do
   variables(version: node[:nodejs][:version])
 end
 
-http_request "/tmp/node-#{node[:nodejs][:version]}-linux-x64.tar.xz" do
+http_request "/var/tmp/node-#{node[:nodejs][:version]}-linux-x64.tar.xz" do
   url "https://nodejs.org/dist/#{node[:nodejs][:version]}/node-#{node[:nodejs][:version]}-linux-x64.tar.xz"
   not_if "test -d /usr/local/node-#{node[:nodejs][:version]}-linux-x64"
 end
 
 execute "Install Nodejs #{node[:nodejs][:version]}" do
   command <<-CMD
-    cd /tmp && \
+    cd /var/tmp && \
     tar xf node-#{node[:nodejs][:version]}-linux-x64.tar.xz && \
     mv node-#{node[:nodejs][:version]}-linux-x64 /usr/local
   CMD
