@@ -7,7 +7,7 @@ end
 
 http_request "/var/tmp/otp_src_#{node[:erlang][:version]}.tar.gz" do
   url "http://erlang.org/download/otp_src_#{node[:erlang][:version]}.tar.gz"
-  not_if "test -d /usr/local/erlang-#{node[:erlang][:version]} || test -f /var/tmp/otp_src_#{node[:erlang][:version]}.tar.gz"
+  not_if "test -d /usr/local/erlang-#{node[:erlang][:version]}"
 end
 
 execute "Extract Erlang #{node[:erlang][:version]}" do
@@ -15,7 +15,7 @@ execute "Extract Erlang #{node[:erlang][:version]}" do
     cd /var/tmp && \
     tar xzf otp_src_#{node[:erlang][:version]}.tar.gz
   CMD
-  not_if "test -f /usr/local/erlang-#{node[:erlang][:version]}.tar.gz"
+  not_if "test -d /usr/local/erlang-#{node[:erlang][:version]}"
 end
 
 execute "Install Erlang #{node[:erlang][:version]}" do
