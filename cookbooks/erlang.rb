@@ -13,7 +13,7 @@ end
 execute "Extract Erlang #{node[:erlang][:version]}" do
   command <<-CMD
     cd /var/tmp && \
-    tar xzf otp_src_#{node[:erlang][:version]}.tar.gz
+    tar xf otp_src_#{node[:erlang][:version]}.tar.gz
   CMD
   not_if "test -d /usr/local/erlang-#{node[:erlang][:version]}"
 end
