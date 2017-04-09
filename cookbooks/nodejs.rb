@@ -20,6 +20,7 @@ execute "Install Nodejs #{node[:nodejs][:version]}" do
 end
 
 %w{
+  npm
   npm-check-updates
 }.each do |mod|
   execute "Install #{mod}" do
