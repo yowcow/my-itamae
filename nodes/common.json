@@ -1,23 +1,33 @@
 {
-    "erlang": {
-        "version": "19.3"
+  "erlang": {
+    "version": "19.3"
+  },
+  "nodejs": {
+    "version": "v7.8.0"
+  },
+  "perl": {
+    "version": "5.24.1"
+  },
+  "golang": {
+    "version": "1.8"
+  },
+  "mysql": {
+    "character-set": "utf8mb4"
+  },
+  "ctags": {
+    "version": "5.8"
+  },
+  "tmux": {
+    "version": "2.3"
+  },
+  "nginx": {
+    "vagrant": {
+      "vh": [
+        { "server_name": "yowcow.local", "listen": 80 }
+      ]
     },
-    "nodejs": {
-        "version": "v7.8.0"
-    },
-    "perl": {
-        "version": "5.24.1"
-    },
-    "golang": {
-        "version": "1.8"
-    },
-    "mysql": {
-        "character-set": "utf8mb4"
-    },
-    "ctags": {
-        "version": "5.8"
-    },
-    "tmux": {
-        "version": "2.3"
+    "sakura": {
+      "vh": []
     }
+  }
 }
