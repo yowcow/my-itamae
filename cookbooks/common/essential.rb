@@ -4,6 +4,7 @@
   cronolog
   curl
   finger
+  gawk
   libdb-dev
   libevent-dev
   libicu-dev
