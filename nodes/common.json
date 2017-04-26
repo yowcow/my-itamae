@@ -9,7 +9,7 @@
     "version": "5.24.1"
   },
   "golang": {
-    "version": "1.8"
+    "version": "1.8.1"
   },
   "mysql": {
     "character-set": "utf8mb4"
