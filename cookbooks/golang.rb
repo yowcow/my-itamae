@@ -18,7 +18,3 @@ execute "Install Go #{node[:golang][:version]}" do
   CMD
   not_if "test -d /usr/local/go-#{node[:golang][:version]}"
 end
-
-link "/usr/local/go" do
-  to "/usr/local/go-#{node[:golang][:version]}"
-end
