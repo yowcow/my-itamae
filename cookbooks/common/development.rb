@@ -6,7 +6,6 @@
   ntp
   screen
   sqlite3
-  supervisor
   sysstat
   tmux
   tree
