@@ -18,6 +18,7 @@ execute "Install vim" do
       --enable-fail-if-missing \
       --enable-luainterp \
       --enable-multibyte \
+      --with-lua-prefix=/usr/local \
     && make && make install
   CMD
   not_if 'cd /var/tmp/vim && test "${$(git tag | tail -n1): -3}" -eq "${$(vim --version | grep "Included patches" | head -n1): -3}"'
