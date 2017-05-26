@@ -1,6 +1,6 @@
 package "liblua5.3-dev"
 
-link "/usr/include/lua" do
+link "/usr/local/include/lua" do
   to "/usr/include/lua5.3"
 end
 
