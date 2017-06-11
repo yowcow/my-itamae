@@ -3,7 +3,7 @@
     "version": "19.3"
   },
   "nodejs": {
-    "version": "v8.0.0"
+    "version": "v8.1.0"
   },
   "perl": {
     "version": "5.26.0"
