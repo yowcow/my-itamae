@@ -1,3 +1,6 @@
+include_recipe "./ctags.rb"
+include_recipe "./lua.rb"
+
 git "/var/tmp/vim" do
   repository "https://github.com/vim/vim.git"
   action :sync
