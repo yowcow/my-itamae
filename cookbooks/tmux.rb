@@ -29,4 +29,5 @@ end
 
 link "/usr/local/bin/tmux" do
   to "/usr/local/tmux-#{node[:tmux][:version]}/bin/tmux"
+  force true
 end
