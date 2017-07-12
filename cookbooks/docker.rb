@@ -34,4 +34,9 @@ execute "Add GPG key" do
   not_if "apt-key list | grep 0EBFCD88"
 end
 
-package "docker-ce"
+%w{
+  docker-ce
+  docker-compose
+}.each do |pkg|
+  package pkg
+end
