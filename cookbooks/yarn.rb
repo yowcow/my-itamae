@@ -14,7 +14,7 @@ execute "Add GPG key" do
     apt-key add /var/tmp/yarn-gpg.key && \
     apt-get update -qq
   CMD
-  not_if "apt-key list | grep yarn"
+  not_if "apt-key list | grep 86E50310"
 end
 
 package "yarn"
