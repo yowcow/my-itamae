@@ -1,4 +1,7 @@
 {
+  "ubuntu": {
+    "release": "xenial"
+  },
   "erlang": {
     "version": "19.3"
   },
