@@ -20,6 +20,9 @@ execute "Make and install ctags-#{node[:ctags][:version]}" do
   not_if "test -d /usr/local/ctags-#{node[:ctags][:version]}"
 end
 
-link "/usr/local/bin/ctags" do
-  to "/usr/local/ctags-#{node[:ctags][:version]}/bin/ctags"
+template "/etc/profile.d/ctags.sh" do
+  action :create
+  source "ctags/templates/ctags.erb"
+  mode "0644"
+  variables(version: node[:ctags][:version])
 end
