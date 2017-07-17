@@ -27,7 +27,9 @@ execute "Make and install tmux-#{node[:tmux][:version]}" do
   not_if "test -d /usr/local/tmux-#{node[:tmux][:version]}"
 end
 
-link "/usr/local/bin/tmux" do
-  to "/usr/local/tmux-#{node[:tmux][:version]}/bin/tmux"
-  force true
+template "/etc/profile.d/tmux.sh" do
+  action :create
+  source "tmux/templates/tmux.erb"
+  mode "0644"
+  variables(version: node[:tmux][:version])
 end
