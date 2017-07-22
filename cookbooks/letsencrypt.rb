@@ -6,5 +6,5 @@ end
 template "/etc/cron.daily/letsencrypt" do
   action :create
   source "letsencrypt/templates/crontab/letsencrypt.erb"
-  model "0755"
+  mode "0775"
 end
