@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. /etc/environment && \
+    certbot-auto renew \
+        1>/var/log/letsencrypt.log \
+        2>/var/log/letsencrypt.err && \
+    nginx -s reload
