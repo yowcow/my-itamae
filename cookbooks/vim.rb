@@ -22,6 +22,7 @@ execute "Install Vim #{node[:vim][:version]}" do
       --enable-fail-if-missing \
       --enable-luainterp \
       --enable-multibyte \
+      --enable-terminal \
       --with-lua-prefix=/usr/local \
     && make && make install
   CMD
