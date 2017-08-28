@@ -24,7 +24,7 @@
     "version": "2.5"
   },
   "vim": {
-    "version": "8.0.1002"
+    "version": "8.0.1008"
   },
   "nginx": {
     "vagrant": {
