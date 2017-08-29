@@ -14,12 +14,12 @@ Gemfile.lock: Gemfile
 
 sakura: Gemfile.lock
 	sudo -H ENVNAME=$@ bundle exec -- \
-	itamae local --node-json=nodes/common.json \
+	itamae local --node-json=$(COMMON) \
 	roles/$@.rb
 
 vagrant: Gemfile.lock
 	sudo -H ENVNAME=$@ bundle exec -- \
-	itamae local --node-json=nodes/common.json \
+	itamae local --node-json=$(COMMON) \
 	roles/$@.rb
 
 clean:
