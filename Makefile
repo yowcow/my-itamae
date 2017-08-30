@@ -12,12 +12,12 @@ $(COMMON):
 Gemfile.lock: Gemfile
 	bundle install --path vendor/bundle
 
-sakura: Gemfile.lock
+sakura: Gemfile.lock $(COMMON)
 	sudo -H ENVNAME=$@ bundle exec -- \
 	itamae local --node-json=$(COMMON) \
 	roles/$@.rb
 
-vagrant: Gemfile.lock
+vagrant: Gemfile.lock $(COMMON)
 	sudo -H ENVNAME=$@ bundle exec -- \
 	itamae local --node-json=$(COMMON) \
 	roles/$@.rb
