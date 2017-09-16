@@ -4,17 +4,11 @@ template "/etc/apt/sources.list.d/mackerel.list" do
   mode "0644"
 end
 
-http_request "/tmp/mackerel-gpg.key" do
-  url "https://mackerel.io/assets/files/GPG-KEY-mackerel"
-  not_if "test -e /tmp/mackerel-gpg.key"
-end
-
 execute "Add GPG key" do
   command <<-CMD
-    apt-key add /tmp/mackerel-gpg.key && \
+    curl -sS https://mackerel.io/assets/files/GPG-KEY-mackerel | apt-key add - && \
     apt-get update -qq
   CMD
-  not_if "apt-key list | grep mackerel"
 end
 
 %w{

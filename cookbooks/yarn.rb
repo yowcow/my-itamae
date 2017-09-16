@@ -4,17 +4,11 @@ template "/etc/apt/sources.list.d/yarn.list" do
   mode "0644"
 end
 
-http_request "/var/tmp/yarn-gpg.key" do
-  url "https://dl.yarnpkg.com/debian/pubkey.gpg"
-  not_if "test -e /var/tmp/yarn-gpg.key"
-end
-
 execute "Add GPG key" do
   command <<-CMD
-    apt-key add /var/tmp/yarn-gpg.key && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     apt-get update -qq
   CMD
-  not_if "apt-key list | grep 86E50310"
 end
 
 package "yarn"
