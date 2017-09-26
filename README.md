@@ -1,12 +1,12 @@
 My Itamae
 =========
 
-My configuration management.
+My configuration management for Ubuntu 16.04.
 
 PREREQUISITE
 ------------
 
-If one needs to build `nodes/common.json`, and Go environment is **not** ready,
+If I need to build `nodes/common.json`, and Go environment is **not** ready,
 have [vim-ver](https://github.com/yowcow/vim-ver/releases) (v1.0.0 or later) executable somewhere in `$PATH`.
 
 HOW TO USE
