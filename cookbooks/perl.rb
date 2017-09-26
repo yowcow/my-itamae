@@ -1,10 +1,3 @@
-template "/etc/profile.d/perlrc.sh" do
-  action :create
-  source "perl/templates/perlrc.erb"
-  mode "0644"
-  variables(version: node[:perl][:version])
-end
-
 http_request "/var/tmp/perl-#{node[:perl][:version]}.tar.gz" do
   url "http://www.cpan.org/src/5.0/perl-#{node[:perl][:version]}.tar.gz"
   not_if "test -d /usr/local/perl-#{node[:perl][:version]}"
@@ -25,6 +18,13 @@ execute "Install Perl #{node[:perl][:version]}" do
     make && make install
   CMD
   not_if "test -d /usr/local/perl-#{node[:perl][:version]}"
+end
+
+template "/etc/profile.d/perlrc.sh" do
+  action :create
+  source "perl/templates/perlrc.erb"
+  mode "0644"
+  variables(version: node[:perl][:version])
 end
 
 execute "Install cpanm" do

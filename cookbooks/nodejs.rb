@@ -1,10 +1,3 @@
-template "/etc/profile.d/nodejsrc.sh" do
-  action :create
-  source "nodejs/templates/nodejsrc.erb"
-  mode "0644"
-  variables(version: node[:nodejs][:version])
-end
-
 http_request "/var/tmp/node-#{node[:nodejs][:version]}-linux-x64.tar.xz" do
   url "https://nodejs.org/dist/#{node[:nodejs][:version]}/node-#{node[:nodejs][:version]}-linux-x64.tar.xz"
   not_if "test -d /usr/local/node-#{node[:nodejs][:version]}-linux-x64"
@@ -17,6 +10,13 @@ execute "Install Nodejs #{node[:nodejs][:version]}" do
     mv node-#{node[:nodejs][:version]}-linux-x64 /usr/local
   CMD
   not_if "test -d /usr/local/node-#{node[:nodejs][:version]}-linux-x64"
+end
+
+template "/etc/profile.d/nodejsrc.sh" do
+  action :create
+  source "nodejs/templates/nodejsrc.erb"
+  mode "0644"
+  variables(version: node[:nodejs][:version])
 end
 
 %w{
