@@ -6,7 +6,7 @@
     "version": "19.3"
   },
   "nodejs": {
-    "version": "v8.6.0"
+    "version": "v8.7.0"
   },
   "perl": {
     "version": "5.26.1"
@@ -24,7 +24,7 @@
     "version": "2.6"
   },
   "vim": {
-    "version": "8.0.1188"
+    "version": "8.0.1203"
   },
   "nginx": {
     "vagrant": {
