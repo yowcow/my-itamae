@@ -1,13 +1,12 @@
 .PHONY: sakura vagrant clean realclean
 
 COMMON = nodes/common.json
-COMMON_TMPL = nodes/common.json.tmpl
 
 all: Gemfile.lock $(COMMON)
 
-$(COMMON):
+$(COMMON): $(COMMON).tmpl
 	which vim-ver || go get github.com/yowcow/vim-ver && go install github.com/yowcow/vim-ver
-	cat $(COMMON_TMPL) | sed 's/%%VIMVER%%/$(shell vim-ver HEAD)/' > $(COMMON)
+	cat $< | sed 's/%%VIMVER%%/$(shell vim-ver HEAD)/' > $@
 
 Gemfile.lock: Gemfile
 	bundle install --path vendor/bundle
