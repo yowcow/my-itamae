@@ -1,11 +1,3 @@
-require 'etc'
-
-["linux-image-extra-#{Etc.uname[:release]}",
- "linux-image-extra-virtual"
-].each do |pkg|
-  package pkg
-end
-
 %w{
   apt-transport-https
   ca-certificates
@@ -30,7 +22,6 @@ end
 
 %w{
   docker-ce
-  docker-compose
 }.each do |pkg|
   package pkg
 end
