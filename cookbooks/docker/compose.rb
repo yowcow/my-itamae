@@ -10,6 +10,10 @@ http_request "/usr/local/docker-compose-#{version}/bin/docker-compose" do
   not_if "test -e /usr/local/docker-compose-#{version}/bin/docker-compose"
 end
 
+link "/usr/local/bin/docker-compose" do
+  to "/usr/local/docker-compose-#{version}/bin/docker-compose"
+end
+
 template "/etc/profile.d/docker-composerc.sh" do
   action :create
   source "templates/docker-composerc.erb"
