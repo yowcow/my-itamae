@@ -12,7 +12,7 @@
     "version": "5.26.1"
   },
   "golang": {
-    "version": "1.9.1"
+    "version": "1.9.2"
   },
   "mysql": {
     "character-set": "utf8mb4"
@@ -24,7 +24,7 @@
     "version": "2.6"
   },
   "vim": {
-    "version": "8.0.1216"
+    "version": "8.0.1226"
   },
   "nginx": {
     "vagrant": {
