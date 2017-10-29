@@ -40,5 +40,8 @@
     "compose": {
       "version": "1.16.1"
     }
+  },
+  "travis": {
+    "version": "1.8.8"
   }
 }
