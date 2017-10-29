@@ -15,3 +15,4 @@ include_recipe "../cookbooks/nginx/vh.rb"
 include_recipe "../cookbooks/mysql.rb"
 
 include_recipe "../cookbooks/znc.rb"
+include_recipe "../cookbooks/travis.rb"
