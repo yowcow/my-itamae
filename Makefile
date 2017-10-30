@@ -1,5 +1,6 @@
-.PHONY: sakura vagrant clean realclean
+.PHONY: all env/* clean realclean
 
+ENVS = sakura vagrant
 COMMON = nodes/common.json
 
 all: Gemfile.lock $(COMMON)
@@ -11,15 +12,10 @@ $(COMMON): $(COMMON).tmpl
 Gemfile.lock: Gemfile
 	bundle install --path vendor/bundle
 
-sakura: Gemfile.lock $(COMMON)
-	sudo -H ENVNAME=$@ bundle exec -- \
+roles/%: Gemfile.lock $(COMMON)
+	sudo -H ENVNAME=$* bundle exec -- \
 	itamae local --node-json=$(COMMON) \
-	roles/$@.rb
-
-vagrant: Gemfile.lock $(COMMON)
-	sudo -H ENVNAME=$@ bundle exec -- \
-	itamae local --node-json=$(COMMON) \
-	roles/$@.rb
+	roles/$*.rb
 
 clean:
 	rm -rf $(COMMON)
