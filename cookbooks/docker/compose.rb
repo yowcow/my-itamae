@@ -13,10 +13,3 @@ end
 link "/usr/local/bin/docker-compose" do
   to "/usr/local/docker-compose-#{version}/bin/docker-compose"
 end
-
-template "/etc/profile.d/docker-composerc.sh" do
-  action :create
-  source "templates/docker-composerc.erb"
-  mode "0644"
-  variables(version: version)
-end
