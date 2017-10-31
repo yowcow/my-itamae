@@ -21,9 +21,9 @@ make
 and
 
 ```
-make sakura
-make vagrant
-make server
+make roles/sakura
+make roles/vagrant
+make roles/server
 ```
 
 HOW TO UPDATE
