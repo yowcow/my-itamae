@@ -1,6 +1,7 @@
 include_recipe "../cookbooks/apt.rb"
 include_recipe "../cookbooks/common/essential.rb"
 include_recipe "../cookbooks/common/development.rb"
+include_recipe "../cookbooks/git.rb"
 include_recipe "../cookbooks/vim.rb"
 include_recipe "../cookbooks/tmux.rb"
 
