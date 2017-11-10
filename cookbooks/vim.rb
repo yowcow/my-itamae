@@ -1,5 +1,6 @@
 include_recipe "./ctags.rb"
 include_recipe "./lua.rb"
+include_recipe "./python.rb"
 
 http_request "/var/tmp/vim-#{node[:vim][:version]}.tar.gz" do
   url "https://github.com/vim/vim/archive/v#{node[:vim][:version]}.tar.gz"
@@ -22,6 +23,7 @@ execute "Install Vim #{node[:vim][:version]}" do
       --enable-fail-if-missing \
       --enable-luainterp \
       --enable-multibyte \
+      --enable-pythoninterp \
       --enable-terminal \
       --with-lua-prefix=/usr/local \
     && make && make install
