@@ -4,6 +4,7 @@ ENVS = sakura vagrant
 COMMON = nodes/common.json
 
 all: Gemfile.lock $(COMMON)
+	sudo apt-get update
 
 $(COMMON): $(COMMON).tmpl
 	which vim-ver || go get github.com/yowcow/vim-ver && go install github.com/yowcow/vim-ver
