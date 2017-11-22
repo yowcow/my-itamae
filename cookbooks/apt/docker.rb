@@ -15,8 +15,7 @@ end
 
 execute "Add GPG key" do
   command <<-CMD
-    curl -sS https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-    apt-get update -qq
+    curl -sS https://download.docker.com/linux/ubuntu/gpg | apt-key add -
   CMD
 end
 

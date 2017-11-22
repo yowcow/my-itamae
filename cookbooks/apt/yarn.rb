@@ -6,7 +6,6 @@ end
 
 execute "Add GPG key" do
   command <<-CMD
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    apt-get update -qq
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
   CMD
 end

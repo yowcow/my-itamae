@@ -6,7 +6,6 @@ end
 
 execute "Add GPG key" do
   command <<-CMD
-    curl -sS https://mackerel.io/assets/files/GPG-KEY-mackerel | apt-key add - && \
-    apt-get update -qq
+    curl -sS https://mackerel.io/assets/files/GPG-KEY-mackerel | apt-key add -
   CMD
 end
