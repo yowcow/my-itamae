@@ -1,16 +1,3 @@
-template "/etc/apt/sources.list.d/mackerel.list" do
-  action :create
-  source "mackerel/templates/apt-source.list.erb"
-  mode "0644"
-end
-
-execute "Add GPG key" do
-  command <<-CMD
-    curl -sS https://mackerel.io/assets/files/GPG-KEY-mackerel | apt-key add - && \
-    apt-get update -qq
-  CMD
-end
-
 %w{
   mackerel-agent
   mackerel-agent-plugins
