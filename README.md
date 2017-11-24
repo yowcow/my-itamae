@@ -23,7 +23,7 @@ and
 ```
 make roles/sakura
 make roles/vagrant
-make roles/server
+make roles/laptop
 ```
 
 HOW TO UPDATE
