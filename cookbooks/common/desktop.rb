@@ -8,3 +8,4 @@
 end
 
 include_recipe "../network-manager.rb"
+include_recipe "../systemd.rb"
