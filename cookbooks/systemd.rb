@@ -1,6 +1,5 @@
 %w{
   logind
-  resolved
 }.each do |d|
   directory "/etc/systemd/#{d}.conf.d" do
     action :create
