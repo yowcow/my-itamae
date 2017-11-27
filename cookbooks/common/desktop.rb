@@ -6,3 +6,5 @@
 }.each do |pkg|
   package pkg
 end
+
+include_recipe "../network-manager.rb"
