@@ -9,7 +9,7 @@ service 'NetworkManager'
 
 template "/etc/NetworkManager/NetworkManager.conf" do
   action :create
-  source "network-manager/templates/NetworkManager.conf.erb"
+  source "network-manager/templates/NetworkManager/NetworkManager.conf.erb"
   mode   "0644"
   notifies :restart, "service[NetworkManager]"
 end
