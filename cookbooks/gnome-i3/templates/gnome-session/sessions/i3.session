@@ -1,3 +1,0 @@
-[GNOME Session]
-Name=gnome-i3
-RequiredComponents=unity-settings-daemon;i3;
