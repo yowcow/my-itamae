@@ -14,8 +14,6 @@ end
 
 include_recipe "apt/docker.rb"
 include_recipe "apt/git.rb"
-include_recipe "apt/mackerel.rb"
-include_recipe "apt/sur5r-i3.rb"
 include_recipe "apt/yarn.rb"
 
 execute "Update apt" do
