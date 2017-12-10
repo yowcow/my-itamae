@@ -1,6 +1,6 @@
 {
   "ubuntu": {
-    "release": "%%RELEASE%%"
+    "release": "artful"
   },
   "erlang": {
     "version": "19.3"
@@ -24,7 +24,7 @@
     "version": "2.6"
   },
   "vim": {
-    "version": "%%VIMVER%%"
+    "version": "8.0.1384"
   },
   "nginx": {
     "vagrant": {
