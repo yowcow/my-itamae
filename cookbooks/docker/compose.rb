@@ -12,4 +12,5 @@ end
 
 link "/usr/local/bin/docker-compose" do
   to "/usr/local/docker-compose-#{version}/bin/docker-compose"
+  force true
 end
