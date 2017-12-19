@@ -11,4 +11,5 @@ include_recipe "../cookbooks/perl.rb"
 include_recipe "../cookbooks/golang.rb"
 include_recipe "../cookbooks/erlang.rb"
 
+include_recipe "../cookbooks/protobuf.rb"
 include_recipe "../cookbooks/travis.rb"
