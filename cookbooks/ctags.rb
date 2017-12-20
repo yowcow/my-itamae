@@ -1,28 +1,35 @@
-http_request "/tmp/ctags-#{node[:ctags][:version]}.tar.gz" do
-  url "http://prdownloads.sourceforge.net/ctags/ctags-#{node[:ctags][:version]}.tar.gz"
-  not_if "test -d /usr/local/ctags-#{node[:ctags][:version]}"
+version = node[:ctags][:version]
+
+archive = "ctags-#{version}.tar.gz"
+url     = "http://prdownloads.sourceforge.net/ctags/#{archive}"
+
+target  = "/usr/local/ctags-#{version}"
+profile = "/etc/profile.d/ctags.sh"
+
+http_request "/tmp/#{archive}" do
+  url url
+  not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Unarchive ctags-#{node[:ctags][:version]}.tar.gz" do
+execute "Unarchive #{archive}" do
   command <<-CMD
-    cd /tmp && \
-    tar xzf ctags-#{node[:ctags][:version]}.tar.gz
+    tar xzf /tmp/ctags-#{version}.tar.gz -C /tmp
   CMD
-  not_if "test -d /usr/local/ctags-#{node[:ctags][:version]}"
+  not_if "test -d #{target} || test -d /tmp/ctags-#{version}"
 end
 
-execute "Make and install ctags-#{node[:ctags][:version]}" do
+execute "Install #{target}" do
   command <<-CMD
-    cd /tmp/ctags-#{node[:ctags][:version]} && \
-    ./configure --prefix /usr/local/ctags-#{node[:ctags][:version]} && \
+    cd /tmp/ctags-#{version} && \
+    ./configure --prefix #{target} && \
     make && make install
   CMD
-  not_if "test -d /usr/local/ctags-#{node[:ctags][:version]}"
+  not_if "test -d #{target}"
 end
 
-template "/etc/profile.d/ctags.sh" do
-  action :create
-  source "ctags/templates/ctags.erb"
-  mode "0644"
-  variables(version: node[:ctags][:version])
+execute "Install #{profile}" do
+  command <<-CMD
+    echo PATH=#{target}/bin:#{'\$PATH'} > #{profile}
+  CMD
+  not_if "test -f #{profile}"
 end
