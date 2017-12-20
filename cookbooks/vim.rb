@@ -2,24 +2,31 @@ include_recipe "./ctags.rb"
 include_recipe "./lua.rb"
 include_recipe "./python.rb"
 
-http_request "/var/tmp/vim-#{node[:vim][:version]}.tar.gz" do
-  url "https://github.com/vim/vim/archive/v#{node[:vim][:version]}.tar.gz"
-  not_if "test -f /var/tmp/vim-#{node[:vim][:version]}.tar.gz"
+version = node[:vim][:version]
+
+archive = "vim-#{version}.tar.gz"
+url     = "https://github.com/vim/vim/archive/v#{version}.tar.gz"
+
+target  = "/usr/local/vim-#{node[:vim][:version]}"
+profile = "/etc/profile.d/vim.sh"
+
+http_request "/tmp/#{archive}" do
+  url url
+  not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Extract Vim #{node[:vim][:version]}" do
+execute "Extract #{archive}" do
   command <<-CMD
-    cd /var/tmp &&
-    tar xzf vim-#{node[:vim][:version]}.tar.gz
+    tar xzf /tmp/#{archive} -C /tmp
   CMD
-  not_if "test -d /var/tmp/vim-#{node[:vim][:version]}"
+  not_if "test -d #{target}"
 end
 
-execute "Install Vim #{node[:vim][:version]}" do
+execute "Install to #{target}" do
   command <<-CMD
-    cd /var/tmp/vim-#{node[:vim][:version]}/src \
+    cd /tmp/vim-#{version}/src \
     && ./configure \
-      --prefix=/usr/local/vim-#{node[:vim][:version]} \
+      --prefix=#{target} \
       --enable-fail-if-missing \
       --enable-luainterp \
       --enable-multibyte \
@@ -28,12 +35,12 @@ execute "Install Vim #{node[:vim][:version]}" do
       --with-lua-prefix=/usr/local \
     && make && make install
   CMD
-  not_if "test -d /usr/local/vim-#{node[:vim][:version]}"
+  not_if "test -d #{target}"
 end
 
-template "/etc/profile.d/vim.sh" do
-  action :create
-  source "vim/templates/vim.erb"
-  mode "0644"
-  variables(version: node[:vim][:version])
+execute "Install to #{profile}" do
+  command <<-CMD
+    echo PATH=#{target}/bin:#{'\$PATH'} > #{profile}
+  CMD
+  not_if "test -f #{profile}"
 end

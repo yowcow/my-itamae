@@ -1,22 +1,30 @@
-http_request "/var/tmp/node-#{node[:nodejs][:version]}-linux-x64.tar.xz" do
-  url "https://nodejs.org/dist/#{node[:nodejs][:version]}/node-#{node[:nodejs][:version]}-linux-x64.tar.xz"
-  not_if "test -d /usr/local/node-#{node[:nodejs][:version]}-linux-x64"
+version = node[:nodejs][:version]
+
+archive = "node-#{version}-linux-x64.tar.xz"
+url     = "https://nodejs.org/dist/#{version}/#{archive}"
+
+target  = "/usr/local/node-#{version}-linux-x64"
+profile = "/etc/profile.d/nodejsrc.sh"
+
+http_request "/tmp/#{archive}" do
+  url url
+  not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Install Nodejs #{node[:nodejs][:version]}" do
+execute "Install to #{target}" do
   command <<-CMD
-    cd /var/tmp && \
-    tar xf node-#{node[:nodejs][:version]}-linux-x64.tar.xz && \
-    mv node-#{node[:nodejs][:version]}-linux-x64 /usr/local
+    cd /tmp && \
+    tar xf #{archive} && \
+    mv node-#{version}-linux-x64 /usr/local
   CMD
-  not_if "test -d /usr/local/node-#{node[:nodejs][:version]}-linux-x64"
+  not_if "test -d #{target}"
 end
 
-template "/etc/profile.d/nodejsrc.sh" do
-  action :create
-  source "nodejs/templates/nodejsrc.erb"
-  mode "0644"
-  variables(version: node[:nodejs][:version])
+execute "Install #{profile}" do
+  command <<-CMD
+    echo PATH=#{target}/bin:#{'\$PATH'} > #{profile}
+  CMD
+  not_if "test -f #{profile}"
 end
 
 %w{
@@ -25,7 +33,7 @@ end
 }.each do |mod|
   execute "Install #{mod}" do
     command <<-CMD
-      . /etc/profile.d/nodejsrc.sh
+      . #{profile}
       npm i -g #{mod}
     CMD
   end

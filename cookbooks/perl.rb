@@ -1,56 +1,49 @@
-http_request "/var/tmp/perl-#{node[:perl][:version]}.tar.gz" do
-  url "http://www.cpan.org/src/5.0/perl-#{node[:perl][:version]}.tar.gz"
-  not_if "test -d /usr/local/perl-#{node[:perl][:version]}"
+version = node[:perl][:version]
+
+archive = "perl-#{version}.tar.gz"
+url     = "http://www.cpan.org/src/5.0/#{archive}"
+
+target  = "/usr/local/perl-#{version}"
+profile = "/etc/profile.d/perlrc.sh"
+
+http_request "/tmp/#{archive}" do
+  url url
+  not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Extract Perl #{node[:perl][:version]}" do
+execute "Extract #{archive}" do
   command <<-CMD
-    cd /var/tmp && \
-    tar xzf perl-#{node[:perl][:version]}.tar.gz
+    tar xzf /tmp/#{archive} -C /tmp
   CMD
-  not_if "test -d /usr/local/perl-#{node[:perl][:version]}"
+  not_if "test -d #{target}"
 end
 
-execute "Install Perl #{node[:perl][:version]}" do
+execute "Install to #{target}" do
   command <<-CMD
-    cd /var/tmp/perl-#{node[:perl][:version]} && \
-    ./Configure -des -Dprefix=/usr/local/perl-#{node[:perl][:version]} && \
+    cd /tmp/perl-#{version} && \
+    ./Configure -des -Dprefix=#{target} && \
     make && make install
   CMD
-  not_if "test -d /usr/local/perl-#{node[:perl][:version]}"
+  not_if "test -d #{target}"
 end
 
-template "/etc/profile.d/perlrc.sh" do
-  action :create
-  source "perl/templates/perlrc.erb"
-  mode "0644"
-  variables(version: node[:perl][:version])
+execute "Install #{profile}" do
+  command <<-CMD
+    echo PATH=#{target}/bin:#{'\$PATH'} > #{profile}
+  CMD
+  not_if "test -f #{profile}"
 end
 
 execute "Install cpanm" do
   command <<-CMD
-    . /etc/profile.d/perlrc.sh
+    . #{profile}
     curl -L https://cpanmin.us | perl - App::cpanminus
   CMD
 end
 
-execute "Install Carton" do
+execute "Install Carton, Perl::Tidy, Minilla" do
   command <<-CMD
-    . /etc/profile.d/perlrc.sh
-    cpanm Carton
-  CMD
-end
-
-execute "Install Perl::Tidy" do
-  command <<-CMD
-    . /etc/profile.d/perlrc.sh
-    cpanm Perl::Tidy
-  CMD
-end
-
-execute "Install Minilla" do
-  command <<-CMD
-    . /etc/profile.d/perlrc.sh
-    cpanm Minilla
+    . #{profile}
+    cpanm Carton Perl::Tidy Minilla
   CMD
 end

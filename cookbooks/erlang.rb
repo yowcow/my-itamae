@@ -1,28 +1,35 @@
-http_request "/var/tmp/otp_src_#{node[:erlang][:version]}.tar.gz" do
-  url "http://erlang.org/download/otp_src_#{node[:erlang][:version]}.tar.gz"
-  not_if "test -d /usr/local/erlang-#{node[:erlang][:version]}"
+version = node[:erlang][:version]
+
+archive = "otp_src_#{version}.tar.gz"
+url     = "http://erlang.org/download/otp_src_#{version}.tar.gz"
+
+target  = "/usr/local/erlang-#{version}"
+profile = "/etc/profile.d/erlangrc.sh"
+
+http_request "/tmp/#{archive}" do
+  url url
+  not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Extract Erlang #{node[:erlang][:version]}" do
+execute "Extract /tmp/#{archive}" do
   command <<-CMD
-    cd /var/tmp && \
-    tar xf otp_src_#{node[:erlang][:version]}.tar.gz
+    tar xf /tmp/#{archive} -C /tmp
   CMD
-  not_if "test -d /usr/local/erlang-#{node[:erlang][:version]}"
+  not_if "test -d #{target}"
 end
 
-execute "Install Erlang #{node[:erlang][:version]}" do
+execute "Install to #{target}" do
   command <<-CMD
-    cd /var/tmp/otp_src_#{node[:erlang][:version]} && \
-    ./configure --prefix=/usr/local/erlang-#{node[:erlang][:version]} && \
+    cd /tmp/otp_src_#{version} && \
+    ./configure --prefix=#{target} && \
     make && make install
   CMD
-  not_if "test -d /usr/local/erlang-#{node[:erlang][:version]}"
+  not_if "test -d #{target}"
 end
 
-template "/etc/profile.d/erlangrc.sh" do
-  action :create
-  source "erlang/templates/erlangrc.erb"
-  mode "0644"
-  variables(version: node[:erlang][:version])
+execute "Install to #{profile}" do
+  command <<-CMD
+    echo PATH=#{target}/bin:#{'\$PATH'} > #{profile}
+  CMD
+  not_if "test -f #{profile}"
 end

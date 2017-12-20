@@ -1,20 +1,29 @@
-http_request "/tmp/go#{node[:golang][:version]}.linux-amd64.tar.gz" do
-  url "https://storage.googleapis.com/golang/go#{node[:golang][:version]}.linux-amd64.tar.gz"
-  not_if "test -d /usr/local/go-#{node[:golang][:version]}"
+version = node[:golang][:version]
+
+archive = "go#{version}.linux-amd64.tar.gz"
+url     = "https://storage.googleapis.com/golang/#{archive}"
+
+target  = "/usr/local/go-#{version}"
+profile = "/etc/profile.d/golangrc.sh"
+
+http_request "/tmp/#{archive}" do
+  url url
+  not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Install Go #{node[:golang][:version]}" do
+execute "Install to #{target}" do
   command <<-CMD
-    cd /tmp && \
-    tar xzf go#{node[:golang][:version]}.linux-amd64.tar.gz && \
-    mv go /usr/local/go-#{node[:golang][:version]}
+    tar xzf /tmp/#{archive} -C /tmp && \
+    mv /tmp/go #{target}
   CMD
-  not_if "test -d /usr/local/go-#{node[:golang][:version]}"
+  not_if "test -d #{target}"
 end
 
-template "/etc/profile.d/golangrc.sh" do
-  action :create
-  source "golang/templates/golangrc.erb"
-  mode "0644"
-  variables(version: node[:golang][:version])
+
+execute "Install to #{profile}" do
+  command <<-CMD
+    echo 'export GOROOT=/usr/local/go-#{version}' > #{profile}
+    echo PATH=#{target}/bin:#{'\$PATH'} >> #{profile}
+  CMD
+  not_if "test -f #{profile}"
 end

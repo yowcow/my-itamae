@@ -5,31 +5,38 @@
   package pkg
 end
 
-http_request "/tmp/tmux-#{node[:tmux][:version]}.tar.gz" do
-  url "https://github.com/tmux/tmux/releases/download/#{node[:tmux][:version]}/tmux-#{node[:tmux][:version]}.tar.gz"
-  not_if "test -d /usr/local/tmux-#{node[:tmux][:version]}"
+version = node[:tmux][:version]
+
+archive = "tmux-#{version}.tar.gz"
+url     = "https://github.com/tmux/tmux/releases/download/#{version}/#{archive}"
+
+target  = "/usr/local/tmux-#{version}"
+profile = "/etc/profile.d/tmux.sh"
+
+http_request "/tmp/#{archive}" do
+  url url
+  not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Unarchive tmux-#{node[:tmux][:version]}.tar.gz" do
+execute "Unarchive #{archive}" do
   command <<-CMD
-    cd /tmp && \
-    tar zxf tmux-#{node[:tmux][:version]}.tar.gz
+    tar zxf /tmp/#{archive} -C /tmp
   CMD
-  not_if "test -d /usr/local/tmux-#{node[:tmux][:version]}"
+  not_if "test -d #{target}"
 end
 
-execute "Make and install tmux-#{node[:tmux][:version]}" do
+execute "Install to #{target}" do
   command <<-CMD
-    cd /tmp/tmux-#{node[:tmux][:version]} && \
-    ./configure --prefix /usr/local/tmux-#{node[:tmux][:version]} && \
+    cd /tmp/tmux-#{version} && \
+    ./configure --prefix #{target} && \
     make && make install
   CMD
-  not_if "test -d /usr/local/tmux-#{node[:tmux][:version]}"
+  not_if "test -d #{target}"
 end
 
-template "/etc/profile.d/tmux.sh" do
-  action :create
-  source "tmux/templates/tmux.erb"
-  mode "0644"
-  variables(version: node[:tmux][:version])
+execute "Install #{profile}" do
+  command <<-CMD
+    echo PATH=#{target}/bin:#{'\$PATH'} > #{profile}
+  CMD
+  not_if "test -f #{profile}"
 end
