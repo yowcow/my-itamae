@@ -1,12 +1,12 @@
 My Itamae
 =========
 
-My configuration management for Ubuntu 16.04.
+My configuration management for Ubuntu 16.04 LTS, and 17.10.
 
 PREREQUISITE
 ------------
 
-If I need to build `nodes/common.json`, and Go environment is **not** ready,
+If I need to build `nodes/*.json`, and Go environment is **not** ready,
 have [vim-ver](https://github.com/yowcow/vim-ver/releases) (v1.0.0 or later) executable somewhere in `$PATH`.
 
 HOW TO USE
@@ -21,15 +21,15 @@ make
 and
 
 ```
-make roles/sakura
-make roles/vagrant
-make roles/galago
+make roles/sakura   # my server
+make roles/vagrant  # my box
+make roles/galago   # my laptop
 ```
 
 HOW TO UPDATE
 -------------
 
-To update `nodes/common.json`, do:
+To update `nodes/*.json`, do:
 
 ```
 make clean && make
