@@ -7,6 +7,7 @@ end
 
 execute "Add GPG key" do
   command <<-CMD
+    curl -sS http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | apt-key add -
     curl -sS http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc | apt-key add -
   CMD
 end
