@@ -1,6 +1,23 @@
 {
-  "ubuntu": {
-    "release": "artful"
+  "apt": {
+    "galago": [
+      "docker",
+      "git",
+      "virtualbox",
+      "yarn"
+    ],
+    "vagrant": [
+      "docker",
+      "git",
+      "mackerel",
+      "yarn"
+    ],
+    "sakura": [
+      "docker",
+      "git",
+      "mackerel",
+      "yarn"
+    ]
   },
   "erlang": {
     "version": "19.3"
@@ -27,6 +44,9 @@
     "version": "8.0.1427"
   },
   "nginx": {
+    "galago": {
+      "vh": []
+    },
     "vagrant": {
       "vh": [
         { "server_name": "yowcow.local", "listen": 80 }

@@ -2,7 +2,7 @@ template "/etc/apt/sources.list.d/virtualbox.list" do
   action :create
   source "templates/sources.list.d/virtualbox.list.erb"
   mode "0644"
-  variables(lsb_release: node[:ubuntu][:release])
+  variables(lsb_release: $LSB_RELEASE)
 end
 
 execute "Add GPG key" do

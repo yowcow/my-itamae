@@ -1,3 +1,5 @@
+$LSB_RELEASE = `cat /etc/lsb-release | grep CODENAME | cut -d "=" -f 2 | tr -d "\n"`
+
 include_recipe "../cookbooks/apt.rb"
 include_recipe "../cookbooks/common/essential.rb"
 include_recipe "../cookbooks/common/development.rb"
