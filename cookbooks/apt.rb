@@ -12,11 +12,9 @@ execute "Modify source country to 'jp'" do
   CMD
 end
 
-include_recipe "apt/docker.rb"
-include_recipe "apt/git.rb"
-include_recipe "apt/mackerel.rb"
-include_recipe "apt/virtualbox.rb"
-include_recipe "apt/yarn.rb"
+node[:apt][ENV["ENVNAME"]].each do |repo|
+  include_recipe "apt/#{repo}.rb"
+end
 
 execute "Update apt" do
   command <<-CMD
