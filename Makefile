@@ -3,15 +3,15 @@
 ENVS = sakura vagrant
 COMMON = nodes/common.json
 
-all: Gemfile.lock .vim-ver $(COMMON)
+all: Gemfile.lock .vimver $(COMMON)
 
-.vim-ver:
-	which vim-ver || go get github.com/yowcow/vim-ver
-	vim-ver HEAD > $@
+.vimver:
+	which vimver || go get github.com/yowcow/vimver
+	vimver HEAD > $@
 
 $(COMMON): $(COMMON).tmpl
 	cat $< \
-		| sed 's/%%VIMVER%%/$(shell cat .vim-ver)/' \
+		| sed 's/%%VIMVER%%/$(shell cat .vimver)/' \
 		> $@
 
 Gemfile.lock: Gemfile
@@ -23,7 +23,7 @@ roles/%: $(COMMON)
 	roles/$*.rb
 
 clean:
-	rm -rf .vim-ver $(COMMON)
+	rm -rf .vimver $(COMMON)
 
 realclean: clean
 	rm -rf Gemfile.lock vendor

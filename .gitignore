@@ -1,5 +1,5 @@
 /.bundle
-/.vim-ver
+/.vimver
 /Gemfile.lock
 /vendor
 *.swp*
