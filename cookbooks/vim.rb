@@ -42,5 +42,4 @@ execute "Install to #{profile}" do
   command <<-CMD
     echo PATH=#{target}/bin:#{'\$PATH'} > #{profile}
   CMD
-  not_if "test -f #{profile}"
 end
