@@ -7,9 +7,9 @@ include_recipe "../cookbooks/vagrant.rb"
 include_recipe "../cookbooks/virtualbox.rb"
 
 %w{
-  ubuntu-restricted-extras
-  libav-tools
   ffmpeg
+  libav-tools
+  ubuntu-restricted-extras
 }.each do |pkg|
   package pkg
 end
