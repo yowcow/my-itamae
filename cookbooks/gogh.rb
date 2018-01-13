@@ -1,5 +1,3 @@
-package "dconf-cli"
-
 # https://github.com/Mayccoll/Gogh
 execute "install gogh" do
   command <<-CMD

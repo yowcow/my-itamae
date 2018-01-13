@@ -8,6 +8,8 @@ include_recipe "../cookbooks/vagrant.rb"
 include_recipe "../cookbooks/virtualbox.rb"
 
 %w{
+  dconf-cli
+  dconf-editor
   ffmpeg
   libav-tools
   ubuntu-restricted-extras
