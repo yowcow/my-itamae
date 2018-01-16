@@ -12,7 +12,9 @@ include_recipe "../cookbooks/virtualbox.rb"
   dconf-editor
   ffmpeg
   libav-tools
+  libfreetype6-dev
   ubuntu-restricted-extras
+  weechat
 }.each do |pkg|
   package pkg
 end
