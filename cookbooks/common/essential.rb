@@ -1,6 +1,7 @@
 %w{
   build-essential
   clang
+  cmake
   cronolog
   curl
   finger
@@ -18,10 +19,4 @@
   package pkg do
     action :install
   end
-end
-
-execute "set /etc/timezone" do
-  command <<-CMD
-    echo "Asia/Tokyo" > /etc/timezone
-  CMD
 end

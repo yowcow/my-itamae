@@ -11,7 +11,7 @@ archive = "tmux-#{version}.tar.gz"
 url     = "https://github.com/tmux/tmux/releases/download/#{version}/#{archive}"
 
 target  = "/usr/local/tmux-#{version}"
-profile = "/etc/profile.d/tmux.sh"
+profile = "/usr/local/etc/profile.d/tmux.sh"
 
 http_request "/tmp/#{archive}" do
   url url

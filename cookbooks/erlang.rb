@@ -4,7 +4,7 @@ archive = "otp_src_#{version}.tar.gz"
 url     = "http://erlang.org/download/otp_src_#{version}.tar.gz"
 
 target  = "/usr/local/erlang-#{version}"
-profile = "/etc/profile.d/erlangrc.sh"
+profile = "/usr/local/etc/profile.d/erlangrc.sh"
 
 http_request "/tmp/#{archive}" do
   url url

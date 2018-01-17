@@ -4,7 +4,7 @@ archive = "protoc-#{version}-linux-x86_64.zip"
 url     = "https://github.com/google/protobuf/releases/download/v#{version}/#{archive}"
 
 target  = "/usr/local/protobuf-#{version}"
-profile = "/etc/profile.d/protobuf.sh"
+profile = "/usr/local/etc/profile.d/protobuf.sh"
 
 http_request "/tmp/#{archive}" do
   url url

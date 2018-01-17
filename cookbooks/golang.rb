@@ -4,7 +4,7 @@ archive = "go#{version}.linux-amd64.tar.gz"
 url     = "https://storage.googleapis.com/golang/#{archive}"
 
 target  = "/usr/local/go-#{version}"
-profile = "/etc/profile.d/golangrc.sh"
+profile = "/usr/local/etc/profile.d/golangrc.sh"
 
 http_request "/tmp/#{archive}" do
   url url
@@ -18,7 +18,6 @@ execute "Install to #{target}" do
   CMD
   not_if "test -d #{target}"
 end
-
 
 execute "Install to #{profile}" do
   command <<-CMD
