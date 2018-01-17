@@ -4,7 +4,7 @@ archive = "node-#{version}-linux-x64.tar.xz"
 url     = "https://nodejs.org/dist/#{version}/#{archive}"
 
 target  = "/usr/local/node-#{version}-linux-x64"
-profile = "/etc/profile.d/nodejsrc.sh"
+profile = "/usr/local/etc/profile.d/nodejsrc.sh"
 
 http_request "/tmp/#{archive}" do
   url url

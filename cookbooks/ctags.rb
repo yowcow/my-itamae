@@ -4,7 +4,7 @@ archive = "ctags-#{version}.tar.gz"
 url     = "http://prdownloads.sourceforge.net/ctags/#{archive}"
 
 target  = "/usr/local/ctags-#{version}"
-profile = "/etc/profile.d/ctags.sh"
+profile = "/usr/local/etc/profile.d/ctags.sh"
 
 http_request "/tmp/#{archive}" do
   url url

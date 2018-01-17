@@ -4,7 +4,7 @@ archive = "perl-#{version}.tar.gz"
 url     = "http://www.cpan.org/src/5.0/#{archive}"
 
 target  = "/usr/local/perl-#{version}"
-profile = "/etc/profile.d/perlrc.sh"
+profile = "/usr/local/etc/profile.d/perlrc.sh"
 
 http_request "/tmp/#{archive}" do
   url url

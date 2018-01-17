@@ -8,7 +8,7 @@ archive = "vim-#{version}.tar.gz"
 url     = "https://github.com/vim/vim/archive/v#{version}.tar.gz"
 
 target  = "/usr/local/vim-#{node[:vim][:version]}"
-profile = "/etc/profile.d/vim.sh"
+profile = "/usr/local/etc/profile.d/vim.sh"
 
 http_request "/tmp/#{archive}" do
   url url
