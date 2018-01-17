@@ -3,7 +3,7 @@
   gnutls-bin
   libcurl4-gnutls-dev
   libgcrypt-dev
-  libgnutls-dev
+  libgnutls28-dev
   libncursesw5-dev
   zlib1g-dev
 }.each do |pkg|

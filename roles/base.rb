@@ -1,5 +1,9 @@
 $LSB_RELEASE = `cat /etc/lsb-release | grep CODENAME | cut -d "=" -f 2 | tr -d "\n"`
 
+directory "/usr/local/etc/profile.d" do
+  action :create
+end
+
 include_recipe "../cookbooks/apt.rb"
 include_recipe "../cookbooks/common/essential.rb"
 include_recipe "../cookbooks/common/development.rb"
