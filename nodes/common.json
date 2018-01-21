@@ -58,6 +58,9 @@
   "protobuf": {
     "version": "3.5.0"
   },
+  "rkt": {
+    "version": "1.29.0"
+  },
   "tmux": {
     "version": "2.6"
   },
