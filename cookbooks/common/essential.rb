@@ -12,6 +12,7 @@
   libssl-dev
   linux-headers-generic
   linux-image-generic
+  mysql-client
   pkg-config
   software-properties-common
   tzdata
