@@ -24,14 +24,14 @@
   },
   "docker": {
     "compose": {
-      "version": "1.18.0"
+      "version": "1.19.0"
     }
   },
   "erlang": {
     "version": "19.3"
   },
   "golang": {
-    "version": "1.9.3"
+    "version": "1.9.4"
   },
   "mysql": {
     "character-set": "utf8mb4"
