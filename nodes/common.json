@@ -31,7 +31,7 @@
     "version": "19.3"
   },
   "golang": {
-    "version": "1.9.4"
+    "version": "1.10"
   },
   "mysql": {
     "character-set": "utf8mb4"
