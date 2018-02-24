@@ -1,15 +1,14 @@
-sourceurl  = "https://github.com/RedHatBrand/Overpass/releases/download/3.0.2/overpass-desktop-fonts.zip"
-targetfile = "/usr/local/share/fonts/overpass-desktop-fonts.zip"
+version    = node[:font][:overpass][:version]
+sourceurl  = "https://github.com/RedHatBrand/Overpass/releases/download/#{version}/overpass-desktop-fonts.zip"
+targetfile = "/usr/local/share/fonts/overpass-desktop-fonts-v#{version}.zip"
 targetdir  = "/usr/local/share/fonts/overpass-desktop-fonts"
 
-execute "Download zip" do
-  command <<-CMD
-    curl -L #{sourceurl} -o #{targetfile}
-  CMD
+http_request targetfile do
+  url sourceurl
   not_if "test -e #{targetfile}"
 end
 
-execute "Unzip" do
+execute "Unarchive #{targetfile} to #{targetdir}" do
   command <<-CMD
     unzip #{targetfile} -d #{targetdir}
   CMD

@@ -30,6 +30,21 @@
   "erlang": {
     "version": "19.3"
   },
+  "font": {
+    "fira": {
+      "version": "4.106"
+    },
+    "hack": {
+      "version": "3.002"
+    },
+    "overpass": {
+      "version": "3.0.2"
+    },
+    "source-code-pro": {
+      "ro-version": "2.030R",
+      "it-version": "1.050R"
+    }
+  },
   "golang": {
     "version": "1.10"
   },

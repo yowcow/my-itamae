@@ -1,15 +1,14 @@
-sourceurl  = "https://github.com/source-foundry/Hack/releases/download/v3.000/Hack-v3.000-ttf.zip"
-targetfile = "/usr/local/share/fonts/Hack-v3.000-ttf.zip"
+version = node[:font][:hack][:version]
+sourceurl  = "https://github.com/source-foundry/Hack/releases/download/v#{version}/Hack-v#{version}-ttf.zip"
+targetfile = "/usr/local/share/fonts/Hack-v#{version}-ttf.zip"
 targetdir  = "/usr/local/share/fonts/Hack"
 
-execute "Download" do
-  command <<-CMD
-    curl -L #{sourceurl} -o #{targetfile}
-  CMD
+http_request targetfile do
+  url sourceurl
   not_if "test -e #{targetfile}"
 end
 
-execute "Unarchive" do
+execute "Unarchive #{targetfile} to #{targetdir}" do
   command <<-CMD
     unzip #{targetfile} -d #{targetdir}
   CMD
