@@ -1,7 +1,7 @@
 version = node[:font][:fira][:version]
 sourceurl  = "https://github.com/mozilla/Fira/archive/#{version}.tar.gz"
 targetfile = "/usr/local/share/fonts/fira-v#{version}.tar.gz"
-targetdir  = "/usr/local/share/fonts/fira"
+targetdir  = "/usr/local/share/fonts/fira-v#{version}"
 
 http_request targetfile do
   url sourceurl

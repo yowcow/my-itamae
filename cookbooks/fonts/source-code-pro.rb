@@ -2,7 +2,7 @@ ro_version  = node[:font]["source-code-pro"]["ro-version"]
 it_version  = node[:font]["source-code-pro"]["it-version"]
 sourceurl  = "https://github.com/adobe-fonts/source-code-pro/archive/#{ro_version}-ro/#{it_version}-it.tar.gz"
 targetfile = "/usr/local/share/fonts/source-code-pro-#{ro_version}-#{it_version}.tar.gz"
-targetdir  = "/usr/local/share/fonts/source-code-pro"
+targetdir  = "/usr/local/share/fonts/source-code-pro-#{ro_version}-#{it_version}"
 
 http_request targetfile do
   url sourceurl
