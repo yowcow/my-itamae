@@ -65,7 +65,7 @@
     }
   },
   "nodejs": {
-    "version": "v8.9.4"
+    "version": "v8.10.0"
   },
   "perl": {
     "version": "5.26.1"
