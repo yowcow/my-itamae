@@ -65,7 +65,7 @@
     }
   },
   "nodejs": {
-    "version": "v8.10.0"
+    "version": "v8.9.4"
   },
   "perl": {
     "version": "5.26.1"
@@ -86,7 +86,7 @@
     "version": "2.0.2"
   },
   "vim": {
-    "version": "8.0.1599"
+    "version": "8.0.1601"
   },
   "weechat": {
     "version": "2.0.1"
