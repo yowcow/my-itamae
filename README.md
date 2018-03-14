@@ -7,7 +7,7 @@ PREREQUISITE
 ------------
 
 If I need to build `nodes/*.json`, and Go environment is **not** ready,
-have [vim-ver](https://github.com/yowcow/vim-ver/releases) (v1.0.0 or later) executable somewhere in `$PATH`.
+have [ghr](https://github.com/yowcow/ghr/releases) (v2.0.0 or later) executable somewhere in `$PATH`.
 
 HOW TO USE
 ----------

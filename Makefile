@@ -6,8 +6,8 @@ COMMON = nodes/common.json
 all: Gemfile.lock .vimver $(COMMON)
 
 .vimver:
-	which vimver || go get github.com/yowcow/vimver
-	vimver HEAD > $@
+	which ghr || go get github.com/yowcow/ghr
+	ghr -repo vim/vim HEAD > $@
 
 $(COMMON): $(COMMON).tmpl
 	cat $< \
