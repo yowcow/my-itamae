@@ -3,12 +3,14 @@
     "galago": [
       "docker",
       "git",
+      "google-cloud-sdk",
       "virtualbox",
       "yarn"
     ],
     "vagrant": [
       "docker",
       "git",
+      "google-cloud-sdk",
       "mackerel",
       "yarn"
     ],
