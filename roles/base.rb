@@ -1,4 +1,4 @@
-$LSB_RELEASE = `cat /etc/lsb-release | grep CODENAME | cut -d "=" -f 2 | tr -d "\n"`
+$LSB_RELEASE = `lsb_release -c -s | tr -d "\n"`
 
 directory "/usr/local/etc/profile.d" do
   action :create
