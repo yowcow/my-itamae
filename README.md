@@ -1,12 +1,12 @@
 My Itamae
 =========
 
-My configuration management for Ubuntu 16.04 LTS, and 17.10.
+Ubuntu configuration management for Ubuntu 16.04 LTS (Xenial), and 17.10 (Artful).
 
 PREREQUISITE
 ------------
 
-If I need to build `nodes/*.json`, and Go environment is **not** ready,
+If one needs to build `nodes/*.json`, and Go environment is **not** ready,
 have [ghr](https://github.com/yowcow/ghr/releases) (v2.0.0 or later) executable somewhere in `$PATH`.
 
 HOW TO USE
@@ -21,9 +21,9 @@ make
 and
 
 ```
-make roles/sakura   # my server
-make roles/vagrant  # my box
-make roles/galago   # my laptop
+sudo make roles/sakura   # my server
+sudo make roles/vagrant  # my box
+sudo make roles/galago   # my laptop
 ```
 
 HOW TO UPDATE
