@@ -3,12 +3,14 @@
     "galago": [
       "docker",
       "git",
+      "google-cloud-sdk",
       "virtualbox",
       "yarn"
     ],
     "vagrant": [
       "docker",
       "git",
+      "google-cloud-sdk",
       "mackerel",
       "yarn"
     ],
@@ -86,7 +88,7 @@
     "version": "2.0.2"
   },
   "vim": {
-    "version": "8.0.1601"
+    "version": "8.0.1614"
   },
   "weechat": {
     "version": "2.0.1"
