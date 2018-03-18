@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . /etc/environment && \
-    certbot-auto renew \
+    certbot-auto renew -n --max-log-backups 0 \
         1>/var/log/letsencrypt.log \
         2>/var/log/letsencrypt.err && \
     nginx -s reload
