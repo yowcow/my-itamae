@@ -1,6 +1,5 @@
 include_recipe "./ctags.rb"
 include_recipe "./lua.rb"
-include_recipe "./python.rb"
 
 version = node[:vim][:version]
 
