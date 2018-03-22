@@ -83,6 +83,9 @@
   "rkt": {
     "version": "1.29.0"
   },
+  "terraform": {
+    "version": "0.11.5"
+  },
   "tmux": {
     "version": "2.6"
   },
