@@ -1,4 +1,9 @@
-package "nginx"
+%w{
+  nginx
+  nginx-common
+}.each do |pkg|
+  package pkg
+end
 
 service "nginx" do
   action [:enable, :reload]
