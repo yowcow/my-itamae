@@ -10,9 +10,10 @@ end
 
 execute "Extract /tmp/#{archive}" do
   command <<-CMD
-    tar xzf /tmp/#{archive} -C /tmp
+    mkdir -p /tmp/helloworld-#{version}
+    tar xzf /tmp/#{archive} -C /tmp/helloworld-#{version}
   CMD
-  not_if "test -d #{targetdir} || test -f /tmp/helloworld"
+  not_if "test -d #{targetdir} || test -d /tmp/helloworld-#{version}"
 end
 
 directory targetdir do
@@ -25,7 +26,7 @@ end
 
 execute "Move helloworld to #{targetdir}/bin" do
   command <<-CMD
-    cp /tmp/helloworld #{targetdir}/bin/helloworld
+    cp /tmp/helloworld-#{version}/helloworld #{targetdir}/bin/helloworld
   CMD
   not_if "test -f #{targetdir}/bin/helloworld"
 end
