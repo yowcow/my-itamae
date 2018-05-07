@@ -51,7 +51,7 @@
     "version": "1.10.2"
   },
   "helloworld": {
-    "version": "v0.0.3"
+    "version": "v0.0.5"
   },
   "mysql": {
     "character-set": "utf8mb4"
