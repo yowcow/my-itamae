@@ -45,6 +45,7 @@ execute "Register helloworld to systemd" do
   command <<-CMD
     systemctl daemon-reload && \
     systemctl enable helloworld && \
+    systemctl stop helloworld && \
     systemctl start helloworld
   CMD
 end
