@@ -15,7 +15,6 @@ include_recipe "../cookbooks/weechat.rb"
   dconf-cli
   dconf-editor
   ffmpeg
-  libav-tools
   libfreetype6-dev
   ubuntu-restricted-extras
 }.each do |pkg|
