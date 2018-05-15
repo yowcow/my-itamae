@@ -29,7 +29,7 @@
       "version": "v2.0.4"
     },
     "compose": {
-      "version": "1.19.0"
+      "version": "1.21.2"
     }
   },
   "erlang": {
@@ -40,7 +40,7 @@
       "version": "4.202"
     },
     "hack": {
-      "version": "3.002"
+      "version": "3.003"
     },
     "overpass": {
       "version": "3.0.2"
@@ -76,11 +76,11 @@
     "version": "v8.11.1"
   },
   "perl": {
-    "version": "5.26.1"
+    "version": "5.26.2"
   },
   "php": {
     "composer": {
-      "version": "1.6.3"
+      "version": "1.6.5"
     }
   },
   "protobuf": {
@@ -99,7 +99,7 @@
     "version": "1.8.8"
   },
   "vagrant": {
-    "version": "2.0.2"
+    "version": "2.1.1"
   },
   "vim": {
     "version": "8.0.1842"
