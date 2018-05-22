@@ -7,6 +7,7 @@ include_recipe "../cookbooks/google-cloud-sdk.rb"
 include_recipe "../cookbooks/php.rb"
 include_recipe "../cookbooks/php/composer.rb"
 include_recipe "../cookbooks/rkt.rb"
+include_recipe "../cookbooks/snappy.rb"
 include_recipe "../cookbooks/weechat.rb"
 include_recipe "../cookbooks/helloworld.rb"
 
