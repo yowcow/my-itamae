@@ -1,5 +1,6 @@
 %w{
   build-essential
+  ca-certificates
   clang
   cmake
   cronolog

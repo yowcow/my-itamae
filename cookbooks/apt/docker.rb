@@ -1,11 +1,3 @@
-%w{
-  apt-transport-https
-  ca-certificates
-  software-properties-common
-}.each do |pkg|
-  package pkg
-end
-
 template "/etc/apt/sources.list.d/docker.list" do
   action :create
   source "templates/sources.list.d/docker.list.erb"

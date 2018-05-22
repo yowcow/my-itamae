@@ -1,3 +1,10 @@
+%w{
+  apt-file
+  apt-transport-https
+}.each do |pkg|
+  package pkg
+end
+
 execute "Copy original sources.list" do
   command <<-CMD
     cp /etc/apt/sources.list /etc/apt/sources.list.old
