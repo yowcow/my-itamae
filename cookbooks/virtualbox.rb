@@ -1,1 +1,1 @@
-package 'virtualbox-5.2'
+package 'virtualbox'
