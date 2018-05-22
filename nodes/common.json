@@ -1,20 +1,17 @@
 {
   "apt": {
     "galago": [
-      "docker",
       "git",
       "google-cloud-sdk",
       "yarn"
     ],
     "vagrant": [
-      "docker",
       "git",
       "google-cloud-sdk",
       "mackerel",
       "yarn"
     ],
     "sakura": [
-      "docker",
       "git",
       "mackerel",
       "yarn"
@@ -87,6 +84,7 @@
   },
   "snappy": [
     { "snap": "aws-cli", "classic": true },
+    { "snap": "docker" },
     { "snap": "gotop" },
     { "snap": "hello-world" },
     { "snap": "slack", "classic": true }
