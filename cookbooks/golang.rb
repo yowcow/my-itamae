@@ -19,9 +19,10 @@ execute "Install to #{target}" do
   not_if "test -d #{target}"
 end
 
-execute "Install to #{profile}" do
-  command <<-CMD
-    echo 'export GOROOT=/usr/local/go-#{version}' > #{profile}
-    echo PATH=#{target}/bin:#{'\$PATH'} >> #{profile}
-  CMD
+file profile do
+  content <<-CONTENT
+export GOROOT=#{target}
+PATH=#{target}/bin:$PATH
+  CONTENT
+  mode "0644"
 end
