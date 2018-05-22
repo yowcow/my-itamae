@@ -1,6 +1,5 @@
 %w{
   apache2-utils
-  apt-file
   jq
   mysql-client
   mysql-common
