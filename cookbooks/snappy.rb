@@ -1,3 +1,5 @@
+package 'snapd'
+
 node[:snappy].each do |s|
   cmd = ['snap', 'install', s[:snap]]
   cmd << '--classic' if s[:classic]
@@ -15,7 +17,7 @@ PATH=/snap/bin:$PATH
   mode "0644"
 end
 
-execute "Refresh all snaps" do
+execute 'Refresh all snaps' do
   command <<-CMD
     snap refresh
   CMD
