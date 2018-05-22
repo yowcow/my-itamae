@@ -1,5 +1,6 @@
 include_recipe "./ctags.rb"
 include_recipe "./lua.rb"
+include_recipe "./python.rb"
 
 version = node[:vim][:version]
 
@@ -28,10 +29,13 @@ execute "Install to #{target}" do
       --prefix=#{target} \
       --enable-fail-if-missing \
       --enable-luainterp \
-      --enable-multibyte \
-      --enable-pythoninterp \
-      --enable-terminal \
       --with-lua-prefix=/usr/local \
+      --enable-multibyte \
+      --enable-pythoninterp=dynamic \
+      --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+      --enable-python3interp=dynamic \
+      --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
+      --enable-terminal \
     && make && make install
   CMD
   not_if "test -d #{target}"

@@ -1,7 +1,7 @@
 My Itamae
 =========
 
-Ubuntu configuration management for Ubuntu 16.04 LTS (Xenial), and 17.10 (Artful).
+Ubuntu configuration management for Ubuntu 18.04 LTS (Bionic).
 
 PREREQUISITE
 ------------
