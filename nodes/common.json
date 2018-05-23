@@ -52,6 +52,9 @@
   "golang": {
     "version": "1.10.2"
   },
+  "gotop": {
+    "version": "1.3.0"
+  },
   "helloworld": {
     "version": "v0.0.5"
   },
