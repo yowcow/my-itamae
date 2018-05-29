@@ -15,4 +15,19 @@ execute "add vagrant user to docker group" do
   command <<-CMD
     usermod -a -G docker vagrant
   CMD
+  not_if "cat /etc/group | grep docker | grep vagrant"
+end
+
+execute "add yowcow user" do
+  command <<-CMD
+    useradd \
+      --groups sudo,docker \
+      --uid 1001 \
+      --home-dir /home/yowcow \
+      --create-home \
+      --user-group \
+      --shell /usr/bin/zsh \
+      yowcow
+  CMD
+  not_if "cat /etc/passwd | grep yowcow"
 end
