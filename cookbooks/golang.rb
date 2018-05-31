@@ -22,7 +22,8 @@ end
 file profile do
   content <<-CONTENT
 export GOROOT=#{target}
-PATH=#{target}/bin:$PATH
+export GOPATH=$HOME/go
+PATH=$GOPATH/bin:$GOROOT/bin:$PATH
   CONTENT
   mode "0644"
 end
