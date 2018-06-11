@@ -41,7 +41,7 @@ execute "Install cpanm" do
   CMD
 end
 
-execute "Install Carton, Perl::Tidy, Minilla" do
+execute "Install mandatory modules" do
   command <<-CMD
     . #{profile}
     cpanm Carton IO::Socket::SSL Perl::Tidy Minilla
