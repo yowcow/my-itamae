@@ -44,6 +44,6 @@ end
 execute "Install Carton, Perl::Tidy, Minilla" do
   command <<-CMD
     . #{profile}
-    cpanm Carton Perl::Tidy Minilla
+    cpanm Carton IO::Socket::SSL Perl::Tidy Minilla
   CMD
 end

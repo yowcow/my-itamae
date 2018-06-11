@@ -1,3 +1,12 @@
+%w{
+  libgrpc-dev
+  libprotobuf-dev
+  libprotoc-dev
+  protobuf-compiler
+}.each do |pkg|
+  package pkg
+end
+
 version = node[:protobuf][:version]
 
 archive = "protoc-#{version}-linux-x86_64.zip"
