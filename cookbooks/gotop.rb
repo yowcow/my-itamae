@@ -22,4 +22,5 @@ end
 
 link "/usr/local/bin/gotop" do
   to "#{targetdir}/gotop"
+  force true
 end
