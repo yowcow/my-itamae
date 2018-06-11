@@ -16,6 +16,7 @@ execute "Install to #{target}" do
     cd /tmp && \
     tar xf #{archive} && \
     mv node-#{version}-linux-x64 /usr/local
+    chown -R root:root #{target}
   CMD
   not_if "test -d #{target}"
 end
