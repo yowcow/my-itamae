@@ -1,4 +1,9 @@
-package "libc-ares-dev"
+%w{
+  libc-ares-dev
+  pkg-config
+}.each do |pkg|
+  package pkg
+end
 
 version = node[:grpc][:version]
 
