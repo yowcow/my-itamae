@@ -55,6 +55,9 @@
   "gotop": {
     "version": "1.4.0"
   },
+  "grpc": {
+    "version": "1.12.0"
+  },
   "helloworld": {
     "version": "v0.0.5"
   },

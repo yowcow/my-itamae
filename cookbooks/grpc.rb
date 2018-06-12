@@ -1,9 +1,9 @@
-version = node[:protobuf][:version]
+version = node[:grpc][:version]
 
-archive = "protobuf-cpp-#{version}.tar.gz"
-url     = "https://github.com/google/protobuf/releases/download/v#{version}/#{archive}"
+archive = "grpc-#{version}.tar.gz"
+url     = "https://github.com/grpc/grpc/archive/v#{version}.tar.gz"
 target  = "/usr/local"
-version_file = "#{target}/src/protobuf-version"
+version_file = "#{target}/src/grpc-version"
 
 current_version = `[ -f #{version_file} ] && (cat #{version_file} | tr -d '\n')`
 
@@ -17,13 +17,13 @@ if current_version != version then
     command <<-CMD
       cd /tmp && tar xzf #{archive}
     CMD
-    not_if "test -d /tmp/protobuf-#{version}"
+    not_if "test -d /tmp/grpc-#{version}"
   end
 
   execute "Install to #{target}" do
     command <<-CMD
-      cd /tmp/protobuf-#{version} && \
-      ./configure --prefix=#{target} && make && make install
+      cd /tmp/grpc-#{version} && \
+      make && make install prefix=#{target}
     CMD
   end
 
