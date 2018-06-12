@@ -1,3 +1,5 @@
+package "libc-ares-dev"
+
 version = node[:grpc][:version]
 
 archive = "grpc-#{version}.tar.gz"
