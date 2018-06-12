@@ -1,3 +1,12 @@
+%w{
+  autoconf
+  automake
+  libtool
+  unzip
+}.each do |pkg|
+  package pkg
+end
+
 version = node[:protobuf][:version]
 
 archive = "protobuf-cpp-#{version}.tar.gz"

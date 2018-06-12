@@ -1,5 +1,7 @@
 %w{
+  autoconf
   libc-ares-dev
+  libtool
   pkg-config
 }.each do |pkg|
   package pkg

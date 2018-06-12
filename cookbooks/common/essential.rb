@@ -9,6 +9,7 @@
   curl
   finger
   gawk
+  g++
   libdb-dev
   libevent-dev
   libicu-dev
