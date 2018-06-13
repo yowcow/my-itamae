@@ -17,6 +17,7 @@
   libtool
   linux-headers-generic
   linux-image-generic
+  netbase
   pkg-config
   software-properties-common
   traceroute
