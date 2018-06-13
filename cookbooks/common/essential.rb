@@ -19,6 +19,7 @@
   linux-image-generic
   pkg-config
   software-properties-common
+  traceroute
   tzdata
   unzip
 }.each do |pkg|
