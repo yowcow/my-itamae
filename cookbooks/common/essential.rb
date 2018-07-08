@@ -18,6 +18,7 @@
   linux-headers-generic
   linux-image-generic
   netbase
+  nghttp2-client
   pkg-config
   software-properties-common
   traceroute
