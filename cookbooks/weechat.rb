@@ -1,8 +1,12 @@
+#
+# libgcryptXX-dev may be changed in the future ubuntu.
+# See `apt-cache showpkg libgcrypt-dev` for details.
+#
 %w{
   ca-certificates
   gnutls-bin
   libcurl4-gnutls-dev
-  libgcrypt-dev
+  libgcrypt20-dev
   libgnutls28-dev
   libncursesw5-dev
   zlib1g-dev
