@@ -8,6 +8,7 @@
       "yarn"
     ],
     "vagrant": [
+      "certbot",
       "docker",
       "git",
       "google-cloud-sdk",
@@ -15,6 +16,7 @@
       "yarn"
     ],
     "sakura": [
+      "certbot",
       "git",
       "mackerel",
       "yarn"
