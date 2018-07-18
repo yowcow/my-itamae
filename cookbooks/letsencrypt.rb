@@ -1,18 +1,13 @@
-execute "Install certbot-auto" do
-  command <<-CMD
-    curl -L https://dl.eff.org/certbot-auto -o /usr/local/bin/certbot-auto
-    chmod 775 /usr/local/bin/certbot-auto
-  CMD
-end
+package 'certbot'
 
-template "/etc/cron.daily/letsencrypt" do
-  action :create
-  source "letsencrypt/templates/crontab/letsencrypt.erb"
-  mode "0775"
-end
-
-template "/etc/logrotate.d/letsencrypt" do
-  action :create
-  source "letsencrypt/templates/logrotate/letsencrypt.erb"
-  mode "0644"
-end
+#template "/etc/cron.daily/letsencrypt" do
+#  action :create
+#  source "letsencrypt/templates/crontab/letsencrypt.erb"
+#  mode "0775"
+#end
+#
+#template "/etc/logrotate.d/letsencrypt" do
+#  action :create
+#  source "letsencrypt/templates/logrotate/letsencrypt.erb"
+#  mode "0644"
+#end
