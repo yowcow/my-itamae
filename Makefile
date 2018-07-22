@@ -3,15 +3,29 @@
 ENVS = sakura vagrant
 COMMON = nodes/common.json
 
-all: Gemfile.lock .vimver $(COMMON)
+CURRENT_VIM = .current-vim
+CURRENT_NVIM = .current-nvim
 
-.vimver:
+all: Gemfile.lock ghr $(CURRENT_VIM) $(CURRENT_NVIM) $(COMMON)
+
+ghr:
 	which ghr || go get github.com/yowcow/ghr
-	ghr -repo vim/vim HEAD > $@
+
+$(CURRENT_VIM):
+	ghr -repo vim/vim HEAD | sed -e 's/^v//' > $@
+
+$(CURRENT_NVIM):
+	head=$$(ghr -repo neovim/neovim HEAD) && \
+	if [ "$$head" = "nightly" ]; then \
+		ghr -repo neovim/neovim HEAD^ > $@; \
+	else \
+		echo $$head > $@; \
+	fi
 
 $(COMMON): $(COMMON).tmpl
 	cat $< \
-		| sed 's/%%VIMVER%%/$(shell cat .vimver)/' \
+		| sed -e 's/%%VIM_VERSION%%/$(shell cat $(CURRENT_VIM))/' \
+		| sed -e 's/%%NVIM_VERSION%%/$(shell cat $(CURRENT_NVIM))/' \
 		> $@
 
 Gemfile.lock: Gemfile
@@ -23,7 +37,7 @@ roles/%: $(COMMON)
 	roles/$*.rb
 
 clean:
-	rm -rf .vimver $(COMMON)
+	rm -rf $(CURRENT_VIM) $(CURRENT_NVIM) $(COMMON)
 
 realclean: clean
 	rm -rf Gemfile.lock vendor
