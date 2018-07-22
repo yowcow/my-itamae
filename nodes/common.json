@@ -66,6 +66,9 @@
   "mysql": {
     "character-set": "utf8mb4"
   },
+  "neovim": {
+    "version": "v0.3.1"
+  },
   "nginx": {
     "galago": {
       "vh": []
@@ -108,7 +111,7 @@
     "version": "1.8.8"
   },
   "vim": {
-    "version": "8.1.0202"
+    "version": "8.1.0203"
   },
   "weechat": {
     "version": "2.1"
