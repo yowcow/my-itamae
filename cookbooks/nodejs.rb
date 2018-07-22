@@ -29,6 +29,7 @@ PATH=#{target}/bin:$PATH
 end
 
 %w{
+  neovim
   npm
   npm-check-updates
 }.each do |mod|
