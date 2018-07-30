@@ -21,6 +21,7 @@
   nghttp2-client
   pkg-config
   software-properties-common
+  tmpreaper
   traceroute
   tzdata
   unzip
