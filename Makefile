@@ -31,9 +31,9 @@ $(COMMON): $(COMMON).tmpl
 Gemfile.lock: Gemfile
 	bundle install --path vendor/bundle
 
-roles/%: $(COMMON)
+roles/%:
 	ENVNAME=$* bundle exec -- \
-	itamae local --node-json=$< \
+	itamae local --node-json=$(COMMON) \
 	roles/$*.rb
 
 clean:
