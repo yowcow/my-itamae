@@ -22,7 +22,7 @@ $(CURRENT_NVIM):
 		echo $$head > $@; \
 	fi
 
-$(COMMON): $(COMMON).tmpl
+$(COMMON): $(COMMON).tmpl.json
 	cat $< \
 		| sed -e 's/%%VIM_VERSION%%/$(shell cat $(CURRENT_VIM))/' \
 		| sed -e 's/%%NVIM_VERSION%%/$(shell cat $(CURRENT_NVIM))/' \
