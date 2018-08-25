@@ -52,7 +52,7 @@
     }
   },
   "golang": {
-    "version": "1.10.3"
+    "version": "1.11"
   },
   "gotop": {
     "version": "1.4.2"
