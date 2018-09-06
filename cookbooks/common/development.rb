@@ -1,5 +1,6 @@
 %w{
   apache2-utils
+  dstat
   jq
   mysql-client
   mysql-common
