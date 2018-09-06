@@ -24,6 +24,9 @@
       "yarn"
     ]
   },
+  "alp": {
+    "version": "0.3.1"
+  },
   "ctags": {
     "version": "5.8"
   },
@@ -116,7 +119,7 @@
     "version": "1.8.8"
   },
   "vim": {
-    "version": "8.1.0348"
+    "version": "8.1.0349"
   },
   "weechat": {
     "version": "2.2"
