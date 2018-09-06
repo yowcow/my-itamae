@@ -8,6 +8,7 @@ include_recipe "../cookbooks/php.rb"
 include_recipe "../cookbooks/php/composer.rb"
 include_recipe "../cookbooks/protobuf.rb"
 include_recipe "../cookbooks/grpc.rb" # depends on protobuf
+include_recipe "../cookbooks/percona.rb"
 include_recipe "../cookbooks/rkt.rb"
 include_recipe "../cookbooks/snappy.rb"
 include_recipe "../cookbooks/weechat.rb"

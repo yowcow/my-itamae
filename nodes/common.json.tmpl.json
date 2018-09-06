@@ -4,6 +4,7 @@
       "docker",
       "git",
       "google-cloud-sdk",
+      "percona",
       "system76",
       "yarn"
     ],
@@ -13,6 +14,7 @@
       "git",
       "google-cloud-sdk",
       "mackerel",
+      "percona",
       "yarn"
     ],
     "sakura": [
