@@ -9,14 +9,14 @@
   package pkg
 end
 
-execute "pip install neovim" do
+execute "pip install" do
   command <<-CMD
     pip install neovim
   CMD
 end
 
-execute "pip3 install neovim" do
+execute "pip3 install" do
   command <<-CMD
-    pip3 install neovim
+    pip3 install neovim glances
   CMD
 end
