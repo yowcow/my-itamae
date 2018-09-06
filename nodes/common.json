@@ -54,6 +54,9 @@
   "golang": {
     "version": "1.10.4"
   },
+  "goreplay": {
+    "version": "0.16.1"
+  },
   "gotop": {
     "version": "1.4.2"
   },
