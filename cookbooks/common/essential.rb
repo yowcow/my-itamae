@@ -10,6 +10,7 @@
   finger
   gawk
   g++
+  htop
   libdb-dev
   libevent-dev
   libicu-dev
@@ -17,6 +18,7 @@
   libtool
   linux-headers-generic
   linux-image-generic
+  linux-tools-generic
   netbase
   nghttp2-client
   pkg-config
