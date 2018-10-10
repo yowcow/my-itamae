@@ -11,12 +11,12 @@ end
 
 execute "pip install" do
   command <<-CMD
-    pip install neovim
+    pip install --upgrade neovim
   CMD
 end
 
 execute "pip3 install" do
   command <<-CMD
-    pip3 install neovim glances
+    pip3 install --upgrade neovim glances
   CMD
 end
