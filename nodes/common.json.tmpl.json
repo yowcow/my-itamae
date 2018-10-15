@@ -63,10 +63,10 @@
     "version": "0.16.1"
   },
   "gotop": {
-    "version": "1.4.2"
+    "version": "1.5.0"
   },
   "grpc": {
-    "version": "1.14.1"
+    "version": "1.15.1"
   },
   "helloworld": {
     "version": "v0.0.5"
@@ -91,7 +91,7 @@
     }
   },
   "nodejs": {
-    "version": "v8.11.4"
+    "version": "v8.12.0"
   },
   "perl": {
     "version": "5.28.0"
