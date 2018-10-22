@@ -16,6 +16,7 @@
   libicu-dev
   libssl-dev
   libtool
+  libuv1-dev
   linux-headers-generic
   linux-image-generic
   linux-tools-generic
