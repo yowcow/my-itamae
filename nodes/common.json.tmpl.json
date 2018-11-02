@@ -91,14 +91,14 @@
     }
   },
   "nodejs": {
-    "version": "v8.12.0"
+    "version": "v10.13.0"
   },
   "perl": {
     "version": "5.28.0"
   },
   "php": {
     "composer": {
-      "version": "1.7.2"
+      "version": "1.7.3"
     }
   },
   "protobuf": {
