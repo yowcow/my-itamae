@@ -57,7 +57,7 @@
     }
   },
   "golang": {
-    "version": "1.11.2"
+    "version": "1.11.4"
   },
   "goreplay": {
     "version": "0.16.1"
@@ -91,7 +91,7 @@
     }
   },
   "nodejs": {
-    "version": "v10.14.1"
+    "version": "v10.15.0"
   },
   "perl": {
     "version": "5.28.1"
