@@ -75,7 +75,7 @@
     "character-set": "utf8mb4"
   },
   "neovim": {
-    "version": "v0.3.2"
+    "version": "v0.3.3"
   },
   "nginx": {
     "galago": {
@@ -119,7 +119,7 @@
     "version": "1.8.9"
   },
   "vim": {
-    "version": "8.1.0678"
+    "version": "8.1.0700"
   },
   "weechat": {
     "version": "2.3"
