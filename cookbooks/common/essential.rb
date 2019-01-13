@@ -13,6 +13,7 @@
   htop
   libdb-dev
   libevent-dev
+  libfontconfig1-dev
   libicu-dev
   libssl-dev
   libtool
