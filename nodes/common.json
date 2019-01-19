@@ -71,9 +71,6 @@
   "helloworld": {
     "version": "v0.0.5"
   },
-  "mysql": {
-    "character-set": "utf8mb4"
-  },
   "neovim": {
     "version": "v0.3.4"
   },

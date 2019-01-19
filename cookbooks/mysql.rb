@@ -6,12 +6,14 @@
   package pkg
 end
 
+charset = "utf8mb4"
+
 template "/etc/mysql/mysql.conf.d/mysqld_utf8.cnf" do
   action   :create
   source   "mysql/templates/mysqld_utf8.cnf.erb"
   mode     "0644"
   variables(
-    character_set: node[:mysql]["character-set"]
+    charset: charset
   )
   notifies :restart, "service[mysql]"
 end
