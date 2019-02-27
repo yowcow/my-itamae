@@ -18,6 +18,8 @@
   libssl-dev
   libtool
   libuv1-dev
+  libxml2-dev
+  libxslt-dev
   linux-headers-generic
   linux-image-generic
   linux-tools-generic
@@ -29,6 +31,7 @@
   traceroute
   tzdata
   unzip
+  zlib1g-dev
 }.each do |pkg|
   package pkg do
     action :install
