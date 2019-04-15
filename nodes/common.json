@@ -57,7 +57,7 @@
     }
   },
   "golang": {
-    "version": "1.12.2"
+    "version": "1.12.4"
   },
   "goreplay": {
     "version": "0.16.1"
