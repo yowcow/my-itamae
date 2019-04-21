@@ -8,6 +8,7 @@ include_recipe "../cookbooks/apt.rb"
 include_recipe "../cookbooks/common/essential.rb"
 include_recipe "../cookbooks/common/development.rb"
 include_recipe "../cookbooks/common/timezone.rb"
+include_recipe "../cookbooks/common/user.rb"
 
 include_recipe "../cookbooks/alp.rb"
 include_recipe "../cookbooks/erlang.rb"
