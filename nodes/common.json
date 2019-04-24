@@ -39,7 +39,10 @@
     }
   },
   "erlang": {
-    "version": "21.3"
+    "version": "21.3",
+    "rebar3": {
+      "version": "3.10.0"
+    }
   },
   "font": {
     "fira": {

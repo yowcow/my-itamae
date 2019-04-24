@@ -34,8 +34,4 @@ PATH=#{target}/bin:$PATH
   mode "0644"
 end
 
-http_request "/usr/local/bin/rebar3" do
-  url "https://s3.amazonaws.com/rebar3/rebar3"
-  mode "0755"
-  not_if "test -f /usr/local/bin/rebar3"
-end
+include_recipe "./erlang/rebar3.rb"
