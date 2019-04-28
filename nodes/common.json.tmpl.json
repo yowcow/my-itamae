@@ -3,7 +3,6 @@
     "galago": [
       "docker",
       "git",
-      "google-cloud-sdk",
       "percona",
       "system76",
       "yarn"

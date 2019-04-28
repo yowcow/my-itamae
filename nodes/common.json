@@ -3,7 +3,6 @@
     "galago": [
       "docker",
       "git",
-      "google-cloud-sdk",
       "percona",
       "system76",
       "yarn"
@@ -119,7 +118,7 @@
     "version": "1.8.9"
   },
   "vim": {
-    "version": "8.1.1206"
+    "version": "8.1.1227"
   },
   "weechat": {
     "version": "2.4"
