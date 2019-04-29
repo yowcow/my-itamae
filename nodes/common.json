@@ -74,7 +74,7 @@
     "version": "v0.0.5"
   },
   "neovim": {
-    "version": "v0.3.4"
+    "version": "v0.3.5"
   },
   "nginx": {
     "galago": {
@@ -103,6 +103,9 @@
   "protobuf": {
     "version": "3.6.1"
   },
+  "ripgrep": {
+    "version": "11.0.1"
+  },
   "snappy": [
     { "snap": "aws-cli", "classic": true },
     { "snap": "hello-world" },
@@ -118,7 +121,7 @@
     "version": "1.8.9"
   },
   "vim": {
-    "version": "8.1.1227"
+    "version": "8.1.1234"
   },
   "weechat": {
     "version": "2.4"
