@@ -32,7 +32,8 @@ if current_version != version then
   execute "Install to #{target}" do
     command <<-CMD
       cd /tmp/grpc-#{version} && \
-      make && make install prefix=#{target}
+      CC=/usr/bin/clang CXX=/usr/bin/clang++ make && \
+      make install prefix=#{target}
     CMD
   end
 

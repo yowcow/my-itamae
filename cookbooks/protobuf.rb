@@ -32,7 +32,9 @@ if current_version != version then
   execute "Install to #{target}" do
     command <<-CMD
       cd /tmp/protobuf-#{version} && \
-      ./configure --prefix=#{target} && make && make install
+      ./configure --prefix=#{target} && \
+      CC=/usr/bin/clang CXX=/usr/bin/clang++ make && \
+      make install
     CMD
   end
 
