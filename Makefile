@@ -17,9 +17,9 @@ $(CURRENT_VIM):
 $(CURRENT_NVIM):
 	head=$$(ghr -repo neovim/neovim HEAD) && \
 	if [ "$$head" = "nightly" ]; then \
-		ghr -repo neovim/neovim HEAD^ > $@; \
+		ghr -repo neovim/neovim HEAD^ | sed -e 's/^v//' > $@; \
 	else \
-		echo $$head > $@; \
+		echo $$head | sed -e 's/^v//' > $@; \
 	fi
 
 $(COMMON): $(COMMON).tmpl.json

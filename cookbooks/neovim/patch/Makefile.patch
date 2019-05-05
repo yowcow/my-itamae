@@ -1,0 +1,11 @@
+--- Makefile.original   2019-05-05 14:59:47.337280305 +0900
++++ Makefile    2019-05-05 15:00:23.629676147 +0900
+@@ -8,7 +8,7 @@
+ CMAKE_PRG ?= $(shell (command -v cmake3 || echo cmake))
+ CMAKE_BUILD_TYPE ?= Debug
+
+-CMAKE_FLAGS := -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE)
++CMAKE_FLAGS := -DCMAKE_BUILD_TYPE=$(CMAKE_BUILD_TYPE) -DCMAKE_INSTALL_PREFIX=$(CMAKE_INSTALL_PREFIX)
+
+ BUILD_TYPE ?= $(shell (type ninja > /dev/null 2>&1 && echo "Ninja") || \
+     echo "Unix Makefiles")
