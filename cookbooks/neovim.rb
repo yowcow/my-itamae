@@ -1,3 +1,19 @@
+include_recipe "./ctags.rb"
+include_recipe "./lua.rb"
+include_recipe "./python.rb"
+
+%w{
+  autoconf
+  automake
+  cmake
+  gettext
+  libtool
+  libtool-bin
+  pkg-config
+}.each do |pkg|
+  package pkg
+end
+
 version = node[:neovim][:version]
 
 archive = "v#{version}.tar.gz"
