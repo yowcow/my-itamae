@@ -1,7 +1,8 @@
 version = node[:erlang][:version]
 
-archive = "otp_src_#{version}.tar.gz"
-url     = "http://erlang.org/download/otp_src_#{version}.tar.gz"
+archive = "OTP-#{version}.tar.gz"
+dir     = "otp-OTP-#{version}"
+url     = "https://github.com/erlang/otp/archive/OTP-#{version}.tar.gz"
 
 target  = "/usr/local/erlang-#{version}"
 profile = "/usr/local/etc/profile.d/erlangrc.sh"
@@ -11,16 +12,17 @@ http_request "/tmp/#{archive}" do
   not_if "test -d #{target} || test -f /tmp/#{archive}"
 end
 
-execute "Extract /tmp/#{archive}" do
+execute "Extract /tmp/#{archive} to /tmp/#{dir}" do
   command <<-CMD
-    tar xf /tmp/#{archive} -C /tmp
+    tar xzf /tmp/#{archive} -C /tmp
   CMD
-  not_if "test -d #{target}"
+  not_if "test -d #{target} || test -d /tmp/#{dir}"
 end
 
-execute "Install to #{target}" do
+execute "Install from /tmp/#{dir} to #{target}" do
   command <<-CMD
-    cd /tmp/otp_src_#{version} && \
+    cd /tmp/#{dir} && \
+    ./otp_build autoconf && \
     ./configure --prefix=#{target} && \
     make && make install
   CMD
