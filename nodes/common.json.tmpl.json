@@ -59,16 +59,16 @@
     }
   },
   "golang": {
-    "version": "1.12.4"
+    "version": "1.12.5"
   },
   "goreplay": {
     "version": "0.16.1"
   },
   "gotop": {
-    "version": "1.6.0"
+    "version": "3.0.0"
   },
   "grpc": {
-    "version": "1.20.1"
+    "version": "1.21.1"
   },
   "helloworld": {
     "version": "v0.0.5"
@@ -101,7 +101,7 @@
     }
   },
   "protobuf": {
-    "version": "3.7.1"
+    "version": "3.8.0"
   },
   "ripgrep": {
     "version": "11.0.1"
@@ -115,10 +115,10 @@
     "version": "0.11.11"
   },
   "tmux": {
-    "version": "2.9"
+    "version": "2.9a"
   },
   "travis": {
-    "version": "1.8.9"
+    "version": "1.8.10"
   },
   "vim": {
     "version": "%%VIM_VERSION%%"
