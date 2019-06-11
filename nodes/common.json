@@ -38,9 +38,9 @@
     }
   },
   "erlang": {
-    "version": "22.0.1",
+    "version": "22.0.2",
     "rebar3": {
-      "version": "3.10.0"
+      "version": "3.11.1"
     }
   },
   "font": {
