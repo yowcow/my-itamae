@@ -38,7 +38,7 @@
     }
   },
   "erlang": {
-    "version": "22.0.2",
+    "version": "22.0.3",
     "rebar3": {
       "version": "3.11.1"
     }
@@ -59,7 +59,7 @@
     }
   },
   "golang": {
-    "version": "1.12.5"
+    "version": "1.12.6"
   },
   "goreplay": {
     "version": "0.16.1"
@@ -90,7 +90,7 @@
     }
   },
   "nodejs": {
-    "version": "v10.15.3"
+    "version": "v10.16.0"
   },
   "perl": {
     "version": "5.30.0"
