@@ -36,4 +36,12 @@ PATH=#{target}/bin:$PATH
   mode "0644"
 end
 
+file "/usr/local/bin/erlv" do
+  content <<-CONTENT
+#!/bin/sh
+erl -noshell -eval 'erlang:display({otp_release, erlang:system_info(otp_release)}), halt(0).'
+  CONTENT
+  mode "0755"
+end
+
 include_recipe "./erlang/rebar3.rb"
