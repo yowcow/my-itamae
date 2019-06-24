@@ -23,6 +23,7 @@
   linux-headers-generic
   linux-image-generic
   linux-tools-generic
+  lynx
   netbase
   nghttp2-client
   pkg-config
