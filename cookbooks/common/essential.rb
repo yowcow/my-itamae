@@ -1,3 +1,5 @@
+# libxslt1-dev may be libxslt-dev
+
 %w{
   autoconf
   automake
@@ -19,7 +21,7 @@
   libtool
   libuv1-dev
   libxml2-dev
-  libxslt-dev
+  libxslt1-dev
   linux-headers-generic
   linux-image-generic
   linux-tools-generic
