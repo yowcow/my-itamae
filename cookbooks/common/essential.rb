@@ -1,4 +1,4 @@
-# libxslt1-dev may be libxslt-dev
+# libsxlt-dev was an alias to libxslt1-dev
 
 %w{
   autoconf
