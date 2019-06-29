@@ -73,6 +73,9 @@
   "helloworld": {
     "version": "v0.0.5"
   },
+  "migerl": {
+    "version": "0.0.3"
+  },
   "neovim": {
     "version": "%%NVIM_VERSION%%"
   },
