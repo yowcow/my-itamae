@@ -54,7 +54,11 @@ version = node[:neovim][:version]
 #  end
 #end
 
-url = "https://github.com/neovim/neovim/releases/download/v#{version}/nvim.appimage"
+#url = "https://github.com/neovim/neovim/releases/download/v#{version}/nvim.appimage"
+
+# + Download `stable` tag
+# + Not the best but probably the most reasonable
+url = "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
 dir = "/usr/local/neovim-v#{version}/bin"
 
 directory dir do
