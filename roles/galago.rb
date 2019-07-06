@@ -1,6 +1,17 @@
 include_recipe "./base.rb"
 
+%w{
+  dconf-cli
+  dconf-editor
+  ffmpeg
+  libfreetype6-dev
+  ubuntu-restricted-extras
+}.each do |pkg|
+  package pkg
+end
+
 include_recipe "../cookbooks/fonts.rb"
+include_recipe "../cookbooks/adapta.rb"
 include_recipe "../cookbooks/docker.rb"
 include_recipe "../cookbooks/docker/clean.rb"
 include_recipe "../cookbooks/docker/compose.rb"
@@ -12,13 +23,3 @@ include_recipe "../cookbooks/weechat.rb"
 
 include_recipe "../cookbooks/protobuf.rb"
 include_recipe "../cookbooks/grpc.rb"
-
-%w{
-  dconf-cli
-  dconf-editor
-  ffmpeg
-  libfreetype6-dev
-  ubuntu-restricted-extras
-}.each do |pkg|
-  package pkg
-end

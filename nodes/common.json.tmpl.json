@@ -23,6 +23,9 @@
       "yarn"
     ]
   },
+  "adapta": {
+    "version": "3.95.0.11"
+  },
   "alp": {
     "version": "0.3.1"
   },

@@ -12,13 +12,6 @@ execute "Copy original sources.list" do
   not_if "test -f /etc/apt/sources.list.old"
 end
 
-#execute "Modify source country to 'jp'" do
-#  command <<-CMD
-#    cat /etc/apt/sources.list.old | sed -e 's/\\bus.archive.ubuntu.com\\b/jp.archive.ubuntu.com/g' > /etc/apt/sources.list.new
-#    mv /etc/apt/sources.list.new /etc/apt/sources.list
-#  CMD
-#end
-
 node[:apt][ENV["ENVNAME"]].each do |repo|
   include_recipe "apt/#{repo}.rb"
 end
