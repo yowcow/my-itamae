@@ -53,6 +53,9 @@
     "overpass": {
       "version": "3.0.2"
     },
+    "roboto": {
+      "version": "v2.136"
+    },
     "source-code-pro": {
       "ro-version": "2.030R",
       "it-version": "1.050R"
@@ -77,7 +80,7 @@
     "version": "0.0.3"
   },
   "neovim": {
-    "version": "0.3.8"
+    "version": "0.3.7"
   },
   "nginx": {
     "galago": {
@@ -124,7 +127,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.1640"
+    "version": "8.1.1608"
   },
   "weechat": {
     "version": "2.5"

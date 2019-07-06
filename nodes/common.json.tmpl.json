@@ -53,6 +53,9 @@
     "overpass": {
       "version": "3.0.2"
     },
+    "roboto": {
+      "version": "v2.136"
+    },
     "source-code-pro": {
       "ro-version": "2.030R",
       "it-version": "1.050R"
