@@ -41,7 +41,7 @@
     }
   },
   "erlang": {
-    "version": "22.0.5",
+    "version": "22.0.7",
     "rebar3": {
       "version": "3.11.1"
     }
@@ -65,7 +65,7 @@
     }
   },
   "golang": {
-    "version": "1.12.6"
+    "version": "1.12.7"
   },
   "goreplay": {
     "version": "0.16.1"
