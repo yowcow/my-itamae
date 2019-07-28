@@ -15,3 +15,9 @@ template "/etc/nginx/nginx.conf" do
   mode "0644"
   notifies :reload, "service[nginx]"
 end
+
+template "/etc/logrotate.d/nginx" do
+  action :create
+  source "nginx/templates/logrotate/nginx.erb"
+  mode "0644"
+end
