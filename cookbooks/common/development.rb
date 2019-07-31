@@ -2,9 +2,8 @@
   apache2-utils
   dstat
   jq
-  mysql-client
-  mysql-common
   ntp
+  postgresql-client
   screen
   sqlite3
   sysstat
