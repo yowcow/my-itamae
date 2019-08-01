@@ -29,6 +29,7 @@ PATH=#{target}/bin:$PATH
 end
 
 %w{
+  intelephense
   neovim
   npm
   npm-check-updates
