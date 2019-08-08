@@ -33,6 +33,7 @@ end
   neovim
   npm
   npm-check-updates
+  typescript-language-server
 }.each do |mod|
   execute "Install #{mod}" do
     command <<-CMD
