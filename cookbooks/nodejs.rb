@@ -30,6 +30,7 @@ end
 
 %w{
   intelephense
+  javascript-typescript-langserver
   neovim
   npm
   npm-check-updates
