@@ -1,3 +1,5 @@
+$LSB_RELEASE = `lsb_release -c -s | tr -d "\n"`
+
 deb = "percona-release_0.1-6.#{$LSB_RELEASE}_all.deb"
 url = "https://repo.percona.com/apt/#{deb}"
 

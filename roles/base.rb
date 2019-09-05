@@ -1,5 +1,3 @@
-$LSB_RELEASE = `lsb_release -c -s | tr -d "\n"`
-
 directory "/usr/local/etc/profile.d" do
   action :create
 end

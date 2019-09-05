@@ -1,3 +1,5 @@
+$LSB_RELEASE = `lsb_release -c -s | tr -d "\n"`
+
 template "/etc/apt/sources.list.d/docker.list" do
   action :create
   source "templates/sources.list.d/docker.list.erb"
