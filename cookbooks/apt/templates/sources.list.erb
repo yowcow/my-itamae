@@ -2,8 +2,14 @@
 # Generated via https://repogen.simplylinux.ch/
 #
 
-deb http://jp.archive.ubuntu.com/ubuntu/ <%= @lsb_release %> main restricted universe multiverse
-deb http://jp.archive.ubuntu.com/ubuntu/ <%= @lsb_release %>-updates main restricted universe multiverse
-deb http://jp.archive.ubuntu.com/ubuntu/ <%= @lsb_release %>-backports main restricted universe multiverse
+#deb http://jp.archive.ubuntu.com/ubuntu/ <%= @lsb_release %> main restricted universe multiverse
+deb http://<%= @archive_mirror %>/ubuntu/ <%= @lsb_release %> main restricted universe multiverse
 
-deb http://security.ubuntu.com/ubuntu/ <%= @lsb_release %>-security main restricted universe multiverse
+#deb http://jp.archive.ubuntu.com/ubuntu/ <%= @lsb_release %>-updates main restricted universe multiverse
+deb http://<%= @archive_mirror %>/ubuntu/ <%= @lsb_release %>-updates main restricted universe multiverse
+
+#deb http://jp.archive.ubuntu.com/ubuntu/ <%= @lsb_release %>-backports main restricted universe multiverse
+deb http://<%= @archive_mirror %>/ubuntu/ <%= @lsb_release %>-backports main restricted universe multiverse
+
+#deb http://security.ubuntu.com/ubuntu/ <%= @lsb_release %>-security main restricted universe multiverse
+deb http://<%= @security_mirror %>/ubuntu/ <%= @lsb_release %>-security main restricted universe multiverse

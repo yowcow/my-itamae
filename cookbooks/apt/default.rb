@@ -4,5 +4,9 @@ template "/etc/apt/sources.list" do
   action :create
   source "templates/sources.list.erb"
   mode "0644"
-  variables(lsb_release: $LSB_RELEASE)
+  variables(
+    archive_mirror:  node[:apt][:mirrors][:archive],
+    security_mirror: node[:apt][:mirrors][:security],
+    lsb_release:     $LSB_RELEASE,
+  )
 end

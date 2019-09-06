@@ -14,7 +14,7 @@ end
 
 include_recipe "apt/default.rb"
 
-node[:apt][ENV["ENVNAME"]].each do |repo|
+node[:apt][:repos][ENV["ENVNAME"]].each do |repo|
   include_recipe "apt/#{repo}.rb"
 end
 

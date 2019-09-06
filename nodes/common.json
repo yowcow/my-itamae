@@ -1,27 +1,33 @@
 {
   "apt": {
-    "galago": [
-      "docker",
-      "git",
-      "percona",
-      "system76",
-      "yarn"
-    ],
-    "vagrant": [
-      "certbot",
-      "docker",
-      "git",
-      "google-cloud-sdk",
-      "mackerel",
-      "percona",
-      "yarn"
-    ],
-    "sakura": [
-      "certbot",
-      "git",
-      "mackerel",
-      "yarn"
-    ]
+    "mirrors": {
+      "archive": "linux.yz.yamagata-u.ac.jp",
+      "security": "linux.yz.yamagata-u.ac.jp"
+    },
+    "repos": {
+      "galago": [
+        "docker",
+        "git",
+        "percona",
+        "system76",
+        "yarn"
+      ],
+      "vagrant": [
+        "certbot",
+        "docker",
+        "git",
+        "google-cloud-sdk",
+        "mackerel",
+        "percona",
+        "yarn"
+      ],
+      "sakura": [
+        "certbot",
+        "git",
+        "mackerel",
+        "yarn"
+      ]
+    }
   },
   "adapta": {
     "version": "3.95.0.11"
