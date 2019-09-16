@@ -86,7 +86,7 @@
     "version": "v0.0.5"
   },
   "neovim": {
-    "version": "0.3.8"
+    "version": "0.4.2"
   },
   "nginx": {
     "galago": {
@@ -133,7 +133,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.2033"
+    "version": "8.1.2044"
   },
   "weechat": {
     "version": "2.5"
