@@ -1,7 +1,3 @@
-service "nginx" do
-  action :enable
-end
-
 node[:nginx][ENV["ENVNAME"]][:vh].each do |vh|
 
   directory "/srv/#{vh[:server_name]}" do
