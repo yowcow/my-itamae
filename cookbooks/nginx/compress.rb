@@ -1,4 +1,6 @@
-service "nginx"
+service "nginx" do
+  action :reload
+end
 
 template "/etc/nginx/conf.d/compress.conf" do
   action :create

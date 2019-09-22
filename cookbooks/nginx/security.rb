@@ -2,9 +2,9 @@ service "nginx" do
   action :reload
 end
 
-template "/etc/nginx/conf.d/ssl.conf" do
+template "/etc/nginx/conf.d/security.conf" do
   action :create
-  source "templates/nginx-ssl.conf.erb"
+  source "templates/nginx-security.conf.erb"
   mode   "0644"
   notifies :reload, "service[nginx]"
 end
