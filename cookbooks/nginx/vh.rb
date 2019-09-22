@@ -1,6 +1,4 @@
-service "nginx" do
-  action :enable
-end
+service "nginx"
 
 node[:nginx][ENV["ENVNAME"]][:vh].each do |vh|
 
