@@ -1,3 +1,5 @@
+service "nginx"
+
 template "/etc/nginx/conf.d/compress.conf" do
   action :create
   source "templates/nginx-compress.conf.erb"
