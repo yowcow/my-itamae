@@ -47,7 +47,7 @@
     }
   },
   "erlang": {
-    "version": "22.0.7",
+    "version": "22.1",
     "rebar3": {
       "version": "3.12.0"
     }
@@ -124,7 +124,7 @@
     { "snap": "slack", "classic": true }
   ],
   "terraform": {
-    "version": "0.12.7"
+    "version": "0.12.9"
   },
   "tmux": {
     "version": "2.9a"
@@ -136,6 +136,6 @@
     "version": "%%VIM_VERSION%%"
   },
   "weechat": {
-    "version": "2.5"
+    "version": "2.6"
   }
 }
