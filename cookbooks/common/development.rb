@@ -1,6 +1,7 @@
 %w{
   apache2-utils
   dstat
+  imagemagick
   jq
   ntp
   postgresql-client
