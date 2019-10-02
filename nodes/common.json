@@ -71,7 +71,7 @@
     }
   },
   "golang": {
-    "version": "1.13"
+    "version": "1.13.1"
   },
   "goreplay": {
     "version": "0.16.1"
@@ -133,7 +133,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.2104"
+    "version": "8.1.2108"
   },
   "weechat": {
     "version": "2.6"
