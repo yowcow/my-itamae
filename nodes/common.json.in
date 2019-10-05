@@ -47,7 +47,7 @@
     }
   },
   "erlang": {
-    "version": "22.1",
+    "version": "22.1.1",
     "rebar3": {
       "version": "3.12.0"
     }
@@ -80,7 +80,7 @@
     "version": "3.0.0"
   },
   "grpc": {
-    "version": "1.23.0"
+    "version": "1.24.1"
   },
   "helloworld": {
     "version": "v0.0.5"
@@ -113,7 +113,7 @@
     }
   },
   "protobuf": {
-    "version": "3.9.1"
+    "version": "3.10.0"
   },
   "ripgrep": {
     "version": "11.0.2"
