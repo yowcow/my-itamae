@@ -80,7 +80,7 @@
     "version": "3.0.0"
   },
   "grpc": {
-    "version": "1.24.1"
+    "version": "1.23.1"
   },
   "helloworld": {
     "version": "v0.0.5"
