@@ -1,10 +1,7 @@
-.PHONY: all roles/* clean realclean
+COMMON := nodes/common.json
 
-ENVS = sakura vagrant
-COMMON = nodes/common.json
-
-CURRENT_VIM = .current-vim
-CURRENT_NVIM = .current-nvim
+CURRENT_VIM := .current-vim
+CURRENT_NVIM := .current-nvim
 
 all: Gemfile.lock ghr $(CURRENT_VIM) $(CURRENT_NVIM) $(COMMON)
 
@@ -31,6 +28,20 @@ $(COMMON): $(COMMON).in
 Gemfile.lock: Gemfile
 	bundle install --path vendor/bundle
 
+HOSTNAME := $(shell hostname)
+
+ifeq ($(HOSTNAME),my-bionic)
+ROLE ?= vagrant
+else ifeq ($(HOSTNAME),www12471ui)
+ROLE ?= sakura
+else ifeq ($(HOSTNAME),machine3)
+ROLE ?= machine3
+else
+ROLE ?=
+endif
+
+apply: roles/$(ROLE)
+
 roles/%:
 	ENVNAME=$* bundle exec -- \
 	itamae local --node-json=$(COMMON) \
@@ -41,3 +52,5 @@ clean:
 
 realclean: clean
 	rm -rf Gemfile.lock vendor
+
+.PHONY: all apply roles/* clean realclean
