@@ -15,15 +15,7 @@ HOW TO USE
 To run configuration management, do:
 
 ```
-make
-```
-
-and
-
-```
-sudo make roles/sakura   # my server
-sudo make roles/vagrant  # my box
-sudo make roles/galago   # my laptop
+make && sudo make apply
 ```
 
 HOW TO UPDATE
