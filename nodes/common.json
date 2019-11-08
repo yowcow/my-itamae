@@ -47,7 +47,7 @@
     }
   },
   "erlang": {
-    "version": "22.1.5",
+    "version": "22.1.6",
     "rebar3": {
       "version": "3.12.0"
     }
@@ -133,7 +133,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.2267"
+    "version": "8.1.2269"
   },
   "weechat": {
     "version": "2.6"
