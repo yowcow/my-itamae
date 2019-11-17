@@ -34,8 +34,8 @@ ifeq ($(HOSTNAME),my-bionic)
 ROLE ?= vagrant
 else ifeq ($(HOSTNAME),www12471ui)
 ROLE ?= sakura
-else ifeq ($(HOSTNAME),machine3)
-ROLE ?= machine3
+else ifeq ($(HOSTNAME),machine-4)
+ROLE ?= galago
 else
 ROLE ?=
 endif
