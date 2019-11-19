@@ -80,9 +80,6 @@
   "grpc": {
     "version": "1.23.1"
   },
-  "helloworld": {
-    "version": "v0.0.5"
-  },
   "neovim": {
     "version": "0.4.3"
   },
