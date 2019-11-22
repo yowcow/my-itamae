@@ -14,7 +14,7 @@ url     = "https://github.com/grpc/grpc/archive/v#{version}.tar.gz"
 target  = "/usr/local"
 version_file = "#{target}/src/grpc-version"
 
-current_version = `[ -f #{version_file} ] && (cat #{version_file} | tr -d '\n')`
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
 if current_version != version then
   http_request "/tmp/#{archive}" do
