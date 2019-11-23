@@ -1,6 +1,6 @@
-group "docker" do
-  gid 998
-end
+#group "docker" do
+#  gid 998
+#end
 
 group "znc" do
   gid 2001
