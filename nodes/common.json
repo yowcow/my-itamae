@@ -41,7 +41,7 @@
       "version": "2.0.4"
     },
     "compose": {
-      "version": "1.24.1"
+      "version": "1.25.0"
     }
   },
   "erlang": {
@@ -128,7 +128,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.2341"
+    "version": "8.1.2342"
   },
   "weechat": {
     "version": "2.6"

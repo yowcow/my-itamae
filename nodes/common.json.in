@@ -41,7 +41,7 @@
       "version": "2.0.4"
     },
     "compose": {
-      "version": "1.24.1"
+      "version": "1.25.0"
     }
   },
   "erlang": {
