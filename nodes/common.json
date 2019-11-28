@@ -122,13 +122,13 @@
     "version": "0.12.9"
   },
   "tmux": {
-    "version": "2.9a"
+    "version": "3.0"
   },
   "travis": {
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.2342"
+    "version": "8.1.2352"
   },
   "weechat": {
     "version": "2.6"
