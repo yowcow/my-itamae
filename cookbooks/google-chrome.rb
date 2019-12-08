@@ -1,0 +1,1 @@
+package "google-chrome-stable"

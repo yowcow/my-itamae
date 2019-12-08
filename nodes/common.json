@@ -7,6 +7,7 @@
     "repos": {
       "galago": [
         "git",
+        "google-chrome",
         "percona",
         "system76",
         "yarn"
@@ -128,7 +129,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.2372"
+    "version": "8.1.2410"
   },
   "weechat": {
     "version": "2.6"
