@@ -9,15 +9,10 @@ ghr:
 	which ghr || go get github.com/yowcow/ghr
 
 $(CURRENT_VIM):
-	ghr -repo vim/vim HEAD | sed -e 's/^v//' > $@
+	ghr -repo vim/vim | grep '^v' | head -n1 | sed -e 's/^v//' > $@
 
 $(CURRENT_NVIM):
-	head=$$(ghr -repo neovim/neovim HEAD) && \
-	if [ "$$head" = "nightly" ]; then \
-		ghr -repo neovim/neovim HEAD^ | sed -e 's/^v//' > $@; \
-	else \
-		echo $$head | sed -e 's/^v//' > $@; \
-	fi
+	ghr -repo neovim/neovim | grep '^v' | head -n1 | sed -e 's/^v//' > $@
 
 $(COMMON): $(COMMON).in
 	cat $< \
