@@ -105,7 +105,7 @@
   },
   "php": {
     "composer": {
-      "version": "1.9.0"
+      "version": "1.9.1"
     }
   },
   "protobuf": {
@@ -129,7 +129,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.1.2412"
+    "version": "8.1.2424"
   },
   "weechat": {
     "version": "2.6"
