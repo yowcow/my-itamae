@@ -1,16 +1,17 @@
 version = node[:docker][:compose][:version]
 
-directory "/usr/local/docker-compose-#{version}/bin" do
-  action :create
-end
+version_file = "/usr/local/src/docker-compose-version"
 
-http_request "/usr/local/docker-compose-#{version}/bin/docker-compose" do
-  url "https://github.com/docker/compose/releases/download/#{version}/docker-compose-Linux-x86_64"
-  mode "0755"
-  not_if "test -e /usr/local/docker-compose-#{version}/bin/docker-compose"
-end
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
-link "/usr/local/bin/docker-compose" do
-  to "/usr/local/docker-compose-#{version}/bin/docker-compose"
-  force true
+if current_version != version then
+  http_request "/usr/local/bin/docker-compose" do
+    url "https://github.com/docker/compose/releases/download/#{version}/docker-compose-Linux-x86_64"
+    mode "0755"
+  end
+
+  file version_file do
+    content version
+    mode "0644"
+  end
 end
