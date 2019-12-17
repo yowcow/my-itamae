@@ -38,9 +38,6 @@
     "version": "5.8"
   },
   "docker": {
-    "clean": {
-      "version": "2.0.4"
-    },
     "compose": {
       "version": "1.25.0"
     }
