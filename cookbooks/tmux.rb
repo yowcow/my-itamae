@@ -31,7 +31,6 @@ if current_version != version then
       ./configure --prefix #{target} && \
       make && make install
     CMD
-    not_if "test -d #{target}"
   end
 
   file version_file do
