@@ -1,19 +1,14 @@
-directory "/usr/local/etc/profile.d" do
-  action :create
-end
-
 include_recipe "../cookbooks/apt.rb"
+include_recipe "../cookbooks/zsh.rb"
+
 include_recipe "../cookbooks/common/essential.rb"
 include_recipe "../cookbooks/common/development.rb"
 include_recipe "../cookbooks/common/timezone.rb"
 include_recipe "../cookbooks/common/user.rb"
 
-include_recipe "../cookbooks/alp.rb"
 include_recipe "../cookbooks/erlang.rb"
 include_recipe "../cookbooks/git.rb"
 include_recipe "../cookbooks/golang.rb"
-include_recipe "../cookbooks/goreplay.rb"
-include_recipe "../cookbooks/gotop.rb"
 include_recipe "../cookbooks/mysql-common.rb"
 include_recipe "../cookbooks/neovim.rb"
 include_recipe "../cookbooks/nodejs.rb"

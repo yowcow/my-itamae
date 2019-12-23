@@ -20,7 +20,7 @@ archive = "adapta-#{version}.tar.gz"
 srcdir  = "/tmp/adapta-gtk-theme-#{version}"
 version_file = "/usr/local/src/adapta-version"
 
-current_version = `[ -f #{version_file} ] && (cat #{version_file} | tr -d '\n')`
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
 if current_version != version then
   http_request "/tmp/#{archive}" do
@@ -44,9 +44,8 @@ if current_version != version then
     CMD
   end
 
-  execute "Save #{version_file}" do
-    command <<-CMD
-      echo #{version} > #{version_file}
-    CMD
+  file version_file do
+    content version
+    mode "0644"
   end
 end

@@ -3,45 +3,36 @@ version = node[:erlang][:version]
 archive = "OTP-#{version}.tar.gz"
 dir     = "otp-OTP-#{version}"
 url     = "https://github.com/erlang/otp/archive/OTP-#{version}.tar.gz"
+version_file = "/usr/local/src/erlang-version"
 
-target  = "/usr/local/erlang-#{version}"
-profile = "/usr/local/etc/profile.d/erlangrc.sh"
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
-http_request "/tmp/#{archive}" do
-  url url
-  not_if "test -d #{target} || test -f /tmp/#{archive}"
-end
+if current_version != version then
+  http_request "/tmp/#{archive}" do
+    url url
+    not_if "test -f /tmp/#{archive}"
+  end
 
-execute "Extract /tmp/#{archive} to /tmp/#{dir}" do
-  command <<-CMD
-    tar xzf /tmp/#{archive} -C /tmp
-  CMD
-  not_if "test -d #{target} || test -d /tmp/#{dir}"
-end
+  execute "Extract /tmp/#{archive} to /tmp/#{dir}" do
+    command <<-CMD
+      tar xzf /tmp/#{archive} -C /tmp
+    CMD
+    not_if "test -d /tmp/#{dir}"
+  end
 
-execute "Install from /tmp/#{dir} to #{target}" do
-  command <<-CMD
-    cd /tmp/#{dir} && \
-    ./otp_build autoconf && \
-    ./configure --prefix=#{target} && \
-    make && make install
-  CMD
-  not_if "test -d #{target}"
-end
+  execute "Install erlang-#{version}" do
+    command <<-CMD
+      cd /tmp/#{dir} && \
+      ./otp_build autoconf && \
+      ./configure --prefix=/usr/local && \
+      make && make install
+    CMD
+  end
 
-file profile do
-  content <<-CONTENT
-PATH=#{target}/bin:$PATH
-  CONTENT
-  mode "0644"
-end
-
-file "/usr/local/bin/erlv" do
-  content <<-CONTENT
-#!/bin/sh
-erl -noshell -eval 'erlang:display({otp_release, erlang:system_info(otp_release)}), halt(0).'
-  CONTENT
-  mode "0755"
+  file version_file do
+    content version
+    mode "0644"
+  end
 end
 
 include_recipe "./erlang/rebar3.rb"

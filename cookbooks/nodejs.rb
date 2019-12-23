@@ -2,23 +2,30 @@ version = node[:nodejs][:version]
 
 archive = "node-#{version}-linux-x64.tar.xz"
 url     = "https://nodejs.org/dist/#{version}/#{archive}"
+target  = "/usr/local/nodejs"
+profile = "/etc/profile.d/nodejs.sh"
+version_file = "/usr/local/src/nodejs-version"
 
-target  = "/usr/local/node-#{version}-linux-x64"
-profile = "/usr/local/etc/profile.d/nodejsrc.sh"
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
-http_request "/tmp/#{archive}" do
-  url url
-  not_if "test -d #{target} || test -f /tmp/#{archive}"
-end
+if current_version != version then
+  http_request "/tmp/#{archive}" do
+    url url
+  end
 
-execute "Install to #{target}" do
-  command <<-CMD
-    cd /tmp && \
-    tar xf #{archive} && \
-    mv node-#{version}-linux-x64 /usr/local
-    chown -R root:root #{target}
-  CMD
-  not_if "test -d #{target}"
+  execute "Install to #{target}" do
+    command <<-CMD
+      cd /tmp && \
+      tar xf #{archive} && \
+      mv node-#{version}-linux-x64 #{target}
+      chown -R root:root #{target}
+    CMD
+  end
+
+  file version_file do
+    content version
+    mode "0644"
+  end
 end
 
 file profile do
