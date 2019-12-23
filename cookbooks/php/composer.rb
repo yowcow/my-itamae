@@ -1,16 +1,19 @@
 version = node[:php][:composer][:version]
 
-directory "/usr/local/php-composer-#{version}/bin" do
-  action :create
-end
+url = "https://github.com/composer/composer/releases/download/#{version}/composer.phar"
+target = "/usr/local/bin/composer.phar"
+version_file = "/usr/local/src/php-composer-version"
 
-http_request "/usr/local/php-composer-#{version}/bin/composer.phar" do
-  url "https://github.com/composer/composer/releases/download/#{version}/composer.phar"
-  mode "0755"
-  not_if "test -e /usr/local/php-composer-#{version}/bin/composer.phar"
-end
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
-link "/usr/local/bin/composer.phar" do
-  to "/usr/local/php-composer-#{version}/bin/composer.phar"
-  force true
+if current_version != version then
+  http_request target do
+    url url
+    mode "0755"
+  end
+
+  file version_file do
+    content version
+    mode "0644"
+  end
 end
