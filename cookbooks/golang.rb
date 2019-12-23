@@ -2,6 +2,7 @@ version = node[:golang][:version]
 
 archive = "go#{version}.linux-amd64.tar.gz"
 url     = "https://storage.googleapis.com/golang/#{archive}"
+profile = "/etc/profile.d/golang.sh"
 version_file = "/usr/local/src/golang-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
@@ -24,7 +25,7 @@ if current_version != version then
   end
 end
 
-file "/etc/profile.d/golang.sh" do
+file profile do
   content <<-END
 PATH=/usr/local/go/bin:$PATH
   END
