@@ -10,7 +10,7 @@ node[:snappy].each do |s|
   end
 end
 
-file '/usr/local/etc/profile.d/snappy.sh' do
+file '/etc/profile.d/snappy.sh' do
   content <<-CONTENT
 PATH=/snap/bin:$PATH
   CONTENT
