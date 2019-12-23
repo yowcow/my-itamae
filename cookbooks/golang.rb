@@ -10,7 +10,6 @@ current_version = File.exists?(version_file) ? File.open(version_file).read.chom
 if current_version != version then
   http_request "/tmp/#{archive}" do
     url url
-    not_if "test -f /tmp/#{archive}"
   end
 
   execute "Install to golang-#{version}" do
