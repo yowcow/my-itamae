@@ -1,4 +1,6 @@
 include_recipe "../cookbooks/apt.rb"
+include_recipe "../cookbooks/zsh.rb"
+
 include_recipe "../cookbooks/common/essential.rb"
 include_recipe "../cookbooks/common/development.rb"
 include_recipe "../cookbooks/common/timezone.rb"
