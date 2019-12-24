@@ -8,6 +8,12 @@ version_file = "/usr/local/src/golang-version"
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
 if current_version != version then
+  execute "Remove previously installed version if exists" do
+    command <<-CMD
+      rm -rf /usr/local/go
+    CMD
+  end
+
   http_request "/tmp/#{archive}" do
     url url
   end
