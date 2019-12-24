@@ -42,7 +42,7 @@
   "erlang": {
     "version": "22.2.1",
     "rebar3": {
-      "version": "3.12.0"
+      "version": "3.13.0"
     }
   },
   "font": {
@@ -108,7 +108,7 @@
     { "snap": "slack", "classic": true }
   ],
   "tmux": {
-    "version": "3.0"
+    "version": "3.0a"
   },
   "travis": {
     "version": "1.8.10"
