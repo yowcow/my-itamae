@@ -29,7 +29,7 @@ HOSTNAME := $(shell hostname)
 
 ifeq ($(HOSTNAME),my-bionic)
 ROLE ?= vagrant
-else ifeq ($(HOSTNAME),www12471ui)
+else ifeq ($(HOSTNAME),dev03-bco)
 ROLE ?= server
 else ifeq ($(HOSTNAME),machine-4)
 ROLE ?= galago
