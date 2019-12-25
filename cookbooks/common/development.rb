@@ -1,5 +1,6 @@
 %w{
   apache2-utils
+  bash
   dstat
   imagemagick
   jq
