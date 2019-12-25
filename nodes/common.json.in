@@ -20,7 +20,7 @@
         "percona",
         "yarn"
       ],
-      "sakura": [
+      "server": [
         "certbot",
         "git",
         "mackerel",
@@ -81,7 +81,7 @@
         { "server_name": "yowcow.local", "listen": 80 }
       ]
     },
-    "sakura": {
+    "server": {
       "vh": []
     }
   },

@@ -20,7 +20,7 @@
         "percona",
         "yarn"
       ],
-      "sakura": [
+      "server": [
         "certbot",
         "git",
         "mackerel",
@@ -81,7 +81,7 @@
         { "server_name": "yowcow.local", "listen": 80 }
       ]
     },
-    "sakura": {
+    "server": {
       "vh": []
     }
   },
@@ -114,7 +114,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.2.0035"
+    "version": "8.2.0037"
   },
   "weechat": {
     "version": "2.6"

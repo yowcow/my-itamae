@@ -12,8 +12,6 @@ execute "Copy original sources.list" do
   not_if "test -f /etc/apt/sources.list.old"
 end
 
-include_recipe "apt/default.rb"
-
 node[:apt][:repos][ENV["ENVNAME"]].each do |repo|
   include_recipe "apt/#{repo}.rb"
 end

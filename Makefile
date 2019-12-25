@@ -3,7 +3,9 @@ COMMON := nodes/common.json
 CURRENT_VIM := .current-vim
 CURRENT_NVIM := .current-nvim
 
-all: Gemfile.lock ghr $(CURRENT_VIM) $(CURRENT_NVIM) $(COMMON)
+all: Gemfile.lock
+
+update: ghr $(CURRENT_VIM) $(CURRENT_NVIM) $(COMMON)
 
 ghr:
 	which ghr || go get github.com/yowcow/ghr
@@ -28,7 +30,7 @@ HOSTNAME := $(shell hostname)
 ifeq ($(HOSTNAME),my-bionic)
 ROLE ?= vagrant
 else ifeq ($(HOSTNAME),www12471ui)
-ROLE ?= sakura
+ROLE ?= server
 else ifeq ($(HOSTNAME),machine-4)
 ROLE ?= galago
 else
@@ -48,4 +50,4 @@ clean:
 realclean: clean
 	rm -rf Gemfile.lock vendor
 
-.PHONY: all apply roles/* clean realclean
+.PHONY: all update apply roles/* clean realclean
