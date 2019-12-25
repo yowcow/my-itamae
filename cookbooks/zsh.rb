@@ -1,3 +1,5 @@
+package 'zsh'
+
 zshenv = "/etc/zsh/zshenv"
 
 execute "Copy #{zshenv} to #{zshenv}.bk" do
