@@ -23,7 +23,8 @@ $(COMMON): $(COMMON).in
 		> $@
 
 Gemfile.lock: Gemfile
-	bundle install --path vendor/bundle
+	bundle config set path 'vendor/bundle'
+	bundle install
 
 HOSTNAME := $(shell hostname)
 
