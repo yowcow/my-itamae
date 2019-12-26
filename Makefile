@@ -32,7 +32,7 @@ ROLE ?= vagrant
 else ifeq ($(HOSTNAME),dev03-bco)
 ROLE ?= server
 else ifeq ($(HOSTNAME),machine-4)
-ROLE ?= galago
+ROLE ?= laptop
 else
 ROLE ?=
 endif

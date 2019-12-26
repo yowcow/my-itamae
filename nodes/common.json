@@ -5,7 +5,7 @@
       "security": "linux.yz.yamagata-u.ac.jp"
     },
     "repos": {
-      "galago": [
+      "laptop": [
         "git",
         "google-chrome",
         "percona",
@@ -73,7 +73,7 @@
     "version": "0.4.3"
   },
   "nginx": {
-    "galago": {
+    "laptop": {
       "vh": []
     },
     "vagrant": {
