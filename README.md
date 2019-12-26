@@ -24,7 +24,7 @@ HOW TO UPDATE
 To update `nodes/*.json`, do:
 
 ```
-make clean && make
+make clean && make update
 ```
 
 HOW TO RESET
