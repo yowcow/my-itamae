@@ -1,5 +1,6 @@
 %w{
   ruby
+  ruby-dev
 }.each do |pkg|
   package pkg
 end
