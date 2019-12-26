@@ -8,7 +8,6 @@
   postgresql-client
   screen
   sqlite3
-  sysstat
   tmux
   tree
   valgrind
