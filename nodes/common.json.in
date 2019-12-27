@@ -16,14 +16,12 @@
         "certbot",
         "git",
         "google-cloud-sdk",
-        "mackerel",
         "percona",
         "yarn"
       ],
       "server": [
         "certbot",
         "git",
-        "mackerel",
         "yarn"
       ]
     }
