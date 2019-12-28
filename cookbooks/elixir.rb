@@ -29,7 +29,7 @@ if current_version != version then
 
   execute "Build #{target}" do
     command <<-CMD
-      LANG=en_US.UTF-8 make -C #{target} clean compile test
+      LANG=en_US.UTF-8 make -C #{target} clean test
     CMD
   end
 
