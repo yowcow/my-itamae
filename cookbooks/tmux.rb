@@ -5,12 +5,12 @@
   package pkg
 end
 
-version = node[:tmux][:version]
+version      = node[:tmux][:version]
+version_file = "/usr/local/src/tmux-version"
 
 archive = "tmux-#{version}.tar.gz"
 url     = "https://github.com/tmux/tmux/releases/download/#{version}/#{archive}"
 target  = "/usr/local"
-version_file = "/usr/local/src/tmux-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 

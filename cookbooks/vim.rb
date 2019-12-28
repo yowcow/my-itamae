@@ -2,12 +2,12 @@ include_recipe "./ctags.rb"
 include_recipe "./lua.rb"
 include_recipe "./python.rb"
 
-version = node[:vim][:version]
+version      = node[:vim][:version]
+version_file = "/usr/local/src/vim-version"
 
 archive = "vim-#{version}.tar.gz"
 url     = "https://github.com/vim/vim/archive/v#{version}.tar.gz"
 target  = "/usr/local"
-version_file = "/usr/local/src/vim-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 

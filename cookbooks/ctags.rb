@@ -1,8 +1,8 @@
-version = node[:ctags][:version]
-
-archive      = "ctags-#{version}.tar.gz"
-url          = "http://prdownloads.sourceforge.net/ctags/#{archive}"
+version      = node[:ctags][:version]
 version_file = "/usr/local/src/ctags-version"
+
+archive = "ctags-#{version}.tar.gz"
+url     = "http://prdownloads.sourceforge.net/ctags/#{archive}"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 

@@ -1,9 +1,9 @@
-version = node[:perl][:version]
+version      = node[:perl][:version]
+version_file = "/usr/local/src/perl-version"
 
 archive = "perl-#{version}.tar.gz"
 url     = "http://www.cpan.org/src/5.0/#{archive}"
 target  = "/usr/local"
-version_file = "/usr/local/src/perl-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
@@ -21,7 +21,7 @@ if current_version != version then
   execute "Install to #{target}" do
     command <<-CMD
       cd /tmp/perl-#{version} && \
-      ./Configure -des -Dprefix=#{target} && \
+      ./Configure -des -Accflags=-fPIC -Dprefix=#{target} && \
       make && make install
     CMD
   end

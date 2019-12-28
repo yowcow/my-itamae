@@ -37,6 +37,9 @@
       "version": "1.25.0"
     }
   },
+  "elixir": {
+    "version": "1.9.4"
+  },
   "erlang": {
     "version": "22.2.1",
     "rebar3": {

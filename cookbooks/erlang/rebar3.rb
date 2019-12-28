@@ -1,5 +1,4 @@
-version = node[:erlang][:rebar3][:version]
-
+version      = node[:erlang][:rebar3][:version]
 version_file = "/usr/local/src/erlang-rebar3-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""

@@ -2,11 +2,11 @@ include_recipe "./ctags.rb"
 include_recipe "./lua.rb"
 include_recipe "./python.rb"
 
-version = node[:neovim][:version]
-
-url = "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
-target = "/usr/local/bin/nvim"
+version      = node[:neovim][:version]
 version_file = "/usr/local/src/neovim-version"
+
+url    = "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
+target = "/usr/local/bin/nvim"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 

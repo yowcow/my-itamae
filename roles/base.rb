@@ -7,6 +7,7 @@ include_recipe "../cookbooks/common/timezone.rb"
 include_recipe "../cookbooks/common/user.rb"
 
 include_recipe "../cookbooks/erlang.rb"
+include_recipe "../cookbooks/elixir.rb"
 include_recipe "../cookbooks/git.rb"
 include_recipe "../cookbooks/golang.rb"
 include_recipe "../cookbooks/mysql-common.rb"

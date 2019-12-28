@@ -7,12 +7,12 @@
   package pkg
 end
 
-version = node[:grpc][:version]
+version      = node[:grpc][:version]
+version_file = "/usr/local/src/grpc-version"
 
 archive = "grpc-#{version}.tar.gz"
 url     = "https://github.com/grpc/grpc/archive/v#{version}.tar.gz"
 target  = "/usr/local"
-version_file = "#{target}/src/grpc-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
@@ -37,10 +37,9 @@ if current_version != version then
     CMD
   end
 
-  execute "Save #{version_file}" do
-    command <<-CMD
-      echo #{version} > #{version_file}
-    CMD
+  file version_file do
+    content version
+    mode "0644"
   end
 
   execute "Refresh ld.so.cache" do
