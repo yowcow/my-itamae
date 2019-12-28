@@ -37,6 +37,9 @@
       "version": "1.25.0"
     }
   },
+  "elixir": {
+    "version": "1.9.4"
+  },
   "erlang": {
     "version": "22.2.1",
     "rebar3": {
@@ -112,7 +115,7 @@
     "version": "1.8.10"
   },
   "vim": {
-    "version": "8.2.0045"
+    "version": "8.2.0050"
   },
   "weechat": {
     "version": "2.6"
