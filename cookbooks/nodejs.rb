@@ -1,10 +1,10 @@
-version = node[:nodejs][:version]
+version      = node[:nodejs][:version]
+version_file = "/usr/local/src/nodejs-version"
 
 archive = "node-#{version}-linux-x64.tar.xz"
 url     = "https://nodejs.org/dist/#{version}/#{archive}"
 target  = "/usr/local/nodejs"
 profile = "/etc/profile.d/nodejs.sh"
-version_file = "/usr/local/src/nodejs-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 

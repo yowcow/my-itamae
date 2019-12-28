@@ -1,8 +1,8 @@
-version = node[:php][:composer][:version]
+version      = node[:php][:composer][:version]
+version_file = "/usr/local/src/php-composer-version"
 
 url = "https://github.com/composer/composer/releases/download/#{version}/composer.phar"
 target = "/usr/local/bin/composer.phar"
-version_file = "/usr/local/src/php-composer-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 

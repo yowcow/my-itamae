@@ -1,4 +1,5 @@
 version = node[:font][:roboto][:version]
+
 sourceurl  = "https://github.com/google/roboto/releases/download/#{version}/roboto-hinted.zip"
 targetfile = "/usr/local/share/fonts/roboto-hinted-#{version}.zip"
 targetdir  = "/usr/local/share/fonts/roboto-hinted-#{version}"

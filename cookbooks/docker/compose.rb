@@ -1,5 +1,4 @@
-version = node[:docker][:compose][:version]
-
+version      = node[:docker][:compose][:version]
 version_file = "/usr/local/src/docker-compose-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""

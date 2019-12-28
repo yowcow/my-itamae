@@ -1,11 +1,12 @@
-version = node[:ripgrep][:version]
+version      = node[:ripgrep][:version]
+version_file = "/usr/local/src/ripgrep-version"
 
 deb = "ripgrep_#{version}_amd64.deb"
 url = "https://github.com/BurntSushi/ripgrep/releases/download/#{version}/#{deb}"
 
-current = `(/usr/bin/rg -V 2>/dev/null || true) | cut -d" " -f2 | tr -d "\n"`
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
-if current != version then
+if current_version != version then
   http_request "/tmp/#{deb}" do
     url url
     not_if "test -f /tmp/#{deb}"
@@ -15,5 +16,10 @@ if current != version then
     command <<-CMD
       dpkg -i /tmp/#{deb}
     CMD
+  end
+
+  file version_file do
+    content version
+    mode "0644"
   end
 end

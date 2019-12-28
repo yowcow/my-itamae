@@ -13,12 +13,12 @@
   package pkg
 end
 
-version = node[:adapta][:version]
+version      = node[:adapta][:version]
+version_file = "/usr/local/src/adapta-version"
 
 url     = "https://github.com/adapta-project/adapta-gtk-theme/archive/#{version}.tar.gz"
 archive = "adapta-#{version}.tar.gz"
 srcdir  = "/tmp/adapta-gtk-theme-#{version}"
-version_file = "/usr/local/src/adapta-version"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 

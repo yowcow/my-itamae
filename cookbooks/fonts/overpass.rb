@@ -1,4 +1,5 @@
-version    = node[:font][:overpass][:version]
+version = node[:font][:overpass][:version]
+
 sourceurl  = "https://github.com/RedHatBrand/Overpass/releases/download/#{version}/overpass-desktop-fonts.zip"
 targetfile = "/usr/local/share/fonts/overpass-desktop-fonts-v#{version}.zip"
 targetdir  = "/usr/local/share/fonts/overpass-desktop-fonts-v#{version}"

@@ -41,7 +41,7 @@ end
 
 file profile do
   content <<-END
-PATH=/usr/local/go/bin:$PATH
+PATH=/usr/local/elixir/bin:$PATH
   END
   mode "0644"
 end

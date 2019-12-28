@@ -14,10 +14,13 @@
   package pkg
 end
 
-version = node[:weechat][:version]
+version      = node[:weechat][:version]
+version_file = "/usr/local/src/weechat-version"
+
 archive = "weechat-#{version}.tar.xz"
 url     = "https://weechat.org/files/src/#{archive}"
-current_version = `(which weechat && weechat --version) | tail -n1 | tr -d "\n"`
+
+current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
 if current_version != version then
   http_request "/tmp/#{archive}" do
@@ -36,7 +39,13 @@ if current_version != version then
     command <<-CMD
       mkdir -p /tmp/weechat-build && \
       cd /tmp/weechat-build && \
-      sh -c '. /etc/environment && cmake ../weechat-#{version} && make && make install'
+      cmake ../weechat-#{version} -DENABLE_PHP=OFF && \
+      make && make install
     CMD
+  end
+
+  file version_file do
+    content version
+    mode "0644"
   end
 end
