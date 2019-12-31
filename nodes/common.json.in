@@ -102,7 +102,7 @@
     "version": "1.8.10"
   },
   "ufw": {
-    "server": {
+    "laptop": {
       "enable": true,
       "default": "DENY",
       "allow": []
