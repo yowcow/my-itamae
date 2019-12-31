@@ -73,19 +73,6 @@
   "neovim": {
     "version": "%%NVIM_VERSION%%"
   },
-  "nginx": {
-    "laptop": {
-      "vh": []
-    },
-    "vagrant": {
-      "vh": [
-        { "server_name": "yowcow.local", "listen": 80 }
-      ]
-    },
-    "server": {
-      "vh": []
-    }
-  },
   "nodejs": {
     "version": "v12.13.1"
   },
