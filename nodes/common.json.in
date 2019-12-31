@@ -101,6 +101,26 @@
   "travis": {
     "version": "1.8.10"
   },
+  "ufw": {
+    "server": {
+      "enable": true,
+      "default": "DENY",
+      "allow": []
+    },
+    "vagrant": {
+      "enable": false
+    },
+    "server": {
+      "enable": true,
+      "default": "DENY",
+      "allow": [
+        22,
+        80,
+        443,
+        6697
+      ]
+    }
+  },
   "vim": {
     "version": "%%VIM_VERSION%%"
   },
