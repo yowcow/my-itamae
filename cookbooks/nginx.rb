@@ -22,7 +22,6 @@ template "/etc/logrotate.d/nginx" do
   mode "0644"
 end
 
-include_recipe "nginx/vh.rb"
 include_recipe "nginx/ssl.rb"
 include_recipe "nginx/compress.rb"
 include_recipe "nginx/security.rb"
