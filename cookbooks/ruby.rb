@@ -7,7 +7,6 @@ end
 
 execute "update gem" do
   command <<-CMD
-    gem update --system && \
     gem update
   CMD
 end

@@ -1,5 +1,7 @@
 env = ENV["ENVNAME"]
 
+package 'ufw'
+
 if not node[:ufw][env][:enable] then
   execute "disable ufw" do
     command <<-CMD
