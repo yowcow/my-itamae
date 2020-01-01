@@ -71,7 +71,7 @@
     "version": "1.23.1"
   },
   "neovim": {
-    "version": "%%NVIM_VERSION%%"
+    "version": "__NEOVIM__"
   },
   "nodejs": {
     "version": "v12.13.1"
@@ -96,7 +96,7 @@
     { "snap": "slack", "classic": true }
   ],
   "tmux": {
-    "version": "3.0a"
+    "version": "__TMUX__"
   },
   "travis": {
     "version": "1.8.10"
@@ -122,7 +122,7 @@
     }
   },
   "vim": {
-    "version": "%%VIM_VERSION%%"
+    "version": "__VIM__"
   },
   "weechat": {
     "version": "2.6"

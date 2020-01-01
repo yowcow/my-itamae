@@ -1,26 +1,27 @@
 COMMON := nodes/common.json
 
-CURRENT_VIM := .current-vim
-CURRENT_NVIM := .current-nvim
-
 all: Gemfile.lock
 
-update: ghr $(CURRENT_VIM) $(CURRENT_NVIM) $(COMMON)
+update: ghr $(COMMON)
 
 ghr:
-	which ghr || go get github.com/yowcow/ghr
+	which ghr || go get -u -v github.com/yowcow/ghr
 
-$(CURRENT_VIM):
+$(COMMON): $(COMMON).in .current-vim .current-neovim .current-tmux
+	cat $< \
+		| sed -e 's/__VIM__/$(shell cat .current-vim)/' \
+		| sed -e 's/__NEOVIM__/$(shell cat .current-neovim)/' \
+		| sed -e 's/__TMUX__/$(shell cat .current-tmux)/' \
+		> $@
+
+.current-vim:
 	ghr -repo vim/vim | grep '^v' | head -n1 | sed -e 's/^v//' > $@
 
-$(CURRENT_NVIM):
+.current-neovim:
 	ghr -repo neovim/neovim | grep '^v' | head -n1 | sed -e 's/^v//' > $@
 
-$(COMMON): $(COMMON).in
-	cat $< \
-		| sed -e 's/%%VIM_VERSION%%/$(shell cat $(CURRENT_VIM))/' \
-		| sed -e 's/%%NVIM_VERSION%%/$(shell cat $(CURRENT_NVIM))/' \
-		> $@
+.current-tmux:
+	ghr -repo tmux/tmux | head -n1 > $@
 
 Gemfile.lock: Gemfile
 	bundle config set path 'vendor/bundle'
@@ -46,9 +47,9 @@ roles/%:
 	roles/$*.rb
 
 clean:
-	rm -rf $(CURRENT_VIM) $(CURRENT_NVIM) $(COMMON)
+	rm -rf $(COMMON) .current-*
 
 realclean: clean
 	rm -rf Gemfile.lock vendor
 
-.PHONY: all update apply roles/* clean realclean
+.PHONY: all update ghr apply roles/* clean realclean
