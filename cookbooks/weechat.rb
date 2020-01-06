@@ -16,6 +16,7 @@ end
 
 version      = node[:weechat][:version]
 version_file = "/usr/local/src/weechat-version"
+src_dir      = "/usr/local/src/weechat"
 
 archive = "weechat-#{version}.tar.xz"
 url     = "https://weechat.org/files/src/#{archive}"
@@ -23,22 +24,27 @@ url     = "https://weechat.org/files/src/#{archive}"
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
 if current_version != version then
-  http_request "/tmp/#{archive}" do
+  directory src_dir do
+    mode "0755"
+  end
+
+  http_request "#{src_dir}/#{archive}" do
     url url
-    not_if "test -f /tmp/#{archive}"
+    not_if "test -f #{src_dir}/#{archive}"
   end
 
-  execute "extract #{archive}" do
+  execute "Unarchive #{src_dir}/#{archive}" do
     command <<-CMD
-      tar xf /tmp/#{archive} -C /tmp
+      tar xf #{src_dir}/#{archive} -C #{src_dir}
     CMD
-    not_if "test -d /tmp/weechat-#{version}"
+    not_if "test -d #{src_dir}/weechat-#{version}"
   end
 
-  execute "build and install weechat-#{version}" do
+  execute "Install weechat-#{version}" do
     command <<-CMD
-      mkdir -p /tmp/weechat-build && \
-      cd /tmp/weechat-build && \
+      rm -rf #{src_dir}/weechat-build && \
+      mkdir -p #{src_dir}/weechat-build && \
+      cd #{src_dir}/weechat-build && \
       cmake ../weechat-#{version} -DENABLE_PHP=OFF && \
       make && make install
     CMD

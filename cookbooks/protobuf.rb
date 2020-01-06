@@ -9,30 +9,34 @@ end
 
 version      = node[:protobuf][:version]
 version_file = "/usr/local/src/protobuf-version"
+src_dir      = "/usr/local/src/protobuf"
 
 archive = "protobuf-cpp-#{version}.tar.gz"
 url     = "https://github.com/google/protobuf/releases/download/v#{version}/#{archive}"
-target  = "/usr/local"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
 if current_version != version then
-  http_request "/tmp/#{archive}" do
+  directory src_dir do
+    mode "0755"
+  end
+
+  http_request "#{src_dir}/#{archive}" do
     url url
-    not_if "test -f /tmp/#{archive}"
+    not_if "test -f #{src_dir}/#{archive}"
   end
 
-  execute "Unarchive /tmp/#{archive}" do
+  execute "Unarchive #{src_dir}/#{archive}" do
     command <<-CMD
-      cd /tmp && tar xzf #{archive}
+      tar xzf #{src_dir}/#{archive} -C #{src_dir}
     CMD
-    not_if "test -d /tmp/protobuf-#{version}"
+    not_if "test -d #{src_dir}/protobuf-#{version}"
   end
 
-  execute "Install to #{target}" do
+  execute "Install protobuf-#{version}" do
     command <<-CMD
-      cd /tmp/protobuf-#{version} && \
-      ./configure --prefix=#{target} && \
+      cd #{src_dir}/protobuf-#{version} && \
+      ./configure --prefix=/usr/local && \
       CC=/usr/bin/clang CXX=/usr/bin/clang++ make && \
       make install
     CMD
