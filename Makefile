@@ -7,15 +7,11 @@ update: ghr $(COMMON)
 ghr:
 	which ghr || go get -u -v github.com/yowcow/ghr
 
-$(COMMON): $(COMMON).in .current-vim .current-neovim .current-tmux
+$(COMMON): $(COMMON).in .current-neovim .current-tmux
 	cat $< \
-		| sed -e 's/__VIM__/$(shell cat .current-vim)/' \
 		| sed -e 's/__NEOVIM__/$(shell cat .current-neovim)/' \
 		| sed -e 's/__TMUX__/$(shell cat .current-tmux)/' \
 		> $@
-
-.current-vim:
-	ghr -repo vim/vim | grep '^v' | head -n1 | sed -e 's/^v//' > $@
 
 .current-neovim:
 	ghr -repo neovim/neovim | grep '^v' | head -n1 | sed -e 's/^v//' > $@
