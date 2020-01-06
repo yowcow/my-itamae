@@ -121,9 +121,6 @@
       ]
     }
   },
-  "vim": {
-    "version": "__VIM__"
-  },
   "weechat": {
     "version": "2.6"
   }
