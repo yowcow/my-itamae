@@ -1,5 +1,6 @@
 version      = node[:ctags][:version]
 version_file = "/usr/local/src/ctags-version"
+src_dir      = "/usr/local/src/ctags"
 
 archive = "ctags-#{version}.tar.gz"
 url     = "http://prdownloads.sourceforge.net/ctags/#{archive}"
@@ -7,21 +8,25 @@ url     = "http://prdownloads.sourceforge.net/ctags/#{archive}"
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
 if current_version != version then
-  http_request "/tmp/#{archive}" do
+  directory src_dir do
+    mode "0755"
+  end
+
+  http_request "#{src_dir}/#{archive}" do
     url url
-    not_if "test -f /tmp/#{archive}"
+    not_if "test -f #{src_dir}/#{archive}"
   end
 
-  execute "Unarchive #{archive}" do
+  execute "Unarchive #{src_dir}/#{archive}" do
     command <<-CMD
-      tar xzf /tmp/ctags-#{version}.tar.gz -C /tmp
+      tar xzf #{src_dir}/#{archive} -C #{src_dir}
     CMD
-    not_if "test -d /tmp/ctags-#{version}"
+    not_if "test -d #{src_dir}/ctags-#{version}"
   end
 
-  execute "Install ctags" do
+  execute "Install ctags-#{version}" do
     command <<-CMD
-      cd /tmp/ctags-#{version} && \
+      cd #{src_dir}/ctags-#{version} && \
       ./configure --prefix /usr/local && \
       make && make install
     CMD
