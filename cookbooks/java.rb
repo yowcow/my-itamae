@@ -1,10 +1,10 @@
-version      = node[:golang][:version]
-version_file = "/usr/local/src/golang-version"
+version      = node[:java][:version]
+version_file = "/usr/local/src/java-version"
 
-prefix  = "/usr/local/go"
-archive = "go#{version}.linux-amd64.tar.gz"
-url     = "https://storage.googleapis.com/golang/#{archive}"
-profile = "/etc/profile.d/golang.sh"
+prefix  = "/usr/local/java"
+archive = "openjdk-#{version}_linux-x64_bin.tar.gz"
+url     = node[:java][:url]
+profile = "/etc/profile.d/java.sh"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
@@ -20,9 +20,13 @@ if current_version != version then
     not_if "test -f /tmp/#{archive}"
   end
 
-  execute "Install to golang-#{version}" do
+  directory prefix do
+    mode "0755"
+  end
+
+  execute "Install to openjdk-#{version}" do
     command <<-CMD
-      tar xzf /tmp/#{archive} -C #{prefix}
+      tar xzf /tmp/#{archive} -C #{prefix} --strip-components 1
     CMD
   end
 

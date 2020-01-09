@@ -1,9 +1,9 @@
 version      = node[:nodejs][:version]
 version_file = "/usr/local/src/nodejs-version"
 
+prefix  = "/usr/local/nodejs"
 archive = "node-#{version}-linux-x64.tar.xz"
 url     = "https://nodejs.org/dist/#{version}/#{archive}"
-target  = "/usr/local/nodejs"
 profile = "/etc/profile.d/nodejs.sh"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
@@ -11,7 +11,7 @@ current_version = File.exists?(version_file) ? File.open(version_file).read.chom
 if current_version != version then
   execute "Remove previously installed version if exists" do
     command <<-CMD
-      rm -rf #{target}
+      rm -rf #{prefix}
     CMD
   end
 
@@ -19,12 +19,12 @@ if current_version != version then
     url url
   end
 
-  execute "Install to #{target}" do
+  execute "Install to #{prefix}" do
     command <<-CMD
       cd /tmp && \
       tar xf #{archive} && \
-      mv node-#{version}-linux-x64 #{target}
-      chown -R root:root #{target}
+      mv node-#{version}-linux-x64 #{prefix}
+      chown -R root:root #{prefix}
     CMD
   end
 
@@ -36,7 +36,7 @@ end
 
 file profile do
   content <<-CONTENT
-PATH=#{target}/bin:$PATH
+PATH=#{prefix}/bin:$PATH
   CONTENT
   mode "0644"
 end
