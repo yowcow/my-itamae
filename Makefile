@@ -1,4 +1,5 @@
 COMMON := nodes/common.json
+BUNDLE_PATH := vendor/bundle
 
 all: Gemfile.lock
 
@@ -20,7 +21,7 @@ $(COMMON): $(COMMON).in .current-neovim .current-tmux
 	ghr -repo tmux/tmux | head -n1 > $@
 
 Gemfile.lock: Gemfile
-	bundle config set path 'vendor/bundle'
+	bundle config set path $(BUNDLE_PATH)
 	bundle install
 
 HOSTNAME := $(shell hostname)
@@ -38,6 +39,7 @@ endif
 apply: roles/$(ROLE)
 
 roles/%:
+	bundle config set path $(BUNDLE_PATH)
 	ENVNAME=$* bundle exec -- \
 	itamae local --node-json=$(COMMON) \
 	roles/$*.rb
