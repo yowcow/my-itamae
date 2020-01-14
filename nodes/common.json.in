@@ -41,7 +41,7 @@
     "version": "1.9.4"
   },
   "erlang": {
-    "version": "22.2.1",
+    "version": "22.2.2",
     "rebar3": {
       "version": "3.12.0"
     }
@@ -65,7 +65,7 @@
     }
   },
   "golang": {
-    "version": "1.13.5"
+    "version": "1.13.6"
   },
   "grpc": {
     "version": "1.23.1"
@@ -125,10 +125,7 @@
       ]
     }
   },
-  "vim": {
-    "version": "8.2.0090"
-  },
   "weechat": {
-    "version": "2.6"
+    "version": "2.7"
   }
 }
