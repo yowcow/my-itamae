@@ -45,8 +45,13 @@ if current_version != version then
       rm -rf #{src_dir}/weechat-build && \
       mkdir -p #{src_dir}/weechat-build && \
       cd #{src_dir}/weechat-build && \
-      cmake ../weechat-#{version} -DENABLE_PHP=OFF && \
-      make && make install
+      cmake ../weechat-#{version} \
+        -DENABLE_GUILE=OFF \
+        -DENABLE_JAVASCRIPT=OFF \
+        -DENABLE_PHP=OFF \
+        -DENABLE_TCL=OFF \
+        -DENABLE_SPELL=OFF \
+      && make && make install
     CMD
   end
 
