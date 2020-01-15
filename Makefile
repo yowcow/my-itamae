@@ -1,5 +1,4 @@
 COMMON := nodes/common.json
-BUNDLE_PATH := vendor/bundle
 
 all: Gemfile.lock
 
@@ -20,8 +19,11 @@ $(COMMON): $(COMMON).in .current-neovim .current-tmux
 .current-tmux:
 	ghr -repo tmux/tmux | head -n1 > $@
 
-Gemfile.lock: Gemfile
-	bundle config set path $(BUNDLE_PATH)
+.bundle/config: BUNDLE_PATH := vendor/bundle
+.bundle/config:
+	bundle config set --local path $(BUNDLE_PATH)
+
+Gemfile.lock: Gemfile .bundle/config
 	bundle install
 
 HOSTNAME := $(shell hostname)
@@ -38,11 +40,13 @@ endif
 
 apply: roles/$(ROLE)
 
-roles/%:
-	bundle config set path $(BUNDLE_PATH)
+roles/%: .bundle/config
 	ENVNAME=$* bundle exec -- \
-	itamae local --node-json=$(COMMON) \
-	roles/$*.rb
+		itamae local --node-json=$(COMMON) roles/$*.rb
+
+apt-mirrors: .bundle/config
+	bundle exec -- \
+		itamae local --node-json=$(COMMON) cookbooks/apt/mirrors.rb
 
 clean:
 	rm -rf $(COMMON) .current-*
@@ -50,4 +54,4 @@ clean:
 realclean: clean
 	rm -rf Gemfile.lock vendor
 
-.PHONY: all update ghr apply roles/* clean realclean
+.PHONY: all update ghr apply roles/* apt-mirrors clean realclean
