@@ -1,8 +1,8 @@
 {
   "apt": {
     "mirrors": {
-      "archive": "linux.yz.yamagata-u.ac.jp",
-      "security": "linux.yz.yamagata-u.ac.jp"
+      "archive": "archive.ubuntu.com",
+      "security": "security.ubuntu.com"
     },
     "repos": {
       "laptop": [
