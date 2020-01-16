@@ -25,6 +25,7 @@ $(COMMON): $(COMMON).in .current-neovim .current-tmux
 
 Gemfile.lock: Gemfile .bundle/config
 	bundle install
+	touch $@
 
 HOSTNAME := $(shell hostname)
 
@@ -52,6 +53,6 @@ clean:
 	rm -rf $(COMMON) .current-*
 
 realclean: clean
-	rm -rf Gemfile.lock vendor
+	rm -rf Gemfile.lock vendor .bundle/config
 
 .PHONY: all update ghr apply roles/* apt-mirrors clean realclean
