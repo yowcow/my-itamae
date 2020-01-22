@@ -41,7 +41,7 @@
     "version": "1.9.4"
   },
   "erlang": {
-    "version": "22.2.2",
+    "version": "22.2.3",
     "rebar3": {
       "version": "3.12.0"
     }
@@ -71,14 +71,15 @@
     "version": "1.23.1"
   },
   "java": {
-    "version": "13.0.1",
-    "url": "https://download.java.net/java/GA/jdk13.0.1/cec27d702aa74d5a8630c65ae61e4305/9/GPL/openjdk-13.0.1_linux-x64_bin.tar.gz"
+    "home": "https://jdk.java.net/",
+    "version": "13.0.2",
+    "url": "https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d94f001e99d882ca7/8/GPL/openjdk-13.0.2_linux-x64_bin.tar.gz"
   },
   "neovim": {
     "version": "0.4.3"
   },
   "nodejs": {
-    "version": "v12.13.1"
+    "version": "v12.14.1"
   },
   "perl": {
     "version": "5.30.1"
