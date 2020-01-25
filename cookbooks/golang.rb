@@ -23,7 +23,7 @@ if current_version != version then
   execute "Install to golang-#{version}" do
     command <<-CMD
       mkdir -p #{prefix} && \
-      tar xzf /tmp/#{archive} -C #{prefix}
+      tar xzf /tmp/#{archive} -C #{prefix} --strip-components 1
     CMD
   end
 
