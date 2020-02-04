@@ -101,7 +101,7 @@
     { "snap": "slack", "classic": true }
   ],
   "tmux": {
-    "version": "3.0a"
+    "version": "3.1"
   },
   "travis": {
     "version": "1.8.10"
