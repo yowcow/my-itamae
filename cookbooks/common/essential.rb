@@ -1,8 +1,7 @@
-# libsxlt-dev was an alias to libxslt1-dev
-
 %w{
   autoconf
   automake
+  bison
   build-essential
   ca-certificates
   clang
@@ -10,6 +9,7 @@
   cronolog
   curl
   finger
+  flex
   gawk
   g++
   htop
@@ -17,6 +17,7 @@
   libevent-dev
   libfontconfig1-dev
   libicu-dev
+  libncurses5-dev
   libssl-dev
   libtool
   libuv1-dev

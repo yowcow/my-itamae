@@ -1,6 +1,11 @@
 %w{
+  autoconf
+  automake
+  bison
+  flex
   libevent-dev
   libncurses5-dev
+  pkg-config
 }.each do |pkg|
   package pkg
 end
@@ -10,7 +15,7 @@ version_file = "/usr/local/src/tmux-version"
 src_dir      = "/usr/local/src/tmux"
 
 archive = "tmux-#{version}.tar.gz"
-url     = "https://github.com/tmux/tmux/releases/download/#{version}/#{archive}"
+url     = "https://github.com/tmux/tmux/archive/#{version}/#{version}.tar.gz"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
@@ -34,6 +39,7 @@ if current_version != version then
   execute "Install tmux-#{version}" do
     command <<-CMD
       cd #{src_dir}/tmux-#{version} && \
+      sh autogen.sh && \
       ./configure --prefix /usr/local && \
       make && make install
     CMD
