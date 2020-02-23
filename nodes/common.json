@@ -40,7 +40,7 @@
     "version": "1.9.4"
   },
   "erlang": {
-    "version": "22.2.6",
+    "version": "22.2.7",
     "rebar3": {
       "version": "3.12.0"
     }
@@ -78,14 +78,14 @@
     "version": "0.4.3"
   },
   "nodejs": {
-    "version": "v12.14.1"
+    "version": "v12.16.1"
   },
   "perl": {
     "version": "5.30.1"
   },
   "php": {
     "composer": {
-      "version": "1.9.2"
+      "version": "1.9.3"
     }
   },
   "protobuf": {
