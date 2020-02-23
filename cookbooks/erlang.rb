@@ -43,3 +43,8 @@ if current_version != version then
 end
 
 include_recipe "./erlang/rebar3.rb"
+
+file "/usr/local/bin/erlv" do
+  content "cat /usr/local/lib/erlang/releases/RELEASES"
+  mode "0755"
+end
