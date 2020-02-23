@@ -30,7 +30,9 @@ if current_version != version then
       cd #{src_dir}/#{dir} && \
       ./otp_build autoconf && \
       ./configure --prefix=/usr/local && \
-      make && make install
+      make && \
+      rm -rf /usr/local/lib/erlang && \
+      make install
     CMD
   end
 
