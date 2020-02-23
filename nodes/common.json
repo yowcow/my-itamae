@@ -7,7 +7,6 @@
     "repos": {
       "laptop": [
         "git",
-        "google-chrome",
         "percona",
         "system76",
         "yarn"
