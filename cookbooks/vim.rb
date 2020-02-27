@@ -1,7 +1,3 @@
-include_recipe "./ctags.rb"
-include_recipe "./lua.rb"
-include_recipe "./python.rb"
-
 version      = node[:vim][:version]
 version_file = "/usr/local/src/vim-version"
 src_dir      = "/usr/local/src/vim"
