@@ -15,15 +15,15 @@ end
 
 revision = node["universal-ctags"][:revision]
 
-src_dir      = "/usr/local/src/universal-ctags"
-version_file = "/usr/local/src/universal-ctags-revision"
+src_dir       = "/usr/local/src/universal-ctags"
+revision_file = "/usr/local/src/universal-ctags-revision"
 
 prefix  = "/usr/local/universal-ctags"
 profile = "/etc/profile.d/universal-ctags.sh"
 
-current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
+current_revision = File.exists?(revision_file) ? File.open(revision_file).read.chomp : ""
 
-if current_version != revision then
+if current_revision != revision then
   git src_dir do
     repository "https://github.com/universal-ctags/ctags"
   end
@@ -39,8 +39,9 @@ if current_version != revision then
     CMD
   end
 
-  file version_file do
+  file revision_file do
     content revision
+    mode "0644"
   end
 end
 
