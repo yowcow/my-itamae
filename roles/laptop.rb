@@ -19,6 +19,7 @@ include_recipe "../cookbooks/gogh.rb"
 include_recipe "../cookbooks/percona.rb"
 include_recipe "../cookbooks/rkt.rb"
 include_recipe "../cookbooks/snappy.rb"
+include_recipe "../cookbooks/timesyncd.rb"
 include_recipe "../cookbooks/weechat.rb"
 
 include_recipe "../cookbooks/protobuf.rb"
