@@ -4,7 +4,6 @@
   dstat
   imagemagick
   jq
-  ntp
   postgresql-client
   screen
   sqlite3
