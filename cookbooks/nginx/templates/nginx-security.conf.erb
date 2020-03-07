@@ -1,4 +1,7 @@
 add_header X-Content-Type-Options nosniff;
 add_header X-Frame-Options SAMEORIGIN;
 add_header X-XSS-Protection "1; mode=block";
-add_header Content-Security-Policy "default-src 'none'; script-src 'none' 'self' https://*.googletagmanager.com; style-src 'none' 'self' https:; connect-src 'none' 'self'; img-src 'none' 'self'; require-trusted-types-for 'script';";
+
+# https://csp-evaluator.withgoogle.com/
+# https://developers.google.com/web/fundamentals/security/csp
+add_header Content-Security-Policy "base-uri 'self'; form-action 'self'; frame-ancestors 'self'; plugin-types 'none'; require-trusted-types-for 'script'; default-src 'none'; img-src 'self'; connect-src 'self'; script-src 'self' https://*.googletagmanager.com; style-src 'self' https://*.bootstrapcdn.com https://*.googleapis.com; font-src https://*.gstatic.com;";
