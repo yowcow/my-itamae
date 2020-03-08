@@ -12,7 +12,7 @@ version_file = "/usr/local/src/protobuf-version"
 src_dir      = "/usr/local/src/protobuf"
 
 archive = "protobuf-cpp-#{version}.tar.gz"
-url     = "https://github.com/google/protobuf/releases/download/v#{version}/#{archive}"
+url     = "https://github.com/protocolbuffers/protobuf/releases/download/v#{version}/#{archive}"
 
 current_version = File.exists?(version_file) ? File.open(version_file).read.chomp : ""
 
