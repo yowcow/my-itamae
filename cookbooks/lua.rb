@@ -1,5 +1,9 @@
 package "liblua5.3-dev"
 
+directory "/usr/local/include" do
+  action :create
+end
+
 link "/usr/local/include/lua" do
   to "/usr/include/lua5.3"
 end
