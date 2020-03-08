@@ -1,3 +1,7 @@
+directory "/usr/local/share/fonts" do
+  action :create
+end
+
 include_recipe "fonts/fira.rb"
 include_recipe "fonts/hack.rb"
 include_recipe "fonts/overpass.rb"
