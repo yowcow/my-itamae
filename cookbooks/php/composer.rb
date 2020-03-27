@@ -17,3 +17,7 @@ if current_version != version then
     mode "0644"
   end
 end
+
+link "/usr/local/bin/composer" do
+  to target
+end
