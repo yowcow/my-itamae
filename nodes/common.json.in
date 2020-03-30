@@ -94,11 +94,7 @@
   "ripgrep": {
     "version": "11.0.2"
   },
-  "snappy": [
-    { "snap": "aws-cli", "classic": true },
-    { "snap": "hello-world" },
-    { "snap": "slack", "classic": true }
-  ],
+  "snappy": [],
   "tmux": {
     "version": "__TMUX__"
   },
