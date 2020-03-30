@@ -11,12 +11,12 @@ end
 
 execute "pip install" do
   command <<-CMD
-    pip install --upgrade msgpack pynvim neovim
+    pip install --upgrade msgpack pynvim neovim awscli
   CMD
 end
 
 execute "pip3 install" do
   command <<-CMD
-    pip3 install --upgrade msgpack pynvim neovim glances
+    pip3 install --upgrade msgpack pynvim neovim awscli
   CMD
 end
