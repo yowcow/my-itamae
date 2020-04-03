@@ -47,6 +47,7 @@ end
   neovim
   npm
   npm-check-updates
+  npm-run-all
   typescript
   typescript-language-server
 }.each do |mod|
