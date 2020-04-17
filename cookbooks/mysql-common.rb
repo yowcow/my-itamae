@@ -1,6 +1,7 @@
 %w{
   mysql-client
   mysql-common
+  default-libmysqlclient-dev
 }.each do |pkg|
   package pkg
 end
