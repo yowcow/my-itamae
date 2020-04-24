@@ -17,7 +17,7 @@ $(COMMON): $(COMMON).in .current-neovim .current-tmux
 	ghr -repo neovim/neovim | grep '^v' | head -n1 | sed -e 's/^v//' > $@
 
 .current-tmux:
-	ghr -repo tmux/tmux | head -n1 > $@
+	ghr -repo tmux/tmux | grep '^[0-9]' | head -n1 > $@
 
 .bundle/config: BUNDLE_PATH := vendor/bundle
 .bundle/config:
