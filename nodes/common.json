@@ -13,6 +13,7 @@
       ],
       "vagrant": [
         "git",
+        "google-cloud",
         "percona",
         "yarn"
       ],
