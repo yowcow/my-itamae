@@ -5,6 +5,9 @@ include_recipe "../cookbooks/common/essential.rb"
 include_recipe "../cookbooks/common/development.rb"
 include_recipe "../cookbooks/common/user.rb"
 
+# shared-objects
+include_recipe "../cookbooks/libressl.rb"
+
 include_recipe "../cookbooks/ctags.rb"
 include_recipe "../cookbooks/erlang.rb"
 #include_recipe "../cookbooks/elixir.rb"
