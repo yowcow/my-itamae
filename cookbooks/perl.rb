@@ -44,8 +44,8 @@ execute "Install cpanm" do
   CMD
 end
 
-#execute "Install mandatory modules" do
-#  command <<-CMD
-#    cpanm Carton IO::Socket::SSL Perl::Tidy Minilla
-#  CMD
-#end
+execute "Install mandatory modules" do
+  command <<-CMD
+    cpanm Carton IO::Socket::SSL Perl::Tidy Minilla
+  CMD
+end
