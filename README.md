@@ -1,7 +1,7 @@
 My Itamae
 =========
 
-Ubuntu configuration management for Ubuntu 18.04 LTS (Bionic).
+Ubuntu configuration management for Ubuntu 20.04 LTS (Focal).
 
 PREREQUISITE
 ------------
