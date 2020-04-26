@@ -4,6 +4,7 @@
   bison
   build-essential
   ca-certificates
+  checkinstall
   clang
   cmake
   cronolog
@@ -18,6 +19,7 @@
   libfontconfig1-dev
   libicu-dev
   libncurses5-dev
+  libssh-dev
   libssl-dev
   libtool
   libuv1-dev
