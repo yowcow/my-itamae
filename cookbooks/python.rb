@@ -9,12 +9,6 @@
   package pkg
 end
 
-#execute "pip install" do
-#  command <<-CMD
-#    pip install --upgrade msgpack pynvim neovim awscli
-#  CMD
-#end
-
 execute "pip3 install" do
   command <<-CMD
     pip3 install --upgrade msgpack pynvim neovim awscli
