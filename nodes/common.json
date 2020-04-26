@@ -12,14 +12,12 @@
         "yarn"
       ],
       "vagrant": [
-        "certbot",
         "git",
         "google-cloud-sdk",
         "percona",
         "yarn"
       ],
       "server": [
-        "certbot",
         "git",
         "yarn"
       ]
