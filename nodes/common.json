@@ -7,14 +7,12 @@
     "repos": {
       "laptop": [
         "git",
-        "percona",
         "system76",
         "yarn"
       ],
       "vagrant": [
         "git",
         "google-cloud",
-        "percona",
         "yarn"
       ],
       "server": [
