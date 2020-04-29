@@ -11,6 +11,7 @@ include_recipe "./base.rb"
   package pkg
 end
 
+include_recipe "../cookbooks/common/default.rb"
 include_recipe "../cookbooks/chromium.rb"
 include_recipe "../cookbooks/fonts.rb"
 include_recipe "../cookbooks/docker.rb"
