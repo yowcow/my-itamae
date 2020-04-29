@@ -1,6 +1,7 @@
 %w{
   apt-file
   apt-transport-https
+  curl
 }.each do |pkg|
   package pkg
 end

@@ -1,23 +1,14 @@
 include_recipe "./base.rb"
 
-%w{
-  dconf-cli
-  dconf-editor
-  ffmpeg
-  libfreetype6-dev
-  ubuntu-desktop
-  ubuntu-restricted-extras
-}.each do |pkg|
-  package pkg
-end
-
-include_recipe "../cookbooks/adapta.rb"
-include_recipe "../cookbooks/chromium.rb"
+include_recipe "../cookbooks/desktop.rb"
 include_recipe "../cookbooks/fonts.rb"
+include_recipe "../cookbooks/keyboard.rb"
+include_recipe "../cookbooks/system76.rb"
+
+include_recipe "../cookbooks/chromium.rb"
 include_recipe "../cookbooks/docker.rb"
 include_recipe "../cookbooks/docker/compose.rb"
 include_recipe "../cookbooks/gogh.rb"
-include_recipe "../cookbooks/percona.rb"
 include_recipe "../cookbooks/rkt.rb"
 #include_recipe "../cookbooks/snappy.rb"
 include_recipe "../cookbooks/timesyncd.rb"
