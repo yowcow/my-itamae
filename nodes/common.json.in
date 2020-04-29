@@ -21,9 +21,6 @@
       ]
     }
   },
-  "adapta": {
-    "version": "3.95.0.11"
-  },
   "ctags": {
     "version": "5.8"
   },
