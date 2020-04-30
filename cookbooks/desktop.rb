@@ -3,6 +3,7 @@
   dconf-editor
   ffmpeg
   gnome-tweaks
+  ibus-mozc
   libfreetype6-dev
   ubuntu-desktop
   ubuntu-restricted-extras
