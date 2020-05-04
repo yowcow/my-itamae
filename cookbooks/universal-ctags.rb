@@ -26,6 +26,7 @@ current_revision = File.exists?(revision_file) ? File.open(revision_file).read.c
 if current_revision != revision then
   git src_dir do
     repository "https://github.com/universal-ctags/ctags"
+    revision revision
   end
 
   execute "Install universal-ctags" do
