@@ -62,6 +62,9 @@
   "grpc": {
     "version": "v1.27.3"
   },
+  "i3-gnome": {
+    "revision": "24a56b827461a3ebac96814032fa43c425c9455a"
+  },
   "java": {
     "home": "https://jdk.java.net/",
     "version": "13.0.2",
@@ -92,7 +95,7 @@
   },
   "snappy": [],
   "tmux": {
-    "version": "3.1a"
+    "version": "3.1b"
   },
   "travis": {
     "version": "1.8.10"

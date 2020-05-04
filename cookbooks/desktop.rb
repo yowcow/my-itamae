@@ -10,3 +10,5 @@
 }.each do |pkg|
   package pkg
 end
+
+recipe "i3.rb"
